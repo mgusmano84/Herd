@@ -25,6 +25,8 @@ app.set('view engine', 'handlebars');
 
 
 //require routes
+require('./routing/html-routes.js')(app);
+require('.routing/api-routes.js')(app);
 
 
 //starts the server letting user know the PORT
