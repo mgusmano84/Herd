@@ -27,4 +27,9 @@ module.exports = function(app){
 		res.render('home');
 	});
 
+	app.use(function(req, res){
+
+		res.render('home');
+	});
+
 }
