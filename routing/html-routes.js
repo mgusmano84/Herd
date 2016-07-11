@@ -1,12 +1,14 @@
-var orm = require('./config/orm.js'); 
+//var orm = require('../config/orm.js'); 
 
-module.exports = function(app){
+module.exports = function(app, orm){
 
+	// route to display the login page
 	app.get('/login', function(req, res){
 
 		
 	});
 
+	// route to post to the login page
 	app.post('/login', function(req, res){
 
 
