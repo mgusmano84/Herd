@@ -7,7 +7,7 @@ var app = express();
 var PORT = process.env.PORT || 3000; // assigning the port or using the PORT environment variable
 
 
-// TEMPORARY - retrieving the username and password for the db connection
+// retrieving the username and password for the db connection
 var username = process.argv[2];
 var password = process.argv[3];
 
