@@ -26,12 +26,14 @@ module.exports = function(app, orm){
 
 	app.get('/', function(req, res){
 
-		res.render('home');
+		//res.render('home');
+		res.render('login');
 	});
 
 	app.use(function(req, res){
 
-		res.render('home');
+		//res.render('home');
+		res.render('login');
 	});
 
 }
