@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	
+//get current url for post methods
+var currentURL = window.location.origin;
 
 //login click function starts login modal
 $('#login').on('click',function(){
@@ -13,14 +16,23 @@ $('#register').on('click',function(){
 //create group click function starts create group modal
 $('#create').on('click',function(){
 	$('#createModal').modal('show');
+
 });
 
 //submits modal form and stores input in variables
 $('#loginSubmit').on('click',function(){
-	var userName = $('#userName').val().trim();
-	var userPass = $('#password').val().trim();
-	console.log(userName);
-	console.log(userPass);
+	var userAuth = {};
+	userAuth.userName = $('#userName').val().trim();
+	userAuth.userPass = $('#password').val().trim();
+	//post login attempt
+	$.post(currentURL + "/api/Oauth", userAuth,
+	    function(data){
+	    	// TO DO...If login success... render user home page.
+	    	if(data == true){
+	    		
+	    	}
+	    });
+
 	return false;
 });
 
@@ -32,6 +44,16 @@ $('#registerSubmit').on('click',function(){
 	user.userName = $('#userName').val().trim();
 	user.email = $('#email').val().trim();
 
+	//post user acount
+	$.post(currentURL + "/api/users", user,
+	    function(data){
+	    	// If creation success... show login modal with success message.
+	    	if(data == true){
+	    		$('#registerModal').modal('hide');
+	    		$('#successModal').modal('show');
+	    	}
+	    });
+
 	console.log(user);
 	return false;
 });
@@ -41,7 +63,13 @@ $('#createSubmit').on('click',function(){
 	var group = {};
 	group.name = $('#groupName').val().trim();
 	group.description = $('#description').val().trim();
-	
+
+	//post group
+	$.post(currentURL + "/api/groups", group,
+	    function(data){
+	    	console.log(data);
+	    });
+
 	console.log(group);
 	return false;
 });
