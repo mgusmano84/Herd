@@ -2,6 +2,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+// TEMPORARY - retrieving the username and password for the db connection
+var username = process.argv[3];
+var password = process.argv[4];
+
 
 // creating an instance of express
 var app = express();
