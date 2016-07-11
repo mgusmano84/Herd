@@ -30,6 +30,7 @@ module.exports = function(app, orm){
 		res.render('login');
 	});
 
+	//default route 
 	app.use(function(req, res){
 
 		//res.render('home');
