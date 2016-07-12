@@ -2,9 +2,61 @@
 <html lang="en">
 	<head>
 		<title>Herd</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!--jQuery-->
+        <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+        <!--bootsrtap js-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!--app js- check the path of this -->
+        <script type="text/javascript" src="../../assets/app.js"></script>
 	</head>
-	
+
+	<div class="page-header">
+	  <h1>Herd<small>Keep all your carpool deets in one place</small></h1>
+	</div>
+
 	<body>
 		{{{ body }}}
 	</body>
+
+	<!--Footer-->
+    <footer class="page-footer center-on-small-only primary-color-dark">
+
+        <!--Footer Links-->
+        <div class="container-fluid">
+            <div class="row">
+            <ul>
+            	<div>{{{ crystal }}}</div>
+            	<div>{{{ robert }}}</div>
+            	<div>{{{ matt }}}</div>
+            	<div>{{{ caleb }}}</div>
+            	<div>{{{ mary }}}</div>
+
+            </div>
+         </div>
+
+         <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2016 Copyright
+
+            </div>
+        </div>
+
+     </footer>
+
+<!--footer template-->
+<script id="dev-template" type="text/x-handlebars-template">
+    <p class="dev">{{{name}}}</p>
+</script>
+<!--include handlebars and jQuery-->
+<script type="text/javascript" src="handlebars.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        var source = document.getElementById("person-template").innerHTML;
+        var template = Handlebars.compile(source);
+        var context = {name: "me"};
+        var output = 
+    }
+</script>
+
 </HTML>
