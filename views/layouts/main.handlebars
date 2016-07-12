@@ -1,117 +1,56 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <h1>Herd</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+        <title>Lunch</title>
+        <!--bootsrtap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <!--fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+SC|Raleway" rel="stylesheet">
+
+        <!--jQuery-->
+        <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+        <!--bootsrtap js-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!--app js-->
+        <script type="text/javascript" src="../../assets/app.js"></script>
+    </head>
+
+    </head>
+
+    <div class="page-header">
+      <h1> Herd <small> Keep all your carpool deets in one place </small></h1>
     </div>
-</nav>
-<div class="container">
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-sm-6 ">
-                <h1>Herd</h1>
-                <!--login button-->
-                <button class="btn btn-default" type="submit" id="login">Login</button>
-                <!--register button-->
-                <button class="btn btn-default" type="submit" id="register">Register</button>
+
+    <body>
+        {{{ body }}}
+    </body>
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only primary-color-dark">
+
+        <!--Footer Links-->
+        <div class="container-fluid">
+            <div class="row">
+            <ul>
+                <li>{{{crystal}}}</li>
+                <li>{{{robert}}}</li>
+                <li>{{{matt}}}</li>
+                <li>{{{caleb}}}</li>
+                <li>{{{mary}}}</li>
+
+            </div>
+         </div>
+
+         <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2016 Copyright
+
             </div>
         </div>
-    </div>
-</div>
-<footer class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            Copyright 2016
-        </div>
-    </div>
-</footer>
+
+     </footer>
 
 
-<!--login modal-->
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="loginModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h1 class="modal-title">Login</h1>
-                </div>
-                <div class="modal-body">
-                    <form id="loginForm" method="post" action="/login">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" required>
-                        </div>
-                        <button type="submit" class="btn btn-default" id="loginSubmit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div><!--end login modal-->
-
-<!--register modal-->
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="registerModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h1 class="modal-title">Register</h1>
-                </div>
-                <div class="modal-body">
-                    <form id="regForm" method="post" action="/register">
-                         <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Jane" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="userName">Username</label>
-                            <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="email@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" required>
-                        </div>
-              <div class="form-group">
-                <label for="image">Link to Photo</label>
-                <input type="url" class="form-control" id="img">
-              </div>
-                        <button type="submit" class="btn btn-default" id="registerSubmit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div><!--end register modal-->
-
-  <!-- success login modal-->
-  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="successModal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h2 class="modal-title">Your account has been successfully created! Now you can log in.</h2>
-            </div>
-            <div class="modal-body">
-              <form id="loginForm" method="post" action="/login">
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
-            </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required>
-              </div>
-              <button type="submit" class="btn btn-default" id="loginSubmit">Submit</button>
-          </form>
-            </div>
-      </div>
-      </div>
-  </div><!--end  success login modal-->
+</HTML>
