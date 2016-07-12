@@ -1,0 +1,45 @@
+/*insert image into header*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  color: #212121;
+}
+
+/*header style*/
+.img-container {
+  min-height: 400px;
+  background-image: url('images/cars.jpeg');
+  background-repeat: no-repeat;
+  background-size: 1800px 400px;
+  background-position: center top;
+  /*padding: 40px; (If don't want to set min-height or some image content is there) */
+}
+
+/*fonts*/
+
+h1 {
+font-family: 'Alegreya SC', serif;
+color: #D32F2F;
+	/* nested Sass syntax */
+	small {
+		color: #FFCDD2;
+	}
+}
+
+/*logo/car icon*/
+
+
+/*background*/
+body {
+	
+}
+
+/*footer style*/
+footer {
+	background-color: #F44336;
+	color: #FFFFFF;
+}
+
+
