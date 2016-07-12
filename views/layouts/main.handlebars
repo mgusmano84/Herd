@@ -52,10 +52,16 @@
 <script type="text/javascript" src="handlebars.js"></script>
 <script type="text/javascript">
     window.onload = function() {
+        //get the template created above
         var source = document.getElementById("person-template").innerHTML;
+        //compile
         var template = Handlebars.compile(source);
+        //create the context object
         var context = {name: "me"};
-        var output = 
+        //link context and template
+        var output = template(context);
+        //place on the page
+        document.getElementById(/*insert var here*/).innerHTML = output;
     }
 </script>
 
