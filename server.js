@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var PORT = process.env.PORT || 3000; // assigning the port or using the PORT environment variable
 
+// makes static content in assets accessible
+app.use(express.static(process.cwd() + '/assets'));
 
 // retrieving the username and password for the db connection
 var username = process.argv[2];
