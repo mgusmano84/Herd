@@ -10,7 +10,7 @@ userName VARCHAR(30) NOT NULL,
 firstName VARCHAR(30) NOT NULL,
 lastName VARCHAR(30) NOT NULL,
 -- EXTENDED**
-userImage VARCHAR(50),
+userImage VARCHAR(1000),
 -- EXTENDED**
 address VARCHAR(50) NOT NULL,
 -- EXTENDED**
@@ -20,13 +20,12 @@ state VARCHAR(30) NOT NULL,
 -- EXTENDED**
 zip INTEGER(10),
 -- EXTENDED**Could be used for drivers who need to contact parents or possibly to send quick text alerts
-phoneNumber INTEGER(10) NOT NULL,
--- EXTENDED**Where they work/want to go. This would need to be updated on a page
-destination VARCHAR(30),
+phoneNumber VARCHAR(20) NOT NULL,
 PRIMARY KEY (userID)
 );
 
-
+-- Dummy Data for users table
+INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage, address, city, state, zip, phoneNumber) VALUES ("brucewayne@notbatman.com", "RichBat", "BatmanOrBust2", "Bruce", "Wayne", "<img src='http://www.mbird.com/wp-content/uploads/2012/07/tumblr_m3b0anGHPD1qje60io1_1280.jpg'>", "3030 Goodrick Ln", "Kissimmee", "FL", 34743, "9999999999"), ("chloeLovesTreats@dog.com", "treats", "GoodDog", "Chloe", "Prine", "<img src='https://scontent.ftpa1-2.fna.fbcdn.net/v/t1.0-1/p160x160/11825639_124892927852533_4183234602635820129_n.jpg?oh=2377cda37e44c8f0bf7e3af59ee6d2fd&oe=5837373F'>", "8464 Lake Waverly Ln", "Orlando", "FL", 32829, "8888888888");
 
 CREATE TABLE groups (
 groupID INTEGER(11) AUTO_INCREMENT NOT NULL,
@@ -36,18 +35,18 @@ createdBy VARCHAR(30) NOT NULL,
 meet BOOLEAN NOT NULL,
 -- if everyone is being picked up at their own houses
 pickUp BOOLEAN NOT NULL,
-destinationAddress VARCHAR(50) NOT NULL,
-destinationZip INTEGER(10) NOT NULL,
-destinationCity VARCHAR(30),
-destinationState VARCHAR(30),
--- EXTENDED**Would probably have to be a button pressed when they left their house
-pickUpTime DATETIME,
--- EXTENDED**same, but for final dropoff so that we could get length of time driving
-dropOffTime DATETIME,
 PRIMARY KEY (groupID)
 );
 
+-- Dummy Data for groups table
+INSERT INTO groups (groupName, createdBy, meet, pickUp) VALUES ("CoolGroup", "BatmanOrBust2", true, false), ("DogGroup", "GoodDog", false, true);
 
+CREATE TABLE groupMembers (
+groupName VARCHAR(30) NOT NULL,
+memberName VARCHAR(30) NOT NULL
+);
+
+INSERT INTO groupMembers (groupName, memberName) VALUES ("CoolGroup", "BatmanOrBust2"), ("CoolGroup", "GoodDog");
 
 CREATE TABLE drivers (
 groupName VARCHAR(30) NOT NULL,
@@ -58,14 +57,54 @@ milesDriven DECIMAL(30, 2),
 -- EXTENDED**Starts at 0
 daysDriving INTEGER(30),
 -- EXTENDED**Starts at 0
-timeDriving DECIMAL(30, 1),
+timeHoursDriving DECIMAL(30, 1),
 -- EXTENDED**Starts as null
 driverRating INTEGER(2)
 );
 
--- Should this be an array or a separate table?
+-- Dummy Data for drivers table
+INSERT INTO drivers (groupName, driverUserName, seatsAvailable, milesDriven, daysDriving, timeHoursDriving, driverRating) VALUES ("CoolGroup", "BatmanOrBust2", 3, 45.33, 7, 1.2, 9), ("DogGroup", "GoodDog", 1, 0, 0, 0, null); 
+
 CREATE TABLE passengers (
 driverUserName VARCHAR(30) NOT NULL,
--- This is to join to user table to get address and such if we needed it
-username VARCHAR(30) NOT NULL
+passengerUsername VARCHAR(30) NOT NULL
 );
+
+INSERT INTO passengers (driverUserName, passengerUsername) VALUES ("BatmanOrBust2", "GoodDog");
+
+CREATE TABLE userDirections (
+userDestinationID INTEGER(11) AUTO_INCREMENT NOT NULL,
+userName VARCHAR(30) NOT NULL,
+-- EXTENDED**Where they work/want to go. This would need to be updated on a page
+userDestination VARCHAR(30),
+userDestinationAddress VARCHAR(50) NOT NULL,
+userDestinationCity VARCHAR(30),
+userDestinationState VARCHAR(30),
+userDestinationZip INTEGER(10) NOT NULL,
+-- EXTENDED**Would probably have to be a button pressed when they left their house
+userPickUpTime DATETIME NOT NULL DEFAULT NOW(),
+-- EXTENDED**same, but for final dropoff so that we could get length of time driving
+userDropOffTime DATETIME NOT NULL DEFAULT NOW(),
+PRIMARY KEY (userDestinationID)
+);
+
+-- Dummy Data for userDirections table
+INSERT INTO userDirections (userName, userDestinationAddress, userDestinationCity, userDestinationState, userDestinationZip) VALUES ("BatmanOrBust2", "111 W Jefferson St #100", "Orlando", "FL", 32801);
+
+CREATE TABLE groupDirections (
+groupDestinationID INTEGER(11) AUTO_INCREMENT NOT NULL,
+groupName VARCHAR(30) NOT NULL,
+-- EXTENDED**Where they work/want to go. This would need to be updated on a page
+groupDestinationAddress VARCHAR(50) NOT NULL,
+groupDestinationCity VARCHAR(30),
+groupDdestinationState VARCHAR(30),
+groupDestinationZip INTEGER(10) NOT NULL,
+-- EXTENDED**Would probably have to be a button pressed when they left their house
+groupPickUpTime DATETIME NOT NULL DEFAULT NOW(),
+-- EXTENDED**same, but for final dropoff so that we could get length of time driving
+groupDropOffTime DATETIME NOT NULL DEFAULT NOW(),
+PRIMARY KEY (groupDestinationID)
+);
+
+-- Dummy Data for groupDirections table
+INSERT INTO groupDirections (groupName, groupDestinationAddress, groupDestinationCity, groupDdestinationState, groupDestinationZip) VALUES ("CoolGroup", "4000 Central Florida Blvd", "Orlando", "FL", 32816);
