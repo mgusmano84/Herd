@@ -10,14 +10,14 @@
               <h1 class="modal-title">Create Group</h1>
             </div>
             <div class="modal-body">
-              <form method="post" action="/creategroup">
+              <form id="createForm" method="post" action="/creategroup">
               <div class="form-group">
                 <label for="groupName">Group Name</label>
-                <input type="text" class="form-control" id="groupName" placeholder="name">
+                <input type="text" class="form-control" id="groupName" placeholder="name" required>
             </div>
               <div class="form-group">
                 <label for="userImg">Group Description</label>
-                <input type="text" class="form-control" id="description" placeholder="description">
+                <input type="text" class="form-control" id="description" placeholder="description" required>
               </div>
               <button type="submit" class="btn btn-default" id="createSubmit">Submit</button>
           </form>
