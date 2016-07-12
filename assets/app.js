@@ -86,7 +86,7 @@ $('#createSubmit').on('click',function(){
 		return false;
 	}
 	else{
-		$("#regForm")[0].reportValidity()
+		$("#createForm")[0].reportValidity()
 	}
 });
 
