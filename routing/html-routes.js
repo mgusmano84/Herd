@@ -1,4 +1,4 @@
-//var orm = require('../config/orm.js'); 
+var orm = require('../config/orm.js'); 
 
 module.exports = function(app, orm){
 
@@ -28,5 +28,7 @@ module.exports = function(app, orm){
 
 		res.render('home');
 	});
+
+	orm.addUser("robertprine2@yahoo.com", "Floop2", "BestDriverNA", "Robert", "Prine", "<img src='https://scontent.ftpa1-2.fna.fbcdn.net/v/t1.0-9/13076924_1720305171578346_5638715548334228214_n.jpg?oh=64b0cf52506fe186373c3fa6901ff5ff&oe=57F78ACC'>", "8464 Lake Waverly Ln", "Orlando", "FL", 32829, "4077919189");
 
 }

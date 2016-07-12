@@ -17,7 +17,6 @@ var password = process.argv[3];
 // require orm - mysql queries
 var orm = require('./config/orm.js')(username, password);
 
-
 // BodyParser interprets data sent to the server
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
