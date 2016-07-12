@@ -2,19 +2,8 @@
 
 module.exports = function(app, orm){
 
-	// route to display the login page
-	app.get('/login', function(req, res){
-
-		
-	});
-
 	// route to post to the login page
 	app.post('/login', function(req, res){
-
-
-	});
-
-	app.get('/register', function(req, res){
 
 
 	});
@@ -24,17 +13,20 @@ module.exports = function(app, orm){
 
 	});
 
+	app.post('/creategroup', function(req, res){
+
+
+	});
+
 	app.get('/', function(req, res){
 
-		//res.render('home');
-		res.render('login');
+		res.render('home');
 	});
 
 	//default route 
 	app.use(function(req, res){
 
-		//res.render('home');
-		res.render('login');
+		res.render('home');
 	});
 
 }
