@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 //get current url for post methods
 var currentURL = window.location.origin;
 
@@ -25,7 +25,7 @@ $('#loginSubmit').on('click',function(){
 	userAuth.userName = $('#userName').val().trim();
 	userAuth.userPass = $('#password').val().trim();
 	//post login attempt
-	$.post(currentURL + "/api/Oauth", userAuth,
+	$.post(currentURL + "/login", userAuth,
 	    function(data){
 	    	// TO DO...If login success... render user home page.
 	    	if(data == true){
@@ -45,7 +45,7 @@ $('#registerSubmit').on('click',function(){
 	user.email = $('#email').val().trim();
 
 	//post user acount
-	$.post(currentURL + "/api/users", user,
+	$.post(currentURL + "/register", user,
 	    function(data){
 	    	// If creation success... show login modal with success message.
 	    	if(data == true){
@@ -65,7 +65,7 @@ $('#createSubmit').on('click',function(){
 	group.description = $('#description').val().trim();
 
 	//post group
-	$.post(currentURL + "/api/groups", group,
+	$.post(currentURL + "/creategroup", group,
 	    function(data){
 	    	console.log(data);
 	    });
