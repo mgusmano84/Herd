@@ -43,6 +43,7 @@ $('#registerSubmit').on('click',function(){
 	user.lastName = $('#lastName').val().trim();
 	user.userName = $('#userName').val().trim();
 	user.email = $('#email').val().trim();
+	user.image = $('#img').val().trim();
 
 	//post user acount
 	$.post(currentURL + "/register", user,
