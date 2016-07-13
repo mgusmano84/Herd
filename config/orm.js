@@ -73,7 +73,7 @@ var orm = {
 
 	// ************needs to be added to routes
 	// adds driver to drivers table and presets milesDriven, daysDriving, timeHoursDriving, driverRating since those will be modified in other areas/as they drive more
-	adddriver: function(groupName, driverUserName, seatsAvailable) {
+	addDriver: function(groupName, driverUserName, seatsAvailable) {
 
 		var post = [
 			groupName,
@@ -104,7 +104,7 @@ var orm = {
 		console.log(query.sql)
 	}, // end of addPassengers function
 
-	
+
 
 } // end of orm object
 
