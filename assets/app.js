@@ -23,8 +23,8 @@ $('#create').on('click',function(){
 $('#loginSubmit').on('click',function(){
 	if ($("#loginForm")[0].checkValidity()){
 		var userAuth = {};
-		userAuth.userName = $('#userName').val().trim();
-		userAuth.userPass = $('#password').val().trim();
+		userAuth.userName = $('#user').val().trim();
+		userAuth.userPass = $('#pass').val().trim();
 		//post login attempt
 		$.post(currentURL + "/login", userAuth,
 		    function(data){
@@ -50,6 +50,12 @@ $('#registerSubmit').on('click',function(){
 		user.userName = $('#userName').val().trim();
 		user.email = $('#email').val().trim();
 		user.image = $('#img').val().trim();
+		user.password = $('#password').val().trim();
+		user.address = $('#address').val().trim();
+		user.city = $('#city').val().trim();
+		user.state = $('#state').val().trim();
+		user.zip = $('#zip').val().trim();
+		user.phone = $('#phone').val().trim();
 
 		//post user acount
 		$.post(currentURL + "/register", user,
@@ -75,6 +81,7 @@ $('#createSubmit').on('click',function(){
 		var group = {};
 		group.name = $('#groupName').val().trim();
 		group.description = $('#description').val().trim();
+		group.createdBy = ;//*******need to group userName that is creating group
 
 		//post group
 		$.post(currentURL + "/creategroup", group,

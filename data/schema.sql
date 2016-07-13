@@ -10,7 +10,7 @@ userName VARCHAR(30) NOT NULL,
 firstName VARCHAR(30) NOT NULL,
 lastName VARCHAR(30) NOT NULL,
 -- EXTENDED**
-userImage VARCHAR(1000),
+userImage VARCHAR(10000),
 -- EXTENDED**
 address VARCHAR(50) NOT NULL,
 -- EXTENDED**
@@ -30,6 +30,7 @@ INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage
 CREATE TABLE groups (
 groupID INTEGER(11) AUTO_INCREMENT NOT NULL,
 groupName VARCHAR(30) NOT NULL,
+groupDescription VARCHAR(100) NOT NULL,
 createdBy VARCHAR(30) NOT NULL,
 -- if everyone is dropping off at the drivers house
 meet BOOLEAN NOT NULL,
@@ -39,7 +40,7 @@ PRIMARY KEY (groupID)
 );
 
 -- Dummy Data for groups table
-INSERT INTO groups (groupName, createdBy, meet, pickUp) VALUES ("CoolGroup", "BatmanOrBust2", true, false), ("DogGroup", "GoodDog", false, true);
+INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES ("CoolGroup", "Save Gothem", "BatmanOrBust2", true, false), ("DogGroup", "Drive to the dog park.", "GoodDog", false, true);
 
 CREATE TABLE groupMembers (
 groupName VARCHAR(30) NOT NULL,
@@ -94,6 +95,8 @@ INSERT INTO userDirections (userName, userDestinationAddress, userDestinationCit
 CREATE TABLE groupDirections (
 groupDestinationID INTEGER(11) AUTO_INCREMENT NOT NULL,
 groupName VARCHAR(30) NOT NULL,
+-- ex: football practice/shopping adventure/work
+destinationDescription VARCHAR(100),
 -- EXTENDED**Where they work/want to go. This would need to be updated on a page
 groupDestinationAddress VARCHAR(50) NOT NULL,
 groupDestinationCity VARCHAR(30),
@@ -107,4 +110,4 @@ PRIMARY KEY (groupDestinationID)
 );
 
 -- Dummy Data for groupDirections table
-INSERT INTO groupDirections (groupName, groupDestinationAddress, groupDestinationCity, groupDdestinationState, groupDestinationZip) VALUES ("CoolGroup", "4000 Central Florida Blvd", "Orlando", "FL", 32816);
+INSERT INTO groupDirections (groupName, destinationDescription, groupDestinationAddress, groupDestinationCity, groupDdestinationState, groupDestinationZip) VALUES ("CoolGroup", "work", "4000 Central Florida Blvd", "Orlando", "FL", 32816);
