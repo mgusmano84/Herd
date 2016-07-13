@@ -58,16 +58,14 @@ $('#registerSubmit').on('click',function(){
 		user.phone = $('#phone').val().trim();
 
 		//post user acount
-		// $.post(currentURL + "/register", user,
-		//     function(data){
-		//     	// If creation success... show login modal with success message.
-		//     	if(data == true){
-		//     		$('#registerModal').modal('hide');
-		//     		$('#successModal').modal('show');
-		//     	}
-		//     });
-
-		orm.addUser(user.email, user.password, user.userName, user.firstName, user.lastName, user.image, user.address, user.city, user.state, user.zip, user.phone);
+		$.post(currentURL + "/register", user,
+		    function(data){
+		    	// If creation success... show login modal with success message.
+		    	if(data == true){
+		    		$('#registerModal').modal('hide');
+		    		$('#successModal').modal('show');
+		    	}
+		    });
 
 		console.log(user);
 		return false;

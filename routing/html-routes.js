@@ -10,6 +10,8 @@ module.exports = function(app){
 
 	app.post('/register', function(req, res){
 
+		orm.addUser(req.body.email, req.body.password, req.body.userName, req.body.firstName, req.body.lastName, req.body.image, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.phone);
+		console.log(req.body.password + "I'm here!", req.body.userNam + "I'm here");
 
 	});
 
@@ -19,7 +21,7 @@ module.exports = function(app){
 	});
 
 	app.get('/', function(req, res){
-		
+
 		res.render('home');
 	});
 
