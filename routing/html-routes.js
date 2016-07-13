@@ -11,11 +11,7 @@ module.exports = function(app){
 
 	app.post('/register', function(req, res){
 
-		var password = req.body.password;
-		var username = req.body.userName;
-
-		orm.addUser(req.body.email, password, username, req.body.firstName, req.body.lastName, req.body.image, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.phone);
-		console.log("username: " + username + "password " + password);
+		orm.addUser(req.body.email, req.body.password, req.body.userName, req.body.firstName, req.body.lastName, req.body.image, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.phone);
 
 	});
 
