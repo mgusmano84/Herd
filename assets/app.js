@@ -23,8 +23,8 @@ $('#create').on('click',function(){
 $('#loginSubmit').on('click',function(){
 	if ($("#loginForm")[0].checkValidity()){
 		var userAuth = {};
-		userAuth.userName = $('#userName').val().trim();
-		userAuth.userPass = $('#password').val().trim();
+		userAuth.userName = $('#user').val().trim();
+		userAuth.userPass = $('#pass').val().trim();
 		//post login attempt
 		$.post(currentURL + "/login", userAuth,
 		    function(data){
