@@ -50,16 +50,24 @@ $('#registerSubmit').on('click',function(){
 		user.userName = $('#userName').val().trim();
 		user.email = $('#email').val().trim();
 		user.image = $('#img').val().trim();
+		user.password = $('#password').val().trim();
+		user.address = $('#address').val().trim();
+		user.city = $('#city').val().trim();
+		user.state = $('#state').val().trim();
+		user.zip = $('#zip').val().trim();
+		user.phone = $('#phone').val().trim();
 
 		//post user acount
-		$.post(currentURL + "/register", user,
-		    function(data){
-		    	// If creation success... show login modal with success message.
-		    	if(data == true){
-		    		$('#registerModal').modal('hide');
-		    		$('#successModal').modal('show');
-		    	}
-		    });
+		// $.post(currentURL + "/register", user,
+		//     function(data){
+		//     	// If creation success... show login modal with success message.
+		//     	if(data == true){
+		//     		$('#registerModal').modal('hide');
+		//     		$('#successModal').modal('show');
+		//     	}
+		//     });
+
+		orm.addUser(user.email, user.password, user.userName, user.firstName, user.lastName, user.image, user.address, user.city, user.state, user.zip, user.phone);
 
 		console.log(user);
 		return false;
