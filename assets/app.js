@@ -50,6 +50,12 @@ $('#registerSubmit').on('click',function(){
 		user.userName = $('#userName').val().trim();
 		user.email = $('#email').val().trim();
 		user.image = $('#img').val().trim();
+		user.password = $('#password').val().trim();
+		user.address = $('#address').val().trim();
+		user.city = $('#city').val().trim();
+		user.state = $('#state').val().trim();
+		user.zip = $('#zip').val().trim();
+		user.phone = $('#phone').val().trim();
 
 		//post user acount
 		$.post(currentURL + "/register", user,

@@ -1,6 +1,6 @@
 //var orm = require('../config/orm.js'); 
 
-module.exports = function(app, orm){
+module.exports = function(app){
 
 	// route to post to the login page
 	app.post('/login', function(req, res){
@@ -11,6 +11,8 @@ module.exports = function(app, orm){
 
 	app.post('/register', function(req, res){
 
+		orm.addUser(req.body.email, req.body.password, req.body.userName, req.body.firstName, req.body.lastName, req.body.image, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.phone);
+		console.log(req.body.password + "I'm here!", req.body.userNam + "I'm here");
 
 	});
 
@@ -29,5 +31,4 @@ module.exports = function(app, orm){
 
 		res.render('home');
 	});
-
 }

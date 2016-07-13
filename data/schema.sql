@@ -30,6 +30,7 @@ INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage
 CREATE TABLE groups (
 groupID INTEGER(11) AUTO_INCREMENT NOT NULL,
 groupName VARCHAR(30) NOT NULL,
+groupDescription VARCHAR(100) NOT NULL,
 createdBy VARCHAR(30) NOT NULL,
 -- if everyone is dropping off at the drivers house
 meet BOOLEAN NOT NULL,
@@ -39,8 +40,7 @@ PRIMARY KEY (groupID)
 );
 
 -- Dummy Data for groups table
-INSERT INTO groups (groupName, createdBy, meet, pickUp) VALUES ("CoolGroup", "BatmanOrBust2", true, false), ("DogGroup", "GoodDog", false, true);
-
+INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES ("CoolGroup", "Save Gothem", "BatmanOrBust2", true, false), ("DogGroup", "Drive to the dog park.", "GoodDog", false, true);
 CREATE TABLE groupMembers (
 groupName VARCHAR(30) NOT NULL,
 memberName VARCHAR(30) NOT NULL

@@ -1,28 +1,24 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  	<div class="container-fluid">
-    	<h1>Herd</h1>
-  	</div>
-</nav>
-<div class="container">
-	<div class="jumbotron">
-  		<div class="row">
-  			<div class="col-sm-6 ">
-	    		<h1>Herd</h1>
-	    		<!--login button-->
-				<button class="btn btn-default" type="submit" id="login">Login</button>
-				<!--register button-->
-				<button class="btn btn-default" type="submit" id="register">Register</button>
-    		</div>
-    	</div>
-  	</div>
-</div>
-<footer class="container-fluid">
-	<div class="row">
-		<div class="col-sm-12">
-			Copyright 2016
-		</div>
-	</div>
-</footer>
+<!-- Template Home -->
+    <header>
+      <div class="jumbotron jumbotron-fluid head">
+          <div class="container">
+            <h1 class="display-3" id="cent">Herd</h1>
+            <p class="lead" id="cent">The site that gets you where need to be cheap</p>
+          </div>
+      </div>
+    </header>
+
+    <container>
+      <div class="jumbotron mainbutts">
+        <div class="wrapper">
+        <!--login button-->
+        <button class="btn btn-warning marg" type="submit" id="login">Login</button>
+        <br>
+        <!--register button-->
+        <button class="btn btn-danger marg" type="submit" id="register">Register</button>
+        </div>
+      </div>
+    </container>
 
 
 <!--login modal-->
@@ -68,6 +64,27 @@
     						<label for="lastName">Last Name</label>
     						<input type="text" class="form-control" id="lastName" placeholder="Doe" required>
   						</div>
+              <h3>Address</h3>
+              <div class="form-group">
+                <label for="address">Street</label>
+                <input type="text" class="form-control" id="address">
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city">
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state">
+              </div>
+              <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="text" class="form-control" id="zip">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" class="form-control" id="phone">
+              </div>
   						<div class="form-group">
     						<label for="userName">Username</label>
     						<input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>

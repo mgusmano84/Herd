@@ -1,43 +1,41 @@
+// requiring the connection to the db passing in the username and password 
+var db = require('./connection.js');
 
+//require('./connection.js')(username, password);
 
-module.exports = function(username, password) {
+var orm = {
 
-	// requiring the connection to the db passing in the username and password 
-	var connection = require('./connection.js')(username, password);
+	addUser: function(userEmail, password, user, firstN, lastN, image, userAddress, userCity, userState, userZip, phone) {
 
-	//require('./connection.js')(username, password);
+		var post = [
+			userEmail, 
+			password,
+			user,
+			firstN,
+			lastN,
+			image,
+			userAddress,
+			userCity,
+			userState,
+			userZip,
+			phone
+		];
 
-	var orm = {
+		var query = db.query('INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage, address, city, state, zip, phoneNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', post, function(err, result) {
+			if (err) throw err;
+			console.log(result);
+		});
+		console.log(query.sql)
+	}, // end of addUser function
 
-		// addUser: function(userEmail, password, user, firstN, lastN, image, userAddress, userCity, userState, userZip, phone) {
+	// addUser: function(userEmail, password, user, firstN, lastN, image, userAddress, userCity, userState, userZip, phone) {
+	// 	var queryString = 'INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage, address, city, state, zip, phoneNumber) VALUES (' + userEmail + ', ' + password + ', ' + user + ', ' + firstN + ', ' + lastN + ', ' + image + ', ' + userAddress + ', ' + userCity + ', ' + userState + ', ' + userZip + ', ' + phone + ');';
+	// 	console.log(queryString);
+	// 	db.query(queryString, function(err, result) {
+	// 		if (err) throw err;
+	// 		console.log(result);
+	// 	});
+	// }
+} // end of orm object
 
-		// 	var post = {
-		// 		email: userEmail, 
-		// 		userPassword: password,
-		// 		userName: user,
-		// 		firstName: firstN,
-		// 		lastName: lastN,
-		// 		userImage: image,
-		// 		address: userAddress,
-		// 		city: userCity,
-		// 		state: userState,
-		// 		zip: userZip,
-		// 		phoneNumber: phone
-		// 	};
-
-		// 	var query = connection.query('INSERT INTO users SET ?', post, function(err, result) {
-		// 		console.log(result);
-		// 	});
-		// 	console.log(query.sql)
-		// }, // end of addUser function
-		
-		addUser: function(userEmail, password, user, firstN, lastN, image, userAddress, userCity, userState, userZip, phone) {
-			var queryString = 'INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage, address, city, state, zip, phoneNumber) VALUES (' + userEmail + ', ' + password + ', ' + user + ', ' + firstN + ', ' + lastN + ', ' + image + ', ' + userAddress + ', ' + userCity + ', ' + userState + ', ' + userZip + ', ' + phone + ');';
-			console.log(queryString);
-			connection.query(queryString, function(err, result) {
-				console.log(result);
-			});
-		}
-	} // end of orm object
-
-}
+module.exports = orm;
