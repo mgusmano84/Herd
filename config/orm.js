@@ -28,14 +28,21 @@ var orm = {
 		console.log(query.sql)
 	}, // end of addUser function
 
-	// addUser: function(userEmail, password, user, firstN, lastN, image, userAddress, userCity, userState, userZip, phone) {
-	// 	var queryString = 'INSERT INTO users (email, userPassword, userName, firstName, lastName, userImage, address, city, state, zip, phoneNumber) VALUES (' + userEmail + ', ' + password + ', ' + user + ', ' + firstN + ', ' + lastN + ', ' + image + ', ' + userAddress + ', ' + userCity + ', ' + userState + ', ' + userZip + ', ' + phone + ');';
-	// 	console.log(queryString);
-	// 	db.query(queryString, function(err, result) {
-	// 		if (err) throw err;
-	// 		console.log(result);
-	// 	});
-	// }
+	addGroup: function(groupName, groupDescription, createdBy) {
+
+		var post = [
+			groupName,
+			groupDescription,
+			createdBy
+		];
+
+		var query = db.query('INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES (?, ?, ?, false, false)', post, function(err, result) {
+			if (err) throw err;
+			console.log(result);
+		});
+		console.log(query.sql)
+	}, // end of addUser function
+
 } // end of orm object
 
 module.exports = orm;
