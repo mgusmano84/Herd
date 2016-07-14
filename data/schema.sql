@@ -68,10 +68,10 @@ INSERT INTO drivers (groupName, driverUserName, seatsAvailable, milesDriven, day
 
 CREATE TABLE passengers (
 driverUserName VARCHAR(30) NOT NULL,
-passengerUsername VARCHAR(30) NOT NULL
+passengerUserName VARCHAR(30) NOT NULL
 );
 
-INSERT INTO passengers (driverUserName, passengerUsername) VALUES ("BatmanOrBust2", "GoodDog");
+INSERT INTO passengers (driverUserName, passengerUserName) VALUES ("BatmanOrBust2", "GoodDog");
 
 CREATE TABLE userDirections (
 userDestinationID INTEGER(11) AUTO_INCREMENT NOT NULL,
