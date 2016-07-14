@@ -1,14 +1,19 @@
+/*this file is required for Sass compile*/
+
 'use strict';
  
 var gulp = require('gulp');
 var sass = require('gulp-sass');
  
 gulp.task('sass', function () {
-  return gulp.src('./sass/**/*.scss')
+	/*filepath to the main css file*/
+  return gulp.src('.assets/css/main.scss')
     .pipe(sass().on('error', sass.logError))
+    /*default css destination*/
     .pipe(gulp.dest('./css'));
 });
  
 gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+	/*listens to Sass*/
+  gulp.watch('./assets/css/main.scss', ['sass']);
 });
