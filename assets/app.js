@@ -119,7 +119,7 @@ $('#registerSubmit').on('click',function(){
 		    	// If creation success... show login modal with success message.
 		    	if(data == true){
 		    		$('#registerModal').modal('hide');
-		    		$('#successModal').modal('show');
+		    		$('#loginModal').modal('show');
 		    	}
 		    });
 
