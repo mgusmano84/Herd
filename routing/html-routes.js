@@ -7,11 +7,8 @@ module.exports = function(app){
 
 	
 	// route to post to the login page
-	app.post('/login', passport.authenticate('local'), function(req, res){
-
-		res.redirect('/dashboard');
-
-	});
+	app.post('/login', passport.authenticate('local',{successRedirect: '/dashboard',
+														failureRedirect:'/'}));
 
 	app.post('/register', function(req, res){
 
@@ -32,12 +29,13 @@ module.exports = function(app){
 		res.render('home');
 	});
 
-	app.get('/dashboard', function(req, res){
-
+	app.get('/dashboard', passport.authenticate('local', {failureRedirect:'/'}), function(req, res){
+console.log(req.isAuthenticated())
 		res.render('user',{
 			isAuthenticated: req.isAuthenticated(),
 			user: req.user
 		});
+
 
 	});
 

@@ -14,7 +14,7 @@ var PORT = process.env.PORT || 3000; // assigning the port or using the PORT env
 
 
 // makes static content in assets accessible
-app.use(express.static(process.cwd() + '/assets'));
+app.use(express.static(process.cwd() + '/assets'));	
 
 // retrieving the username and password for the db connection
 var username = process.argv[2];
@@ -44,6 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new passportLocal.Strategy(function(username, password, done) {
+	console.log(username,password)
 	if (username === password) {
 		done(null, {id: username, name: username});
 	} else{

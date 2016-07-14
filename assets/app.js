@@ -78,7 +78,7 @@ $('#loginSubmit').on('click',function(){
 		    	
 		    });
 
-		return false;
+		
 	}
 	else{
 		$("#loginForm")[0].reportValidity()
