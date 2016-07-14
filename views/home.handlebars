@@ -1,14 +1,24 @@
+<<<<<<< HEAD
 <!--login/register button that turns into a logout button when the user is logged in-->
 
 <!-- Template Home -->
     <!--<header>
+=======
+<!-- Template Home -->
+  <div class='container'>  
+    <header> 
+>>>>>>> 82846564b7ba9e42fd2c790831e0c76f05774e60
       <div class="jumbotron jumbotron-fluid head">
           <div class="container">
             <h1 class="display-3" id="cent">Herd</h1>
             <p class="lead" id="cent">The site that gets you where need to be cheap</p>
           </div>
       </div>
+<<<<<<< HEAD
     </header>-->
+=======
+    </header>
+>>>>>>> 82846564b7ba9e42fd2c790831e0c76f05774e60
 
     <container>
       <div class="jumbotron mainbutts">
@@ -21,6 +31,7 @@
         </div>
       </div>
     </container>
+<<<<<<< HEAD
 
 
 <!--login modal-->
@@ -66,6 +77,54 @@
                 <label for="lastName">Last Name</label>
                 <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
               </div>
+=======
+  </div>
+
+
+<!--login modal-->
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="loginModal">
+		<div class="modal-dialog modal-lg">
+    		<div class="modal-content">
+    			<div class="modal-header">
+      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      				<h1 class="modal-title">Login</h1>
+      			</div>
+      			<div class="modal-body">
+        			<form id="loginForm" method="post" action="/login">
+  						<div class="form-group">
+    						<label for="username">Username</label>
+    						<input type="text" class="form-control" id="user" placeholder="JaneDoe" required>
+ 						</div>
+  						<div class="form-group">
+    						<label for="password">Password</label>
+    						<input type="password" class="form-control" id="pass" placeholder="Password" required>
+  						</div>
+  						<button type="submit" class="btn btn-default" id="loginSubmit">Submit</button>
+					</form>
+      			</div>
+			</div>
+  		</div>
+	</div><!--end login modal-->
+
+<!--register modal-->
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="registerModal">
+		<div class="modal-dialog modal-lg">
+    		<div class="modal-content">
+    			<div class="modal-header">
+      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      				<h1 class="modal-title">Register</h1>
+      			</div>
+      			<div class="modal-body">
+        			<form id="regForm" method="post" action="/register">
+        				 <div class="form-group">
+    						<label for="firstName">First Name</label>
+    						<input type="text" class="form-control" id="firstName" placeholder="Jane" required>
+  						</div>
+  						<div class="form-group">
+    						<label for="lastName">Last Name</label>
+    						<input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+  						</div>
+>>>>>>> 82846564b7ba9e42fd2c790831e0c76f05774e60
               <h3>Address</h3>
               <div class="form-group">
                 <label for="address">Street</label>
@@ -87,6 +146,7 @@
                 <label for="phone">Phone Number</label>
                 <input type="text" class="form-control" id="phone">
               </div>
+<<<<<<< HEAD
               <div class="form-group">
                 <label for="userName">Username</label>
                 <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
@@ -99,6 +159,20 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" required>
               </div>
+=======
+  						<div class="form-group">
+    						<label for="userName">Username</label>
+    						<input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
+  						</div>
+  						<div class="form-group">
+    						<label for="email">Email address</label>
+    						<input type="email" class="form-control" id="email" placeholder="email@email.com" required>
+ 						</div>
+  						<div class="form-group">
+    						<label for="password">Password</label>
+    						<input type="password" class="form-control" id="password" placeholder="Password" required>
+  						</div>
+>>>>>>> 82846564b7ba9e42fd2c790831e0c76f05774e60
               <div class="form-group">
                 <label for="image">Link to Photo</label>
                 <input type="url" class="form-control" id="img">
@@ -122,13 +196,13 @@
               <form id="loginForm" method="post" action="/login">
               <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
+                <input type="text" class="form-control" id="firstLogUser" placeholder="JaneDoe" required>
             </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                <input type="password" class="form-control" id="firstLogPass" placeholder="Password" required>
               </div>
-              <button type="submit" class="btn btn-default" id="loginSubmit">Submit</button>
+              <button type="submit" class="btn btn-default" id="successLoginSubmit">Submit</button>
           </form>
             </div>
       </div>
