@@ -17,21 +17,20 @@
     <h1> Your Groups </h1>
     <!--requires the type to compile properly-->
       <script id="grouplist-template" type="text/x-handlebars-template"> <table>
-          <thead> 
-              <th>Name</th> 
-              <th>Job Title</th> 
-              <th>Twitter</th> 
-          </thead> 
-          <tbody> 
+          
+           
               
-              {{#members}} <!--check this var name-->
-              <tr> 
-                  <td>{{groupName}}</td> <!--check this var name-->
-                  <td>{{jobTitle}}</td> <!--do we want this?-->
-              </tr> 
-              {{/members}} 
-          </tbody> 
-      </table> 
+              {{#groups}} <!--check this var name-->
+              <ul> 
+                  <li>
+                    <div class="card">
+                      {{groupName}}
+                    </div>
+                  </li>
+                  
+              </ul> 
+              {{/groups}} 
+         
       </script>
 
     <!--create groups-->

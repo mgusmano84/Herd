@@ -1,4 +1,6 @@
 /*insert image into header*/
+
+/*header image in case we change our minds
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,25 +9,30 @@
   color: #212121;
 }
 
-/*header style*/
-.img-container {
+/*header image in case we change our minds*/
+/*.img-container {
   min-height: 400px;
-  background-image: url('images/cars.jpeg');
+  this is the relative path from the scss file. does it need the path relative to the handlebars page? 
+  background-image: url('assets/images/cars.jpeg');
   background-repeat: no-repeat;
   background-size: 1800px 400px;
   background-position: center top;
-  /*padding: 40px; (If don't want to set min-height or some image content is there) */
-}
+  /*padding: 40px; (If don't want to set min-height or some image content is there) 
+}*/
 
 /*fonts*/
 
 h1 {
 font-family: 'Alegreya SC', serif;
-color: #D32F2F;
+color: #FF5252;
 	/* nested Sass syntax */
 	small {
-		color: #FFCDD2;
+		color: #;
 	}
+}
+
+.page-header {
+  background-color: #F44336;
 }
 
 /*logo/car icon*/
@@ -33,13 +40,14 @@ color: #D32F2F;
 
 /*background*/
 body {
-	
+  
+	background-color: #FFFFFF;
 }
 
 /*footer style*/
 footer {
-	background-color: #F44336;
-	color: #FFFFFF;
+	background-color: #FF5252;
+	color: #727272;
 }
 
 

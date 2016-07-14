@@ -38,7 +38,7 @@ td a {
 }*/
 
 a {
-  // Because why not?
+  /* Because why not?*/
   cursor:pointer;
 }
 
@@ -46,7 +46,7 @@ a {
   display:block;
   width: 95px;
   height: 95px;
-  background: #f4f4f4;
+  background: #f44336;
   padding:1rem;
   @include transition(all 250ms);
   @include shadow(1);
