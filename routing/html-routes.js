@@ -1,11 +1,15 @@
 var orm = require('../config/orm.js'); 
+var passport = require('passport');
+var passportLocal = require('passport-local');
+
 
 module.exports = function(app){
 
+	
 	// route to post to the login page
-	app.post('/login', function(req, res){
+	app.post('/login', passport.authenticate('local'), function(req, res){
 
-		
+		res.redirect('/dashboard');
 
 	});
 
@@ -26,6 +30,15 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 
 		res.render('home');
+	});
+
+	app.get('/dashboard', function(req, res){
+
+		res.render('user',{
+			isAuthenticated: req.isAuthenticated(),
+			user: req.user
+		});
+
 	});
 
 	//default route 

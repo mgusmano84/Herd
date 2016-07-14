@@ -53,19 +53,29 @@ $('#join').on('click',function(){
 
 });
 
+$('.group').on('click',function(){
+	
+		$.get(app.currentURL + "/group", {group: $('#name').data('name')},
+
+		    function(data){
+		    	//should render the group page
+		    });
+
+		return false;
+
+});
+
 //submits modal form and stores input in variables
 $('#loginSubmit').on('click',function(){
 	if ($("#loginForm")[0].checkValidity()){
 		
-		app.userAuth.userName = $('#user').val().trim();
-		app.userAuth.userPass = $('#pass').val().trim();
+		app.userAuth.username = $('#user').val().trim();
+		app.userAuth.password = $('#pass').val().trim();
 		//post login attempt
 		$.post(app.currentURL + "/login", app.userAuth,
 		    function(data){
 		    	// TO DO...If login success... render user home page.
-		    	if(data == true){
-		    		
-		    	}
+		    	
 		    });
 
 		return false;
@@ -79,15 +89,13 @@ $('#loginSubmit').on('click',function(){
 $('#successLoginSubmit').on('click',function(){
 	if ($("#loginForm")[0].checkValidity()){
 		
-		app.userAuth.userName = $('#firstLogUser').val().trim();
-		app.userAuth.userPass = $('#firstLogPass').val().trim();
+		app.userAuth.username = $('#firstLogUser').val().trim();
+		app.userAuth.password = $('#firstLogPass').val().trim();
 		//post login attempt
 		$.post(app.currentURL + "/login", app.userAuth,
 		    function(data){
 		    	// TO DO...If login success... render user home page.
-		    	if(data == true){
-		    		
-		    	}
+		    	
 		    });
 
 		return false;

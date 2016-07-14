@@ -1,15 +1,24 @@
 // requires express and body-parser
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var expressSessions = require('express-session');
+var passport = require('passport');
+var passportLocal = require('passport-local');
 
 // creating an instance of express
 var app = express();
 var PORT = process.env.PORT || 3000; // assigning the port or using the PORT environment variable
 
+
+
+
 // makes static content in assets accessible
 app.use(express.static(process.cwd() + '/assets'));
 
-
+// retrieving the username and password for the db connection
+var username = process.argv[2];
+var password = process.argv[3];
 
 
 // require orm - mysql queries
@@ -28,10 +37,35 @@ var hbs = require('handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+app.use(cookieParser());
+app.use(expressSessions({secret: 'secret'}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new passportLocal.Strategy(function(username, password, done) {
+	if (username === password) {
+		done(null, {id: username, name: username});
+	} else{
+		done(null,null);
+	}
+	
+}))
+
+passport.serializeUser(function(user,done){
+	done(null, user.id);
+})
+
+passport.deserializeUser(function(id,done){
+	done(null,{id:id, name: id });
+})
+
 
 //require routes
-require('./routing/html-routes.js')(app);
-require('./routing/api-routes.js')(app);
+require('./routing/html-routes.js')(app, orm);
+require('./routing/api-routes.js')(app, orm);
+
+
 
 
 //starts the server letting user know the PORT
