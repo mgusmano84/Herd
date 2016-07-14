@@ -66,24 +66,24 @@ $('.group').on('click',function(){
 });
 
 //submits modal form and stores input in variables
-$('#loginSubmit').on('click',function(){
-	if ($("#loginForm")[0].checkValidity()){
+// $('#loginSubmit').on('click',function(){
+// 	if ($("#loginForm")[0].checkValidity()){
 		
-		app.userAuth.username = $('#user').val().trim();
-		app.userAuth.password = $('#pass').val().trim();
-		//post login attempt
-		$.post(app.currentURL + "/login", app.userAuth,
-		    function(data){
-		    	// TO DO...If login success... render user home page.
+// 		app.userAuth.username = $('#user').val().trim();
+// 		app.userAuth.password = $('#pass').val().trim();
+// 		//post login attempt
+// 		$.post(app.currentURL + "/login", app.userAuth,
+// 		    function(data){
+// 		    	if 
 		    	
-		    });
+// 		    });
 
 		
-	}
-	else{
-		$("#loginForm")[0].reportValidity()
-	}
-});
+// 	}
+// 	else{
+// 		$("#loginForm")[0].reportValidity()
+// 	}
+// });
 
 //submits and posts form data for first time login
 $('#successLoginSubmit').on('click',function(){

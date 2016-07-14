@@ -29,12 +29,13 @@ module.exports = function(app){
 		res.render('home');
 	});
 
-	app.get('/dashboard', passport.authenticate('local', {failureRedirect:'/'}), function(req, res){
-console.log(req.isAuthenticated())
+	app.get('/dashboard',  function(req, res){
+ 	if(req.isAuthenticated()){
 		res.render('user',{
 			isAuthenticated: req.isAuthenticated(),
 			user: req.user
 		});
+	} else{res.redirect('/') }
 
 
 	});
