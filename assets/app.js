@@ -1,7 +1,10 @@
 $(document).ready(function(){
+var app = {
+	currentURL: window.location.origin,
+	userAuth:{},
+	user:{},
+}
 
-//get current url for post methods
-var currentURL = window.location.origin;
 
 //login click function starts login modal
 $('#login').on('click',function(){
@@ -19,19 +22,60 @@ $('#create').on('click',function(){
 
 });
 
-//submits modal form and stores input in variables
-$('#loginSubmit').on('click',function(){
+//on click for group search grabs input and posts as search
+$('#searchSubmit').on('click',function(){
+	if ($("#search")[0].checkValidity()){
+		
+		var searchTerm = $('#search').val().trim();
+		
+		$.get(app.currentURL + "/search", {search: searchTerm},
+		    function(data){
+		    	//TO DO do somthing with results of search
+		    });
+
+		return false;
+	}
+	else{
+		$("#search")[0].reportValidity()
+	}
+});
+
+//click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
+$('#join').on('click',function(){
+	
+		$.post(app.currentURL + "/join", {user: userAuth,
+			group: $('#groupName').data('name')},
+		    function(data){
+		    	//add group to users groups 
+		    });
+
+		return false;
+
+});
+
+$('.group').on('click',function(){
+	
+		$.get(app.currentURL + "/group", {group: $('#name').data('name')},
+
+		    function(data){
+		    	//should render the group page
+		    });
+
+		return false;
+
+});
+
+//submits and posts form data for first time login
+$('#successLoginSubmit').on('click',function(){
 	if ($("#loginForm")[0].checkValidity()){
-		var userAuth = {};
-		userAuth.userName = $('#user').val().trim();
-		userAuth.userPass = $('#pass').val().trim();
+		
+		app.userAuth.username = $('#firstLogUser').val().trim();
+		app.userAuth.password = $('#firstLogPass').val().trim();
 		//post login attempt
-		$.post(currentURL + "/login", userAuth,
+		$.post(app.currentURL + "/login", app.userAuth,
 		    function(data){
 		    	// TO DO...If login success... render user home page.
-		    	if(data == true){
-		    		
-		    	}
+		    	
 		    });
 
 		return false;
@@ -44,30 +88,30 @@ $('#loginSubmit').on('click',function(){
 //submits modal form and stores input in user object
 $('#registerSubmit').on('click',function(){
 	if ($("#regForm")[0].checkValidity()){
-		var user = {};
-		user.firstName = $('#firstName').val().trim();
-		user.lastName = $('#lastName').val().trim();
-		user.userName = $('#userName').val().trim();
-		user.email = $('#email').val().trim();
-		user.image = $('#img').val().trim();
-		user.password = $('#password').val().trim();
-		user.address = $('#address').val().trim();
-		user.city = $('#city').val().trim();
-		user.state = $('#state').val().trim();
-		user.zip = $('#zip').val().trim();
-		user.phone = $('#phone').val().trim();
+		
+		app.user.firstName = $('#firstName').val().trim();
+		app.user.lastName = $('#lastName').val().trim();
+		app.user.userName = $('#userName').val().trim();
+		app.user.email = $('#email').val().trim();
+		app.user.image = $('#img').val().trim();
+		app.user.password = $('#password').val().trim();
+		app.user.address = $('#address').val().trim();
+		app.user.city = $('#city').val().trim();
+		app.user.state = $('#state').val().trim();
+		app.user.zip = $('#zip').val().trim();
+		app.user.phone = $('#phone').val().trim();
 
 		//post user acount
-		$.post(currentURL + "/register", user,
+		$.post(app.currentURL + "/register", app.user,
 		    function(data){
 		    	// If creation success... show login modal with success message.
 		    	if(data == true){
 		    		$('#registerModal').modal('hide');
-		    		$('#successModal').modal('show');
+		    		$('#loginModal').modal('show');
 		    	}
 		    });
 
-		console.log(user);
+		console.log(app.user);
 		return false;
 	}
 	else{
@@ -81,10 +125,10 @@ $('#createSubmit').on('click',function(){
 		var group = {};
 		group.name = $('#groupName').val().trim();
 		group.description = $('#description').val().trim();
-		group.createdBy = ;//*******need to group userName that is creating group
+		// TO DO***** group.createdBy = ;*******need to group userName that is creating group
 
 		//post group
-		$.post(currentURL + "/creategroup", group,
+		$.post(app.currentURL + "/creategroup", group,
 		    function(data){
 		    	console.log(data);
 		    });
