@@ -1,62 +1,3 @@
-
-
-    <h1 class="col2 ">Hello, {{userName}}</h1> <button>Log out</button>
-
-     <!-- add logout button here-->
-
-
-
-    
-    <!--dahsboard-->
-
-<h1> Current Rides </h1>
- <!-- source: https://codepen.io/allusis/pen/bdVjbj -->
-    <!--requires the type to compile properly-->
-      <script id="grouplist-template" type="text/x-handlebars-template"> <table>
-          
-           
-              
-              {{#groups}} <!--where is this info coming from ?-->
-              <ul> 
-                  <li>
-                    <div class="card">
-                      {{carpool_date}} <!--I made this var up. Are we tracking this info! -->
-                    </div>
-                  </li>
-                  
-              </ul> 
-              {{/groups}} 
-         
-      </script>
-    
-
-
-    <!-- you belong to-->
-
-    <h1> Your Groups </h1>
-    <!-- source: https://codepen.io/allusis/pen/bdVjbj -->
-    <!--requires the type to compile properly-->
-      <script id="grouplist-template" type="text/x-handlebars-template"> <table>
-          
-           
-              
-              {{#groups}} <!--where is this info coming from ?-->
-              <ul> 
-                  <li>
-                    <div class="card">
-                      {{groupName}}
-                    </div>
-                  </li>
-                  
-              </ul> 
-              {{/groups}} 
-         
-      </script>
-
-    <!--create groups-->
-    <!--create group button-->
-<button class="btn btn-default" type="submit" id="create">Create Group</button>
-
   <div class="container">
     <!-- Header -->
     <header>
@@ -113,9 +54,6 @@
 
 
 
-
-
-
 <!--create group modal-->
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="createGroup" data-backdrop="static">
     <div class="modal-dialog modal-lg">
@@ -140,9 +78,3 @@
       </div>
       </div>
   </div><!--end create group modal-->
-
-
-    
-
-
-</script>
