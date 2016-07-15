@@ -18,8 +18,8 @@ $('#register').on('click',function(){
 
 //create group click function starts create group modal
 $('#create').on('click',function(){
-	$('#createModal').modal('show');
-
+	$('#createGroup').modal('show');
+return false;
 });
 
 //on click for group search grabs input and posts as search
