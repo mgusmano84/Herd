@@ -21,7 +21,12 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
+
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+
     "express-session": "^1.14.0",
+    
     "handlebars": "^4.0.5",
     "mysql": "^2.11.1",
     "passport": "^0.3.2",
