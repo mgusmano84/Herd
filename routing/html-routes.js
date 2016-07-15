@@ -11,11 +11,31 @@ module.exports = function(app){
 
 	app.post('/register', function(req, res){
 
-		// creates data in MySQL for the new user
-		orm.addUser(req.body.email, req.body.password, req.body.userName, req.body.firstName, req.body.lastName, req.body.image, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.phone);
+		// create register promise
+		var register = new Promise(function(resolved, rejected) {
 
-		return true;
-	});
+			// creates data in MySQL for the new user
+			orm.addUser(req.body.email, req.body.password, req.body.userName, req.body.firstName, req.body.lastName, req.body.image, req.body.address, req.body.city, req.body.state, req.body.zip, req.body.phone);
+
+			// make sure that above code gets resolved
+			resolved();
+
+		// this is what is run when the promise is resolved
+		}).then(function() {  
+			
+			// sends true to allow user to login
+			res.send(true);
+
+		// this is what is run when the promise is rejected
+		}, function() {
+
+			// sends false so user can't login NO LOGIN FOR YOU!
+			res.send(false);
+
+		}); // end of register promise
+
+	}); // end of app.post /register
+	
 
 	app.post('/creategroup', function(req, res){
 

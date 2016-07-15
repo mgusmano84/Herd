@@ -23,22 +23,3 @@ connection.connect(function(err){
 });
 
 module.exports = connection;
-
-/*
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: username,
-	password: password,
-	database: 'carPool'
-});
-
-connection.connect(function(err){
-
-	if(err){
-		return console.log(err);
-	}
-	console.log('connection id: %d', connection.threadId);
-});
-
-module.exports = connection;
-*/
