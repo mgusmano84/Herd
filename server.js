@@ -6,11 +6,10 @@ var expressSessions = require('express-session');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 
+
 // creating an instance of express
 var app = express();
 var PORT = process.env.PORT || 3000; // assigning the port or using the PORT environment variable
-
-
 
 
 // makes static content in assets accessible
@@ -59,8 +58,8 @@ passport.deserializeUser(function(id,done){
 
 
 //require routes
-require('./routing/html-routes.js')(app, orm);
-require('./routing/api-routes.js')(app, orm);
+require('./routing/html-routes.js')(app);
+require('./routing/api-routes.js')(app);
 
 
 
