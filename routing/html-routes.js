@@ -2,7 +2,7 @@ var orm = require('../config/orm.js');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var encrypto = require('crypto');
-var salt = 'this just might be a salt or something';
+var salt = 'salt orsomething';
 var password;
 var newPass;
 
@@ -22,7 +22,8 @@ module.exports = function(app){
 			password = req.body.password;
 
 			//encrypting the password using crypto and a seed
-			newPass = encrypto.createHmac('sha512', password).update(salt).digest('hex');
+				//newPass = encrypto.createHmac('sha256', password).digest('hex');
+			newPass = encrypto.createHmac('sha256', password).update(salt).digest('hex');
 
 
 			// creates data in MySQL for the new user
