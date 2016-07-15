@@ -39,22 +39,19 @@ app.use(expressSessions({secret: 'secret'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new passportLocal.Strategy(function(username, password, done) {
+passport.use(new passportLocal.Strategy({passReqToCallback : true}, function(req, username, password, done) {
 	console.log(username,password)
-	if (username === password) {
-		done(null, {id: username, name: username});
-	} else{
-		done(null,null);
-	}
+	
+	orm.findUser(req, username, password, done);
 	
 }))
 
 passport.serializeUser(function(user,done){
-	done(null, user.id);
+	done(null, user);
 })
 
-passport.deserializeUser(function(id,done){
-	done(null,{id:id, name: id });
+passport.deserializeUser(function(user,done){
+	done(null, user);
 })
 
 
