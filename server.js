@@ -16,10 +16,6 @@ var PORT = process.env.PORT || 3000; // assigning the port or using the PORT env
 // makes static content in assets accessible
 app.use(express.static(process.cwd() + '/assets'));	
 
-// retrieving the username and password for the db connection
-var username = process.argv[2];
-var password = process.argv[3];
-
 
 // require orm - mysql queries
 var orm = require('./config/orm.js');

@@ -65,26 +65,6 @@ $('.group').on('click',function(){
 
 });
 
-//submits modal form and stores input in variables
-// $('#loginSubmit').on('click',function(){
-// 	if ($("#loginForm")[0].checkValidity()){
-		
-// 		app.userAuth.username = $('#user').val().trim();
-// 		app.userAuth.password = $('#pass').val().trim();
-// 		//post login attempt
-// 		$.post(app.currentURL + "/login", app.userAuth,
-// 		    function(data){
-// 		    	if 
-		    	
-// 		    });
-
-		
-// 	}
-// 	else{
-// 		$("#loginForm")[0].reportValidity()
-// 	}
-// });
-
 //submits and posts form data for first time login
 $('#successLoginSubmit').on('click',function(){
 	if ($("#loginForm")[0].checkValidity()){
@@ -127,7 +107,7 @@ $('#registerSubmit').on('click',function(){
 		    	// If creation success... show login modal with success message.
 		    	if(data == true){
 		    		$('#registerModal').modal('hide');
-		    		$('#successModal').modal('show');
+		    		$('#loginModal').modal('show');
 		    	}
 		    });
 
