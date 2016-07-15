@@ -39,7 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new passportLocal.Strategy(function(username, password, done) {
-	console.log(username,password)
+	console.log(username,password) // DO WE NEED THIS????
 	if (username === password) {
 		done(null, {id: username, name: username});
 	} else{
@@ -59,8 +59,6 @@ passport.deserializeUser(function(id,done){
 
 //require routes
 require('./routing/html-routes.js')(app);
-require('./routing/api-routes.js')(app);
-
 
 
 
