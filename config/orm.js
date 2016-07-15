@@ -1,8 +1,6 @@
 // requiring the connection to the db passing in the username and password 
 var db = require('./connection.js');
 
-//require('./connection.js')(username, password);
-
 var orm = {
 
 	// Add user using the registration form information
