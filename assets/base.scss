@@ -1,0 +1,13 @@
+/* requiring bourbon has to come before other imports*/
+@import "bourbon";
+
+
+/*the file that contains the color variables. MUST begin with underscore*/
+@import '_colors.scss';
+
+
+/*imports the partial scss file to make an amalgam of a single css file for the client*/
+
+@import 'partials/user.scss';
+@import 'partials/home.scss';
+;
