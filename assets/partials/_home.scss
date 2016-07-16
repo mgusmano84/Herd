@@ -35,7 +35,7 @@ $header_bg: #3cba90;
 header {
   padding: 200px 0;
   text-align: center;
-  background: url('/assets/images/cars.jpg') no-repeat center center;
+  background: url('/images/cars.jpeg') no-repeat center center;
   background-size: auto 100%;
   position: relative;
   @include transition(background-size .5s);
