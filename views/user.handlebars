@@ -1,12 +1,75 @@
+ 
+
+    <h1 class="col2 ">Hello, {{userName}}</h1> <a href="/logout">Log out</a>
+
+     <!-- add logout button here-->
+
+
+
+    
+    <!--dahsboard-->
+
+<h1> Current Rides </h1>
+ <!-- source: https://codepen.io/allusis/pen/bdVjbj -->
+    <!--requires the type to compile properly-->
+      <script id="grouplist-template" type="text/x-handlebars-template"> <table>
+          
+           
+              
+              {{#groups}} <!--where is this info coming from ?-->
+              <ul> 
+                  <li>
+                    <div class="card">
+                      {{carpool_date}} <!--I made this var up. Are we tracking this info! -->
+                    </div>
+                  </li>
+                  
+              </ul> 
+              {{/groups}} 
+         
+      </script>
+    
+
+
+    <!-- you belong to-->
+
+    <h1> Your Groups </h1>
+    <!-- source: https://codepen.io/allusis/pen/bdVjbj -->
+    <!--requires the type to compile properly-->
+      <script id="grouplist-template" type="text/x-handlebars-template"> <table>
+          
+           
+              
+              {{#groups}} <!--where is this info coming from ?-->
+              <ul> 
+                  <li>
+                    <div class="card">
+                      {{groupName}}
+                    </div>
+                  </li>
+                  
+              </ul> 
+              {{/groups}} 
+         
+      </script>
+
+    <!--create groups-->
+    <!--create group button-->
+<button class="btn btn-default" type="submit" id="create">Create Group</button>
+
   <div class="container">
     <!-- Header -->
     <header>
       <div class="jumbotron jumbotron-fluid head">
           <div class="container">
             <h1 class="display-3" id="cent">Herd</h1>
+<<<<<<< HEAD
             <p class="lead" id="cent">The site that gets you where need to be</p>
 
             <!-- add logout as <a> href... -->
+=======
+            <p class="lead" id="cent">The site that gets you where need to be cheap</p>
+>>>>>>> 0898cc3ceab063e5a7a297f8354ca2c742ee7bf6
           </div>
       </div>
     </header>
@@ -26,9 +89,8 @@
         
               <div class="form-group">
                 <label for="">Search For Groups</label>
-                <input type="text" class="form-control" id="search">
+                <input type="text" class="form-control" id="reserve_name">
               </div>
-              <button type="submit" class="btn btn-primary submit" id="searchSubmit">Search</button>
 
               <div>
                 <p class="groups"> <b> Groups You Belong To </b> </p>
@@ -39,7 +101,7 @@
                 </div>
               </div>
                 <p class="groups"> <b> Create A Group </b> </p>
-              <button type="submit" class="btn btn-primary submit" id="create">Begin</button>
+              <button  class="btn btn-primary submit" id="create">Begin</button>
             </form>
 
           </div>
@@ -56,9 +118,15 @@
 
 
 
+
+<!--create group button-->
+<!-- <button class="btn btn-default" type="submit" id="create">Create Group</button> -->
+
+
+
 <!--create group modal-->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="createGroup" data-backdrop="static">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="createGroup" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -80,3 +148,9 @@
       </div>
       </div>
   </div><!--end create group modal-->
+
+
+    
+
+
+</script>

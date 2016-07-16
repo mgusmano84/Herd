@@ -1,0 +1,158 @@
+/* requiring bourbon has to come before other imports*/
+/*the file that contains the color variables. MUST begin with underscore*/
+/*imports the partial scss file to make an amalgam of a single css file for the client*/
+/* styling for tables, refactor to sass */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+table {
+  margin: 10px; }
+
+th, td {
+  padding: 5px;
+  border: 1px solid #999; }
+
+th {
+  background: #ccc; }
+
+tr:nth-child(odd) {
+  background: #eee; }
+
+td a {
+  color: #000;
+  text-decoration: underline; }
+
+/*stying for material style button*/
+/*totally using this if I can figure out how to add bourbon*/
+/*body {
+  margin:5rem;
+  font-family:"Roboto",sans-serif;
+}*/
+a {
+  /* Because why not?*/
+  cursor: pointer; }
+
+.card {
+  display: block;
+  width: 95px;
+  height: 95px;
+  background: #f44336;
+  padding: 1rem;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px); }
+
+header {
+  padding: 200px 0;
+  text-align: center;
+  background: url("/assets/images/cars.jpg") no-repeat center center;
+  background-size: auto 100%;
+  position: relative;
+  -webkit-transition: background-size 0.5s;
+  -moz-transition: background-size 0.5s;
+  transition: background-size 0.5s; }
+  header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    transition: opacity 1s ease; }
+
+header.explore {
+  background-size: auto 105%; }
+  header.explore:before {
+    background-color: #b80404;
+    background-image: -webkit-linear-gradient(top left, #b80404, #052280);
+    background-image: linear-gradient(to bottom right,#b80404, #052280);
+    opacity: .2; }
+
+.cta_btn {
+  background: #f7f7f7;
+  padding: 7px 15px;
+  color: #333333;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+  /* Include Bourbon SASS transition */
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 999; }
+  .cta_btn:hover {
+    background: #3cba90;
+    color: #ffffff; }
+
+/*insert image into header*/
+/*header image in case we change our minds
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  color: #212121;
+}
+
+/*header image in case we change our minds*/
+/*.img-container {
+  min-height: 400px;
+  this is the relative path from the scss file. does it need the path relative to the handlebars page? 
+  background-image: url('assets/images/cars.jpeg');
+  background-repeat: no-repeat;
+  background-size: 1800px 400px;
+  background-position: center top;
+  /*padding: 40px; (If don't want to set min-height or some image content is there) 
+}*/
+/*fonts*/
+h1 {
+  font-family: 'Alegreya SC', serif;
+  color: #FF5252;
+  /* nested Sass syntax */ }
+  h1 small {
+    color: blue; }
+
+.page-header {
+  background-color: #F44336; }
+
+/*logo/car icon*/
+/*background*/
+body {
+  background-color: #FFFFFF; }
+
+/*footer style*/
+footer {
+  background-color: #FF5252;
+  color: #727272; }
+
+/* syntax in Sass for media queries
+
+@include media-breakpoint-up(xs) { ... }
+@include media-breakpoint-up(sm) { ... }
+@include media-breakpoint-up(md) { ... }
+@include media-breakpoint-up(lg) { ... }
+@include media-breakpoint-up(xl) { ... }
+
+// Example usage:
+@include media-breakpoint-up(sm) {
+  .some-class {
+    display: block;
+  }
+}*/
