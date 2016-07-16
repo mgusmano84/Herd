@@ -57,8 +57,13 @@ module.exports = function(app){
 	});
 
 	app.get('/', function(req, res){
-
-		res.render('home');
+		if(req.isAuthenticated()){
+		res.render('user',{
+			isAuthenticated: req.isAuthenticated(),
+			user: req.user
+		});
+		} else{res.render('home')}
+		
 	});
 
 	app.get('/dashboard',  function(req, res){
