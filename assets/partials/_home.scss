@@ -61,6 +61,17 @@ header.explore {
     }
 }
 
+.btn-primary.raised {
+  box-shadow: 0 3px 0 0 #007299;
+}
+
+.btn-primary.raised:active, .btn-primary.raised.active {
+  background: #33a6cc;
+  box-shadow: none;
+  margin-bottom: -3px;
+  margin-top: 3px;
+}
+
 .cta_btn {
   @include main-button;
   position: relative;
