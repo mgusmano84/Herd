@@ -5,64 +5,13 @@ var app = {
 	user:{},
 }
 
+//*********************
+//******HOME PAGE******
+//*********************
 
 //login click function starts login modal
 $('#login').on('click',function(){
 	$('#loginModal').modal('show');
-});
-
-//register click function starts register modal
-$('#register').on('click',function(){
-	$('#registerModal').modal('show');
-});
-
-//create group click function starts create group modal
-$('#create').on('click',function(){
-	$('#createModal').modal('show');
-
-});
-
-//on click for group search grabs input and posts as search
-$('#searchSubmit').on('click',function(){
-	if ($("#search")[0].checkValidity()){
-		
-		var searchTerm = $('#search').val().trim();
-		
-		$.get(app.currentURL + "/search", {search: searchTerm},
-		    function(data){
-		    	//TO DO do somthing with results of search
-		    });
-
-		return false;
-	}
-	else{
-		$("#search")[0].reportValidity()
-	}
-});
-
-//click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
-$('#join').on('click',function(){
-	
-		$.post(app.currentURL + "/join", {user: userAuth,
-			group: $('#groupName').data('name')},
-		    function(data){
-		    	//add group to users groups 
-		    });
-
-		return false;
-
-});
-
-$('.group').on('click',function(){
-	
-		$.get(app.currentURL + "/group", {group: $('#name').data('name')},
-
-		    function(data){
-		    	//should render the group page
-		    });
-
-		return false;
-
 });
 
 //submits and posts form data for first time login
@@ -83,6 +32,11 @@ $('#successLoginSubmit').on('click',function(){
 	else{
 		$("#loginForm")[0].reportValidity()
 	}
+}); // end of submit and posts form data for first time login
+
+//register click function starts register modal
+$('#register').on('click',function(){
+	$('#registerModal').modal('show');
 });
 
 //submits modal form and stores input in user object
@@ -117,7 +71,61 @@ $('#registerSubmit').on('click',function(){
 	else{
 		$("#regForm")[0].reportValidity()
 	}
+}); // end of submit register button
+
+//*********************
+//******USER PAGE******
+//*********************
+
+//on click for group search grabs input and posts as search
+$('#searchSubmit').on('click',function(){
+	if ($("#search")[0].checkValidity()){
+		
+		var searchTerm = $('#search').val().trim();
+		
+		$.get(app.currentURL + "/search", {search: searchTerm},
+		    function(data){
+		    	//TO DO do somthing with results of search
+		    });
+
+		return false;
+	}
+	else{
+		$("#search")[0].reportValidity()
+	}
 });
+
+//click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
+$('#join').on('click',function(){
+	
+		$.post(app.currentURL + "/join", {user: userAuth,
+			group: $('#groupName').data('name')},
+		    function(data){
+		    	//add group to users groups 
+		    });
+
+		return false;
+
+});
+
+// button for different groups to take you to that groups page
+$('.group').on('click',function(){
+	
+		$.get(app.currentURL + "/group", {group: $('#name').data('name')},
+
+		    function(data){
+		    	//should render the group page
+		    });
+
+		return false;
+
+}); // end of button for specfic group page
+
+//create group click function starts create group modal
+$('#create').on('click',function(){
+	$('#createGroup').modal('show');
+return false;
+}); // end of create group modal
 
 //submits modal form and stores input in group object
 $('#createSubmit').on('click',function(){
@@ -139,6 +147,6 @@ $('#createSubmit').on('click',function(){
 	else{
 		$("#createForm")[0].reportValidity()
 	}
-});
+}); // end of submit modal form to store group object
 
-});
+}); // end of document.ready function
