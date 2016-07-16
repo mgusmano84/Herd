@@ -58,6 +58,7 @@ module.exports = function(app){
 
 		// creates data in MySQL for a new group
 		orm.addGroup(req.body.name, req.body.description, req.user.firstName);
+		res.send(true);
 
 	});
 

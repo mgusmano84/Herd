@@ -137,7 +137,9 @@ $('#createSubmit').on('click',function(){
 		//post group
 		$.post( "/creategroup", group,
 		    function(data){
-		    	console.log(data);
+		    	if(data){
+		    		$('#createGroup').modal('hide');
+		    	};
 		    });
 
 		console.log(group);
