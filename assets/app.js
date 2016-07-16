@@ -133,10 +133,9 @@ $('#createSubmit').on('click',function(){
 		var group = {};
 		group.name = $('#groupName').val().trim();
 		group.description = $('#description').val().trim();
-		// TO DO***** group.createdBy = ;*******need to group userName that is creating group
 
 		//post group
-		$.post(app.currentURL + "/creategroup", group,
+		$.post( "/creategroup", group,
 		    function(data){
 		    	console.log(data);
 		    });
