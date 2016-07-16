@@ -13,6 +13,11 @@ module.exports = function(app){
 	// route to post to the login page
 	app.post('/login', passport.authenticate('local',{successRedirect: '/dashboard',
 														failureRedirect:'/'}));
+	// logout
+	app.get('/logout', function(req, res){
+ 		req.logout();
+  		res.redirect('/');
+	});
 
 	app.post('/register', function(req, res){
 
@@ -52,18 +57,28 @@ module.exports = function(app){
 	app.post('/creategroup', function(req, res){
 
 		// creates data in MySQL for a new group
-		orm.addGroup(req.body.name, req.body.description, req.body.createdBy);
+		orm.addGroup(req.body.name, req.body.description, req.user.firstName);
+		res.send(true);
 
 	});
 
 	app.get('/', function(req, res){
-
-		res.render('home');
+		if(req.isAuthenticated()){
+		res.render('user',{
+			layout: 'usermain',
+			isAuthenticated: req.isAuthenticated(),
+			user: req.user
+		});
+		} else{res.render('home')}
+		
 	});
+
+
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){
 		res.render('user',{
+			layout: 'usermain',
 			isAuthenticated: req.isAuthenticated(),
 			user: req.user
 		});

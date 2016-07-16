@@ -1,0 +1,63 @@
+
+/*fonts*/
+
+
+
+h1 {
+font-family: 'Alegreya SC', serif;
+color: $light_text_color;
+display: inline-block;
+	/* nested Sass syntax */
+	small {
+		color: $text_color;
+	}
+  #title {
+    display: inline-block !important;
+    vertical-align: middle;
+  }
+}
+
+.page-header {
+  padding-top: 20px;
+  margin: 0;
+  background-color: $header_color;
+}
+
+/*logo/car icon*/
+#logo{
+  float: left;
+  vertical-align: left;
+}
+
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*background*/
+body {
+  
+	background-color: $background_color;
+}
+
+/*footer style*/
+#footer {
+  width: 100%;
+	background-color: $header_color;
+	color: $light_text_color;
+}
+
+#copyright {
+  background-color: green;
+}

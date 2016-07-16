@@ -20,6 +20,7 @@
     "body-parser": "^1.15.2",
     "bourbon": "^4.2.7",
     "cookie-parser": "^1.4.3",
+    "crypto": "0.0.3",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.0",
@@ -27,6 +28,8 @@
     "gulp-sass": "^2.3.2",
     "handlebars": "^4.0.5",
     "mysql": "^2.11.1",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^1.7.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   },

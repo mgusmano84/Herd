@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Herd</title>
+		<!--bootsrtap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!--jQuery-->
+		<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+		<!--bootsrtap js-->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!--app js-->
+		<script type="text/javascript" src="/app.js"></script>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="/styles/base.css">
+	</head>
+    
+	<body>
+
+        <div class="page-header">
+            <h1> Carpool Pass <small> Your carpools. Streamlined. </small></h1>
+        </div>
+
+        <div class="row">
+        	<div class="col-md-3">
+        		<div class="list-group">
+				  <a href="#" class="list-group-item active" id="User">{{user.firstName}}</a>
+				  <a href="#" class="list-group-item">Find/Join Groups</a>
+				  <a href="#" class="list-group-item" id="create">Create a new Group</a>
+				  <a href="#" class="list-group-item">Your Groups</a>
+				</div>
+        	</div>
+        	<div class="col-md-9">
+				{{{ body }}}
+			</div>
+	   
+       <div id="copyright">
+          	© 2016 Copyright
+       </div>
+
+       <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="createGroup">
+		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<div class="modal-header">
+      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      				<h1 class="modal-title">Create Group</h1>
+      			</div>
+      			<div class="modal-body">
+        			<form  id="createForm">
+  						<div class="form-group">
+    						<label for="groupName">Group Name</label>
+    						<input type="text" class="form-control" id="groupName" placeholder="name">
+ 						</div>
+  						<div class="form-group">
+    						<label for="userImg">Group Description</label>
+    						<input type="text" class="form-control" id="description" placeholder="description">
+  						</div>
+  						<a  class="btn btn-default" id="createSubmit">Submit</a>
+					</form>
+      			</div>
+			</div>
+  		</div>
+	</div>
+	</body>
+
+	
+
+</html>

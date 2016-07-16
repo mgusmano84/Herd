@@ -1,5 +1,10 @@
 // requiring the connection to the db passing in the username and password 
 var db = require('./connection.js');
+var encrypto = require('crypto');
+var salt = 'salt orsomething';
+var password;
+var newPass;
+
 
 var orm = {
 
@@ -101,6 +106,36 @@ var orm = {
 		});
 		console.log(query.sql)
 	}, // end of addPassengers function
+
+	//finds user where username and password match user input
+	findUser: function(req ,username, pass, done) {
+		console.log(username, pass);
+
+		newPass = encrypto.createHmac('sha256', pass).update(salt).digest('hex');
+		
+		var queryString = 'SELECT * FROM users WHERE userName = ' + JSON.stringify(username) + ' AND userPassword = ' + JSON.stringify(newPass);
+		db.query(queryString, function(err, rows, fields) {
+			if (err) throw err;
+			
+			if (rows[0]) {
+				return done(null, { userID:rows[0].userID, 
+								    username:rows[0].userName, 
+								    firstName: rows[0].firstName, 
+								    lastName: rows[0].lastName,
+								    email: rows[0].email,
+								    userImage: rows[0].userImage,
+								    address: rows[0].address,
+								    city: rows[0].lastName,
+								    state: rows[0].state,
+								    zip: rows[0].zip,
+								    phoneNumber: rows[0].phoneNumber });
+			} else{
+				return done(null,null);
+			}
+		});
+		
+		
+	}, // finds user by username and password,
 
 
 

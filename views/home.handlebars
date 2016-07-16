@@ -1,34 +1,33 @@
     <!-- Template Home -->
-        <div class='container'>  
-          <header> 
-              <div class="jumbotron jumbotron-fluid head">
-                <div class="container">
-                    <h1 class="display-3" id="cent">Herd</h1>
-                    <p class="lead" id="cent">The site that gets you where need to be</p>
-                  </div>
-              </div>
-          </header>
+<div class='fluid-container'>  
+  <header> 
+      
 
-        <div class='container'>
           <div class="row">
             <div class="col-md-4"></div>
              <div class="col-md-4 mainbutts">
                     <div class="wrapper">
-                    <button class="btn btn-warning marg" type="submit" id="login">Login</button>
-                <br>
+                    <button class="btn btn-primary raised marg" type="submit" id="login">Login</button>
+                
                 <!--register button-->
-                <button class="btn btn-danger marg" type="submit" id="register">Register</button>
+                <button class="btn btn-primary raised marg" type="submit" id="register">Register</button>
                 </div>
             </div>
             <div class="col-md-4"></div>
           </div>
+
       </div>
+  </header>
+</div>
+
+       
+          
   
 
 
 <!--login modal-->
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="loginModal"  data-backdrop="static">
-		<div class="modal-dialog modal-lg">
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="loginModal"  data-backdrop="static">
+		<div class="modal-dialog modal-sm">
     		<div class="modal-content">
     			  <div class="modal-header">
       				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -53,8 +52,8 @@
 	</div><!--end login modal-->
 
 <!--register modal-->
-	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="registerModal" data-backdrop="static">
-		<div class="modal-dialog modal-lg">
+	<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="registerModal" data-backdrop="static">
+		<div class="modal-dialog modal-md">
     		<div class="modal-content">
     			<div class="modal-header">
       				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -62,6 +61,15 @@
       			</div>
       			<div class="modal-body">
         			<form id="regForm" method="post" action="/register">
+              <div class="form-group">
+                <label for="userName">Username</label>
+                <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
+              </div>
+               
         				 <div class="form-group">
     						<label for="firstName">First Name</label>
     						<input type="text" class="form-control" id="firstName" placeholder="Jane" required>
@@ -70,7 +78,15 @@
     						<label for="lastName">Last Name</label>
     						<input type="text" class="form-control" id="lastName" placeholder="Doe" required>
   						</div>
-              <h3>Address</h3>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="email@email.com" required>
+            </div>
+              <div class="form-group">
+                <label for="image">Link to Photo</label>
+                <input type="url" class="form-control" id="img">
+              </div>
+              
               <div class="form-group">
                 <label for="address">Street</label>
                 <input type="text" class="form-control" id="address">
@@ -90,22 +106,6 @@
               <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <input type="text" class="form-control" id="phone">
-              </div>
-  						<div class="form-group">
-    						<label for="userName">Username</label>
-    						<input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
-  						</div>
-  						<div class="form-group">
-    						<label for="email">Email address</label>
-    						<input type="email" class="form-control" id="email" placeholder="email@email.com" required>
- 						</div>
-  						<div class="form-group">
-    						<label for="password">Password</label>
-    						<input type="password" class="form-control" id="password" placeholder="Password" required>
-  						</div>
-              <div class="form-group">
-                <label for="image">Link to Photo</label>
-                <input type="url" class="form-control" id="img">
               </div>
   						<button type="submit" class="btn btn-default" id="registerSubmit">Submit</button>
 					</form>
