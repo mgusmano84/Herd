@@ -104,18 +104,10 @@ var orm = {
 
 	//finds user where username and password match user input
 	findUser: function(req ,username, pass, done) {
-		console.log(username, pass);
 		
-		var queryString = 'SELECT * FROM users WHERE userName = ' + JSON.stringify(username) + ' AND userPassword = ' + JSON.stringify(pass);
-		db.query(queryString, function(err, rows, fields) {
-			if (err) throw err;
 			
-			if (rows[0]) {
-				return done(null, {id:rows[0].userName, name: rows[0].firstName });
-			} else{
-				return done(null,null);
-			}
-		});
+			
+		
 		
 		
 	}, // finds user by username and password,
