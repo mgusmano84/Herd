@@ -62,6 +62,15 @@
       			</div>
       			<div class="modal-body">
         			<form id="regForm" method="post" action="/register">
+              <div class="form-group">
+                <label for="userName">Username</label>
+                <input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
+              </div>
+               <h3>Personal</h3>
         				 <div class="form-group">
     						<label for="firstName">First Name</label>
     						<input type="text" class="form-control" id="firstName" placeholder="Jane" required>
@@ -70,6 +79,14 @@
     						<label for="lastName">Last Name</label>
     						<input type="text" class="form-control" id="lastName" placeholder="Doe" required>
   						</div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="email@email.com" required>
+            </div>
+              <div class="form-group">
+                <label for="image">Link to Photo</label>
+                <input type="url" class="form-control" id="img">
+              </div>
               <h3>Address</h3>
               <div class="form-group">
                 <label for="address">Street</label>
@@ -90,22 +107,6 @@
               <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <input type="text" class="form-control" id="phone">
-              </div>
-  						<div class="form-group">
-    						<label for="userName">Username</label>
-    						<input type="text" class="form-control" id="userName" placeholder="JaneDoe" required>
-  						</div>
-  						<div class="form-group">
-    						<label for="email">Email address</label>
-    						<input type="email" class="form-control" id="email" placeholder="email@email.com" required>
- 						</div>
-  						<div class="form-group">
-    						<label for="password">Password</label>
-    						<input type="password" class="form-control" id="password" placeholder="Password" required>
-  						</div>
-              <div class="form-group">
-                <label for="image">Link to Photo</label>
-                <input type="url" class="form-control" id="img">
               </div>
   						<button type="submit" class="btn btn-default" id="registerSubmit">Submit</button>
 					</form>
