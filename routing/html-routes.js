@@ -13,6 +13,11 @@ module.exports = function(app){
 	// route to post to the login page
 	app.post('/login', passport.authenticate('local',{successRedirect: '/dashboard',
 														failureRedirect:'/'}));
+	// logout
+	app.get('/logout', function(req, res){
+ 		req.logout();
+  		res.redirect('/');
+	});
 
 	app.post('/register', function(req, res){
 
@@ -65,6 +70,8 @@ module.exports = function(app){
 		} else{res.render('home')}
 		
 	});
+
+
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){
