@@ -24,7 +24,7 @@ gulp.task('sass', function () {
     	//includePaths: ['styles'].concat(neat)
     
     /*default css destination, Gulp will create this file*/
-    .pipe(gulp.dest('styles'));
+    .pipe(gulp.dest('assets/styles'));
 });
  
 gulp.task('sass:watch', function () {
