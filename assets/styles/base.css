@@ -1,9 +1,13 @@
 /* requiring bourbon has to come before other imports*/
 /*the file that contains the color variables. MUST begin with underscore*/
-/*imports the partial scss file to make an amalgam of a single css file for the client*/
-/* styling for tables, refactor to sass */
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+.page-header {
+  color: #3399ff; }
+
+/*imports the partial scss file to make an amalgam of a single css file for the client*/
+/*these files also begin with underscore*/
+/* styling for tables, refactor to sass */
 table {
   margin: 10px; }
 
@@ -101,27 +105,30 @@ header.explore {
     background: #3cba90;
     color: #ffffff; }
 
+.page-header {
+  color: #3399ff; }
+
 /*fonts*/
 h1 {
   font-family: 'Alegreya SC', serif;
-  color: #FF5252;
+  color: white;
   /* nested Sass syntax */ }
   h1 small {
-    color: blue; }
+    color: #333333; }
 
 .page-header {
-  background-color: #F44336; }
+  background-color: #3399ff; }
 
 /*logo/car icon*/
 /*background*/
 body {
-  background-color: #FFFFFF; }
+  background-color: #e6ffff; }
 
 /*footer style*/
 #footer {
   width: 100%;
-  background-color: #FF5252;
-  color: #727272; }
+  background-color: #3399ff;
+  color: white; }
 
 #copyright {
   background-color: green; }
