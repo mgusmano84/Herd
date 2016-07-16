@@ -13,15 +13,6 @@
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="/styles/base.css">
 	</head>
-<<<<<<< HEAD
-
-	<div class="page-header">
-		<img src="/images/small_white_car.png" alt="car icon">
-      	<h1 id="title"> Herd <small id="tagline"> Your carpools. Streamlined. </small></h1>
-    </div>
-
-=======
->>>>>>> 602691634c679187189807ffd5abd985665f2bd6
     
 	<body>
 
@@ -29,10 +20,20 @@
             <h1> Carpool Pass <small> Your carpools. Streamlined. </small></h1>
         </div>
 
-		{{{ body }}}
-
-	   <div id="copyright">
-            © 2016 Copyright
+        <div class="row">
+        	<div class="col-md-3">
+        		<div class="list-group">
+				  <a href="#" class="list-group-item active" id="User">{{user.firstName}}</a>
+				  <a href="#" class="list-group-item">Join/Create Group</a>
+				  <a href="#" class="list-group-item">Your Groups</a>
+				</div>
+        	</div>
+        	<div class="col-md-9">
+				{{{ body }}}
+			</div>
+	   
+       <div id="copyright">
+          	© 2016 Copyright
        </div>
-    </body>
+	</body>
 </html>
