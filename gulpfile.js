@@ -16,7 +16,7 @@ gulp.task('sass', function () {
 	/*will search for and compile all Sass files*/
   	gulp.src('assets/**/*.scss')
 
-    /*.pipe(sass().on('error', sass.logError))
+    //.pipe(sass().on('error', sass.logError))
     /*converts Sass to CSS within gulp-sass*/
     .pipe(sass({
     	includePaths: require('node-bourbon').includePaths

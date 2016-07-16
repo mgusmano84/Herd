@@ -1,7 +1,3 @@
-
-/*imports the partial scss file to make an amalgam of a single css file for the client*/
-@import: 'user';
-
 /*insert image into header*/
 
 /*header image in case we change our minds
@@ -31,7 +27,7 @@ font-family: 'Alegreya SC', serif;
 color: #FF5252;
 	/* nested Sass syntax */
 	small {
-		color: #;
+		color: blue;
 	}
 }
 

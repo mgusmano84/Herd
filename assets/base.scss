@@ -8,6 +8,6 @@
 
 /*imports the partial scss file to make an amalgam of a single css file for the client*/
 
-@import 'partials/user.scss';
-@import 'partials/home.scss';
-;
+@import 'partials/_user.scss';
+@import 'partials/_home.scss';
+@import "partials/_main.scss";
