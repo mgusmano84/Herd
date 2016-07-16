@@ -18,8 +18,9 @@ gulp.task('sass', function () {
 
     /*.pipe(sass().on('error', sass.logError))
     /*converts Sass to CSS within gulp-sass*/
-    //.pipe(sass({
-    	//includePaths: require('node-bourbon').includePaths
+    .pipe(sass({
+    	includePaths: require('node-bourbon').includePaths
+    }))
     	//includePaths: ['styles'].concat(neat)
     
     /*default css destination, Gulp will create this file*/
