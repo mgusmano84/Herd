@@ -1,9 +1,10 @@
 /* requiring bourbon has to come before other imports*/
+@import url(https://fonts.googleapis.com/css?family=Alegreya+SC);
 /*the file that contains the color variables. MUST begin with underscore*/
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 .page-header {
-  color: #3399ff; }
+  color: #6A98D7; }
 
 /*imports the partial scss file to make an amalgam of a single css file for the client*/
 /*these files also begin with underscore*/
@@ -84,6 +85,15 @@ header.explore {
     background-image: linear-gradient(to bottom right,#b80404, #052280);
     opacity: .2; }
 
+.btn-primary.raised {
+  box-shadow: 0 3px 0 0 #007299; }
+
+.btn-primary.raised:active, .btn-primary.raised.active {
+  background: #33a6cc;
+  box-shadow: none;
+  margin-bottom: -3px;
+  margin-top: 3px; }
+
 .cta_btn {
   background: #f7f7f7;
   padding: 7px 15px;
@@ -105,21 +115,37 @@ header.explore {
     background: #3cba90;
     color: #ffffff; }
 
-.page-header {
-  color: #3399ff; }
-
 /*fonts*/
 h1 {
   font-family: 'Alegreya SC', serif;
-  color: white;
+  color: #F5F0F1;
+  display: inline-block;
   /* nested Sass syntax */ }
   h1 small {
-    color: #333333; }
+    color: #151316; }
+  h1 #title {
+    display: inline-block !important;
+    vertical-align: middle; }
 
 .page-header {
-  background-color: #3399ff; }
+  padding-top: 20px;
+  margin: 0;
+  background-color: #6A98D7; }
 
 /*logo/car icon*/
+#logo {
+  float: left;
+  vertical-align: left; }
+
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0; }
+  .clearfix:after {
+    clear: both; }
+
 /*background*/
 body {
   background-color: #e6ffff; }
@@ -127,8 +153,8 @@ body {
 /*footer style*/
 #footer {
   width: 100%;
-  background-color: #3399ff;
-  color: white; }
+  background-color: #6A98D7;
+  color: #F5F0F1; }
 
 #copyright {
   background-color: green; }
