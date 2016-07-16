@@ -118,7 +118,7 @@ var orm = {
 			if (err) throw err;
 			
 			if (rows[0]) {
-				return done(null, {id:rows[0].userName, name: rows[0].firstName });
+				return done(null, {username:rows[0].userName, firstName: rows[0].firstName });
 			} else{
 				return done(null,null);
 			}

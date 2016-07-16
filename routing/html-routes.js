@@ -75,6 +75,7 @@ module.exports = function(app){
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){
+ 		console.log(req.user)
 		res.render('user',{
 			isAuthenticated: req.isAuthenticated(),
 			user: req.user
