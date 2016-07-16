@@ -1,5 +1,10 @@
 // requiring the connection to the db passing in the username and password 
 var db = require('./connection.js');
+var encrypto = require('crypto');
+var salt = 'salt orsomething';
+var password;
+var newPass;
+
 
 var orm = {
 
@@ -104,7 +109,15 @@ var orm = {
 
 	//finds user where username and password match user input
 	findUser: function(req ,username, pass, done) {
+
+		console.log(username, pass);
+
+		newPass = encrypto.createHmac('sha256', pass).update(salt).digest('hex');
 		
+		var queryString = 'SELECT * FROM users WHERE userName = ' + JSON.stringify(username) + ' AND userPassword = ' + JSON.stringify(newPass);
+		db.query(queryString, function(err, rows, fields) {
+			if (err) throw err;
+
 			
 			
 		
