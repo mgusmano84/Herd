@@ -1,18 +1,20 @@
-
+@import '_colors.scss';
 
 /*fonts*/
 
+$blue: #3399ff;
+
 h1 {
 font-family: 'Alegreya SC', serif;
-color: #FF5252;
+color: $light_text_color;
 	/* nested Sass syntax */
 	small {
-		color: blue;
+		color: $text_color;
 	}
 }
 
 .page-header {
-  background-color: #F44336;
+  background-color: $header_color;
 }
 
 /*logo/car icon*/
@@ -21,14 +23,14 @@ color: #FF5252;
 /*background*/
 body {
   
-	background-color: #FFFFFF;
+	background-color: $background_color;
 }
 
 /*footer style*/
 #footer {
   width: 100%;
-	background-color: #FF5252;
-	color: #727272;
+	background-color: $header_color;
+	color: $light_text_color;
 }
 
 #copyright {
