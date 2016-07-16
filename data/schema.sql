@@ -10,7 +10,7 @@ userName VARCHAR(30) NOT NULL,
 firstName VARCHAR(30) NOT NULL,
 lastName VARCHAR(30) NOT NULL,
 -- EXTENDED**
-userImage VARCHAR(10000),
+userImage VARCHAR(20000),
 -- EXTENDED**
 address VARCHAR(50) NOT NULL,
 -- EXTENDED**
@@ -43,11 +43,11 @@ PRIMARY KEY (groupID)
 INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES ("CoolGroup", "Save Gothem", "BatmanOrBust2", true, false), ("DogGroup", "Drive to the dog park.", "GoodDog", false, true);
 
 CREATE TABLE groupMembers (
-groupName VARCHAR(30) NOT NULL,
-memberName VARCHAR(30) NOT NULL
+groupId INTEGER(11) NOT NULL,
+userId INTEGER(11) NOT NULL
 );
 
-INSERT INTO groupMembers (groupName, memberName) VALUES ("CoolGroup", "BatmanOrBust2"), ("CoolGroup", "GoodDog");
+INSERT INTO groupMembers (groupId, userId) VALUES (1, 1), (1, 2), (2, 1), (2, 2);
 
 CREATE TABLE drivers (
 groupName VARCHAR(30) NOT NULL,
