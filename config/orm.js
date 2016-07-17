@@ -49,12 +49,12 @@ var orm = {
 	}, // end of searchTable function
 
 	// add a group to a user that is joinable by other users
-	addGroup: function(groupName, groupDescription, createdBy) {
+	addGroup: function(groupName, groupDescription,user) {
 
 		var post = [
 			groupName,
 			groupDescription,
-			createdBy
+			user
 		];
 
 		var query = db.query('INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES (?, ?, ?, false, false)', post, function(err, result) {
@@ -124,7 +124,12 @@ var orm = {
 			if (err) throw err;
 			
 			if (rows[0]) {
-				return done(null, {id:rows[0].userName, name: rows[0].firstName });
+				return done(null, {userName:rows[0].userName, 
+								   firstName: rows[0].firstName, 
+								   lastName:rows[0].firstName,
+								   email:rows[0].email,
+
+								});
 			} else{
 				return done(null,null);
 			}
