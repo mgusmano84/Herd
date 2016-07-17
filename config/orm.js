@@ -147,7 +147,7 @@ var orm = {
 		 db.query(queryString, [userId], function(err, result) {
 			if (err) throw err;
 			console.log(result);
-			res.render('results',{ layout: 'usermain',
+			res.render('yourgroups',{ layout: 'usermain',
 		 						results: result});
 			console.log(result);
 		});

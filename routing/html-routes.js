@@ -97,9 +97,9 @@ module.exports = function(app){
 		console.log(req.user);
 		console.log(res);
 
-		orm.searchUserGroups(req.user.userId, res);
+		orm.searchUserGroups(req.user.userID, res);
 
-		res.render('yourGroups', {})
+		res.render('yourgroups', {})
 	});
 
 	//default route 
