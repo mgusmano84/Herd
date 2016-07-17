@@ -1,26 +1,43 @@
 
-/*fonts*/
 
-
-
-h1 {
-font-family: 'Alegreya SC', serif;
-color: $light_text_color;
-display: inline-block;
-	/* nested Sass syntax */
-	small {
-		color: $text_color;
-	}
-  #title {
-    display: inline-block !important;
-    vertical-align: middle;
-  }
+/*background*/
+body {
+  
+	background-color: $background_color;
 }
+
+/*footer style*/
+#footer {
+  width: 100%;
+	background-color: $header_color;
+	color: $light_text_color;
+}
+
+#copyright {
+  background-color: green;
+}
+
+
+/*fonts*/
 
 .page-header {
   padding-top: 20px;
   margin: 0;
   background-color: $header_color;
+
+  h1 {
+  font-family: 'Alegreya SC', serif;
+  color: $light_text_color;
+  display: inline-block;
+    /* nested Sass syntax */
+    small {
+      color: $text_color;
+    }
+    #title {
+      display: inline-block !important;
+      vertical-align: middle;
+    }
+  }
 }
 
 /*logo/car icon*/
@@ -43,21 +60,4 @@ display: inline-block;
   &:after {
     clear: both;
   }
-}
-
-/*background*/
-body {
-  
-	background-color: $background_color;
-}
-
-/*footer style*/
-#footer {
-  width: 100%;
-	background-color: $header_color;
-	color: $light_text_color;
-}
-
-#copyright {
-  background-color: green;
 }
