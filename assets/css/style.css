@@ -1,4 +1,4 @@
-		#cent {
+/*		#cent {
 			text-align: center;
 		}
 		.head {
@@ -16,4 +16,8 @@
 		}
 		.wrapper {
     		text-align: center;
+		}*/
+		#home_buttons {
+			width: 50%;
+			margin: auto;
 		}
