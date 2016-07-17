@@ -61,6 +61,16 @@ header.explore {
     }
 }
 
+.jumbo {
+  background-color: $jumbo;
+}
+
+.modal-content {
+  h1 label {
+    background-color: $blue;
+  }
+}
+
 .btn-primary.raised {
   box-shadow: 0 3px 0 0 #007299;
 }
@@ -72,8 +82,4 @@ header.explore {
   margin-top: 3px;
 }
 
-.cta_btn {
-  @include main-button;
-  position: relative;
-  z-index: 999;
-}
+

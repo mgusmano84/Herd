@@ -85,6 +85,12 @@ header.explore {
     background-image: linear-gradient(to bottom right,#b80404, #052280);
     opacity: .2; }
 
+.jumbo {
+  background-color: #cccccc; }
+
+.modal-content h1 label {
+  background-color: #6A98D7; }
+
 .btn-primary.raised {
   box-shadow: 0 3px 0 0 #007299; }
 
@@ -94,43 +100,34 @@ header.explore {
   margin-bottom: -3px;
   margin-top: 3px; }
 
-.cta_btn {
-  background: #f7f7f7;
-  padding: 7px 15px;
-  color: #333333;
-  font-size: 18px;
-  text-decoration: none;
-  font-family: "Roboto Condensed", sans-serif;
-  /* Include Bourbon SASS transition */
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background 0.3s ease-in-out;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  position: relative;
-  z-index: 999; }
-  .cta_btn:hover {
-    background: #3cba90;
-    color: #ffffff; }
+/*background*/
+body {
+  background-color: #e6ffff; }
+
+/*footer style*/
+#footer {
+  width: 100%;
+  background-color: #6A98D7;
+  color: #F5F0F1; }
+
+#devs ul {
+  style: inline; }
 
 /*fonts*/
-h1 {
-  font-family: 'Alegreya SC', serif;
-  color: #F5F0F1;
-  display: inline-block;
-  /* nested Sass syntax */ }
-  h1 small {
-    color: #151316; }
-  h1 #title {
-    display: inline-block !important;
-    vertical-align: middle; }
-
 .page-header {
   padding-top: 20px;
   margin: 0;
   background-color: #6A98D7; }
+  .page-header h1 {
+    font-family: 'Alegreya SC', serif;
+    color: #F5F0F1;
+    display: inline-block;
+    /* nested Sass syntax */ }
+    .page-header h1 small {
+      color: #151316; }
+    .page-header h1 #title {
+      display: inline-block !important;
+      vertical-align: middle; }
 
 /*logo/car icon*/
 #logo {
@@ -145,16 +142,3 @@ h1 {
     line-height: 0; }
   .clearfix:after {
     clear: both; }
-
-/*background*/
-body {
-  background-color: #e6ffff; }
-
-/*footer style*/
-#footer {
-  width: 100%;
-  background-color: #6A98D7;
-  color: #F5F0F1; }
-
-#copyright {
-  background-color: green; }
