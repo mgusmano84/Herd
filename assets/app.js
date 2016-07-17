@@ -77,23 +77,29 @@ $('#registerSubmit').on('click',function(){
 //******USER PAGE******
 //*********************
 
-//on click for group search grabs input and posts as search
-$('#searchSubmit').on('click',function(){
-	if ($("#search")[0].checkValidity()){
-		
-		var searchTerm = $('#search').val().trim();
-		
-		$.get(app.currentURL + "/search", {search: searchTerm},
-		    function(data){
-		    	//TO DO do somthing with results of search
-		    });
-
-		return false;
-	}
-	else{
-		$("#search")[0].reportValidity()
-	}
+$('#find').on('click',function(){
+	$('#searchModal').modal('show');
+return false;
 });
+
+//on click for group search grabs input and posts as search
+// $('#searchSubmit').on('click',function(){
+// 	if ($("#searchForm")[0].checkValidity()){
+		
+// 		var searchTerm = $('#search').val().trim();
+// 		console.log(searchTerm);
+		
+// 		$.post("/search", {search:searchTerm},
+// 		    function(data){
+// 		    	console.log(data);
+// 		    });
+
+// 		return false;
+// 	}
+// 	else{
+// 		$("#searchForm")[0].reportValidity()
+// 	}
+// });
 
 //click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
 $('#join').on('click',function(){
