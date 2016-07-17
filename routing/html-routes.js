@@ -12,7 +12,7 @@ module.exports = function(app){
 	
 	// route to post to the login page
 	app.post('/login', passport.authenticate('local',{successRedirect: '/dashboard',
-														failureRedirect:'/'}));
+		failureRedirect:'/'}));
 	// logout
 	app.get('/logout', function(req, res){
  		req.logout();
@@ -76,7 +76,7 @@ module.exports = function(app){
 		console.log(req.body);
 		console.log(req.body.search);
 		
-				 orm.searchTable('groups','groupName',req.body.search, res);
+		orm.searchTable('groups','groupName',req.body.search, res);
 		
 	})
 
@@ -91,6 +91,16 @@ module.exports = function(app){
 
 
 	});
+
+	// this url lists the groups a user is currently in
+	app.get('/dashboard/yourgroups', function(req, res) {
+		
+		console.log(req.user.userID);
+
+		// calls the orm that searches the database for all the groups you are in
+		orm.searchUserGroups(req.user.userID, res);
+
+	}); // end of app.get/dashboard/yourgroups
 
 	//default route 
 	app.use(function(req, res){
