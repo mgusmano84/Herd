@@ -118,17 +118,7 @@ var orm = {
 			if (err) throw err;
 			
 			if (rows[0]) {
-				return done(null, { userID:rows[0].userID, 
-								    username:rows[0].userName, 
-								    firstName: rows[0].firstName, 
-								    lastName: rows[0].lastName,
-								    email: rows[0].email,
-								    userImage: rows[0].userImage,
-								    address: rows[0].address,
-								    city: rows[0].lastName,
-								    state: rows[0].state,
-								    zip: rows[0].zip,
-								    phoneNumber: rows[0].phoneNumber });
+				return done(null, {id:rows[0].userName, name: rows[0].firstName });
 			} else{
 				return done(null,null);
 			}
