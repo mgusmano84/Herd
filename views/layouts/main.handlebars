@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="/app.js"></script>
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="/styles/base.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
 	</head>
 
 
@@ -26,9 +26,47 @@
       
 
 		{{{ body }}}
-
-	   <div id="copyright">
-            © 2016 Copyright
-       </div>
+        <div id="footer">
+           <div id="copyright">
+                © 2016 Copyright
+           </div>
+            <div id="devs">
+                <ul>
+                    {{#each devs}}
+                        <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        
+<script>        
+        var devs = [
+    {
+        name: "Matthew Gusmano",
+        gh: "https://github.com/mgusmano84",
+        li: "https://www.linkedin.com/in/matthew-gusmano-05b333b1"
+    },
+    {
+        name: "Crystal Williams",
+        gh: "https://github.com/CORT0619",
+        li: "https://www.linkedin.com/in/crystal-williams-92b28b10"
+    },
+    {
+        name: "Caleb McKinely",
+        gh: "https://github.com/CMcKinley",
+        li: "https://www.linkedin.com/in/caleb-mckinley-8126a4119"
+    },
+    {
+        name: "Robert Prine",
+        gh: "https://github.com/robertprine2",
+        li: "https://www.linkedin.com/in/robertprine2"
+    },
+    {
+        name: "Mary Hoag", 
+        gh: "https://github.com/maryhoag",
+        li: "https://www.linkedin.com/in/maryhoag"
+    }
+    
+</script>
     </body>
 </html>
