@@ -124,7 +124,8 @@ var orm = {
 			if (err) throw err;
 			
 			if (rows[0]) {
-				return done(null, {userName:rows[0].userName, 
+				return done(null, {userID:rows[0].userID,
+								   userName:rows[0].userName, 
 								   firstName: rows[0].firstName, 
 								   lastName:rows[0].firstName,
 								   email:rows[0].email,
