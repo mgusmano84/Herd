@@ -15,28 +15,31 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
 		
 	</head>
+    <body>
 
-
-	<div class="page-header">
-		<img src="/images/small_white_car.png" alt="car icon">
-      	<h1 id="title"> Herd <small id="tagline"> Your carpools. Streamlined. </small></h1>
-    </div>
+    	<div class="page-header">
+    		<img src="/images/small_white_car.png" alt="car icon">
+          	<h1 id="title"> Herd <small id="tagline"> Your carpools. Streamlined. </small></h1>
+        </div>
     
-	<body>
+        <div class="row">
+		    <div class="col-12-md">
+                {{{ body }}}
+            </div>
+        </div>
 
-      
-
-		{{{ body }}}
-        <div id="footer">
-           <div id="copyright">
-                © 2016 Copyright
-           </div>
-            <div id="devs">
-                <ul>
-                    {{#each devs}}
-                        <li>{{name}}</li>
-                    {{/each}}
-                </ul>
+        <div class="container-fluid">
+            <div id="footer">
+                <div id="copyright">
+                    <p>© 2016 Copyright</p>
+                </div>
+                <div id="devs">
+                    <ul>
+                        {{#each devs}}
+                            <li>{{name}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
         </div>
         
