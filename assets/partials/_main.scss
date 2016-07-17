@@ -13,8 +13,10 @@ body {
 	color: $light_text_color;
 }
 
-#copyright {
-  background-color: green;
+#devs {
+    ul {
+        style: inline;
+    }
 }
 
 
