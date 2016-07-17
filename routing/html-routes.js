@@ -73,7 +73,14 @@ module.exports = function(app){
 		
 	});
 
-
+	app.post('/search', function(req, res){
+		
+		console.log(req.body);
+		console.log(req.body.search);
+		
+				 orm.searchTable('groups','groupName',req.body.search, res);
+		
+	})
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){

@@ -24,7 +24,7 @@
         	<div class="col-md-3">
         		<div class="list-group">
 				  <a href="#" class="list-group-item active" id="User">{{user.firstName}}</a>
-				  <a href="#" class="list-group-item">Find/Join Groups</a>
+				  <a href="#" class="list-group-item" id="find">Find/Join Groups</a>
 				  <a href="#" class="list-group-item" id="create">Create a new Group</a>
 				  <a href="#" class="list-group-item">Your Groups</a>
 				</div>
@@ -48,13 +48,33 @@
         			<form  id="createForm">
   						<div class="form-group">
     						<label for="groupName">Group Name</label>
-    						<input type="text" class="form-control" id="groupName" placeholder="name">
+    						<input type="text" class="form-control" id="groupName" placeholder="name" required>
  						</div>
   						<div class="form-group">
     						<label for="userImg">Group Description</label>
-    						<input type="text" class="form-control" id="description" placeholder="description">
+    						<input type="text" class="form-control" id="description" placeholder="description" required>
   						</div>
-  						<a  class="btn btn-default" id="createSubmit">Submit</a>
+  						<button  class="btn btn-default" id="createSubmit">Submit</button>
+					</form>
+      			</div>
+			</div>
+  		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="searchModal">
+		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<div class="modal-header">
+      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      				<h1 class="modal-title">Search</h1>
+      			</div>
+      			<div class="modal-body">
+        			<form method="post" action="/search" id="searchForm">
+  						<div class="form-group">
+    						<label for="search">Search For Groups by Name</label>
+    						<input type="text" class="form-control" id="search" placeholder="Group Name" name="search" required>
+ 						</div>
+  						<button class="btn btn-default" id="searchSubmit">Submit</button>
 					</form>
       			</div>
 			</div>

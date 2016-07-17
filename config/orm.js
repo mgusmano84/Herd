@@ -34,12 +34,18 @@ var orm = {
 
 	// ************needs to be added to routes
 	// searches different tables based on column and value of the column
-	searchTable: function(tableInput, colToSearch, valOfCol) {
+	searchTable: function(tableInput, colToSearch, valOfCol,res) {
+		console.log(valOfCol);
+		
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' = ?';
-		connection.query(queryString, [valOfCol], function(err, result) {
+		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
 			console.log(result);
+			res.render('results',{ layout: 'usermain',
+		 						results: result});
 		});
+		 
+
 	}, // end of searchTable function
 
 	// add a group to a user that is joinable by other users
