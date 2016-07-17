@@ -120,7 +120,9 @@ $('.group').on('click',function(){
 		$.get(app.currentURL + "/group", {group: $('#name').data('name')},
 
 		    function(data){
-		    	//should render the group page
+		    	if(data){
+
+		    	}
 		    });
 
 		return false;
@@ -144,7 +146,9 @@ $('#createSubmit').on('click',function(){
 		//post group
 		$.post(app.currentURL + "/creategroup", group,
 		    function(data){
-		    	console.log(data);
+		    	if(data){
+		    	$('#createGroup').modal('hide');
+		    }
 		    });
 
 		console.log(group);
