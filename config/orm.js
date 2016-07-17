@@ -34,21 +34,27 @@ var orm = {
 
 	// ************needs to be added to routes
 	// searches different tables based on column and value of the column
-	searchTable: function(tableInput, colToSearch, valOfCol) {
+	searchTable: function(tableInput, colToSearch, valOfCol,res) {
+		console.log(valOfCol);
+		
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' = ?';
-		connection.query(queryString, [valOfCol], function(err, result) {
+		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
 			console.log(result);
+			res.render('results',{ layout: 'usermain',
+		 						results: result});
 		});
+		 
+
 	}, // end of searchTable function
 
 	// add a group to a user that is joinable by other users
-	addGroup: function(groupName, groupDescription, createdBy) {
+	addGroup: function(groupName, groupDescription,user) {
 
 		var post = [
 			groupName,
 			groupDescription,
-			createdBy
+			user
 		];
 
 		var query = db.query('INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES (?, ?, ?, false, false)', post, function(err, result) {
@@ -118,7 +124,13 @@ var orm = {
 			if (err) throw err;
 			
 			if (rows[0]) {
-				return done(null, {id:rows[0].userName, name: rows[0].firstName });
+				return done(null, {userID:rows[0].userID,
+								   userName:rows[0].userName, 
+								   firstName: rows[0].firstName, 
+								   lastName:rows[0].firstName,
+								   email:rows[0].email,
+
+								});
 			} else{
 				return done(null,null);
 			}

@@ -57,8 +57,8 @@ module.exports = function(app){
 	app.post('/creategroup', function(req, res){
 
 		// creates data in MySQL for a new group
-		orm.addGroup(req.body.name, req.body.description, req.body.createdBy);
-
+		orm.addGroup(req.body.name, req.body.description, req.user.firstName);
+		res.send(true);
 	});
 
 	app.get('/', function(req, res){
@@ -71,7 +71,14 @@ module.exports = function(app){
 		
 	});
 
-
+	app.post('/search', function(req, res){
+		
+		console.log(req.body);
+		console.log(req.body.search);
+		
+				 orm.searchTable('groups','groupName',req.body.search, res);
+		
+	})
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){
