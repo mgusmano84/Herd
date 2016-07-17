@@ -12,7 +12,7 @@ module.exports = function(app){
 	
 	// route to post to the login page
 	app.post('/login', passport.authenticate('local',{successRedirect: '/dashboard',
-														failureRedirect:'/'}));
+		failureRedirect:'/'}));
 	// logout
 	app.get('/logout', function(req, res){
  		req.logout();
@@ -76,7 +76,7 @@ module.exports = function(app){
 		console.log(req.body);
 		console.log(req.body.search);
 		
-				 orm.searchTable('groups','groupName',req.body.search, res);
+		orm.searchTable('groups','groupName',req.body.search, res);
 		
 	})
 
@@ -90,6 +90,16 @@ module.exports = function(app){
 	} else{res.redirect('/') }
 
 
+	});
+
+	app.get('/dashboard/yourgroups', function(req, res) {
+		
+		console.log(req.user);
+		console.log(res);
+
+		orm.searchUserGroups(req.user.userId, res);
+
+		res.render('yourGroups', {})
 	});
 
 	//default route 

@@ -159,4 +159,5 @@ $('#createSubmit').on('click',function(){
 	}
 }); // end of submit modal form to store group object
 
+
 }); // end of document.ready function

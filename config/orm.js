@@ -138,7 +138,21 @@ var orm = {
 		
 	}, // finds user by username and password,
 
+	// searches for all the groups that a user is in
+	searchUserGroups: function(userId, res) {
+		console.log(userId);
+		
+		var queryString = 'SELECT groupName FROM groups JOIN groupMembers ON groups.groupID = groupMembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
+		 db.query(queryString, [userId], function(err, result) {
+			if (err) throw err;
+			console.log(result);
+			res.render('results',{ layout: 'usermain',
+		 						results: result});
+			console.log(result);
+		});
+		 
 
+	}, // end of searchUserGroups function
 
 } // end of orm object
 
