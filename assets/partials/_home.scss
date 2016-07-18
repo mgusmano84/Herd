@@ -63,7 +63,11 @@ header.explore {
 }
 
 .mainbutts {
+   .btn-block {
+    padding: 3px;
+    margin: 15px;
     font-family: $header_font;
+    }
 }
 
 .jumbo {
