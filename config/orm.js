@@ -34,7 +34,7 @@ var orm = {
 
 	// ************needs to be added to routes
 	// searches different tables based on column and value of the column
-	searchTable: function(tableInput, colToSearch, valOfCol,res) {
+	searchTable: function(tableInput, colToSearch, valOfCol,res,user) {
 		console.log(valOfCol);
 		
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' = ?';
@@ -42,13 +42,15 @@ var orm = {
 			if (err) throw err;
 			console.log(result);
 			res.render('results',{ layout: 'usermain',
-		 						results: result});
+		 						results: result,
+		 						user: user
+		 					    });
 		});
 		 
 
 	}, // end of searchTable function
 
-	displayGroup: function(table, column, whatToSearch, pageToSendResult, res) {
+	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
 		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
 
@@ -56,7 +58,7 @@ var orm = {
 
 				if (err) throw err;
 
-				res.render(pageToSendResult, {layout: 'usermain', results: result});
+				res.render(pageToSendResult, {layout: 'usermain', results: result, user: user});
 
 			});		 						
 	}, 
@@ -86,7 +88,7 @@ var orm = {
 			memberUserName
 		];
 
-		var query = db.query('INSERT INTO groupMembers (groupName, memberName) VALUES (?, ?)', post, function(err, result) {
+		var query = db.query('INSERT INTO groupMembers (groupID, userID) VALUES (?, ?)', post, function(err, result) {
 			if (err) throw err;
 			console.log(result);
 		});
@@ -138,6 +140,7 @@ var orm = {
 			if (err) throw err;
 			
 			if (rows[0]) {
+
 				return done(null, {userID:rows[0].userID,
 								   userName:rows[0].userName, 
 								   firstName: rows[0].firstName, 
