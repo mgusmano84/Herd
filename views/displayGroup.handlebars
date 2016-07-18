@@ -1,6 +1,6 @@
 <div style="background-color: #FFF; margin: 0 auto; border-radius: 4px; padding: 10px 0px 10px 10px">
 {{#each results}}
-<h3 style="font-weight: bold">{{groupName}}</h3>
+<h3 style="font-weight: bold" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
 
 <h4>Description</h4>
 <p>{{groupDescription}}</p>
@@ -9,5 +9,5 @@
 
 {{/each}}
 
-<input type="submit" value="Join">
+<input type="submit" value="Join" id="join">
 </div>
