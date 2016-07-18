@@ -8,24 +8,6 @@
 
 /*imports the partial scss file to make an amalgam of a single css file for the client*/
 /*these files also begin with underscore*/
-/* styling for tables, refactor to sass */
-table {
-  margin: 10px; }
-
-th, td {
-  padding: 5px;
-  border: 1px solid #999; }
-
-th {
-  background: #ccc; }
-
-tr:nth-child(odd) {
-  background: #eee; }
-
-td a {
-  color: #000;
-  text-decoration: underline; }
-
 /*stying for material style button*/
 /*totally using this if I can figure out how to add bourbon*/
 /*body {
@@ -53,6 +35,9 @@ a {
     -ms-transform: translateY(-5px);
     -o-transform: translateY(-5px);
     transform: translateY(-5px); }
+
+._user_footer {
+  background-color: #e6ffff; }
 
 header {
   padding: 200px 0;
