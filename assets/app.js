@@ -82,6 +82,14 @@ $('#find').on('click',function(){
 return false;
 });
 
+
+//Create blue highlight when selecting elements in usermain page
+$('.clickable').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
+});
+
+
+
 //on click for group search grabs input and posts as search
 // $('#searchSubmit').on('click',function(){
 // 	if ($("#searchForm")[0].checkValidity()){
