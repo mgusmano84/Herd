@@ -76,7 +76,7 @@ module.exports = function(app){
 		console.log(req.body);
 		console.log(req.body.search);
 		
-		orm.searchTable('groups','groupName',req.body.search, res);
+		orm.searchTable('groups','groupName',req.body.search, res, req.user);
 		
 	});
 
@@ -84,11 +84,16 @@ module.exports = function(app){
 
 		var group = req.params.groupId;
 
-		/*var groupInfo = */orm.displayGroup('groups', 'groupID', group, 'displayGroup', res);
+		/*var groupInfo = */orm.displayGroup('groups', 'groupID', group, 'displayGroup', res, req.user);
 
 		//res.render('displayGroup'/*, {GroupName: groupInfo.groupName}*/);
 
 	});
+
+	app.post('/join', function(req, res){
+		console.log(req.group);
+		orm.addGroupMember(req.body.group, req.user.userID)
+	})
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){
