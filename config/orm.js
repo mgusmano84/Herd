@@ -48,6 +48,46 @@ var orm = {
 
 	}, // end of searchTable function
 
+	displayGroup: function(table, column, whatToSearch/*, res*/) {
+
+		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
+
+		return new Promise(function(resolved, rejected){
+
+			 db.query(queryString, whatToSearch, function(err, result) {
+				if (err) throw err;
+				//return result;
+
+				setTimeout(function(){
+					resolved(result);
+				}, 10000);
+				//resolved(result);
+				//console.log(result);
+						/*res.render('results',{ layout: 'usermain',
+					 						results: result});*/
+				
+				setTimeout(function(){
+					return result;
+				}, 10000);
+
+			});		 						
+			// }).then(function(res){
+			// 	console.log(res);
+			// });
+
+		}).then(function(res){
+				console.log(res);
+				return res;
+				//return deferred.promise;
+				//return "blah";
+		});
+
+		return result;
+
+		 
+
+	}, 
+
 	// add a group to a user that is joinable by other users
 	addGroup: function(groupName, groupDescription,user) {
 

@@ -78,7 +78,20 @@ module.exports = function(app){
 		
 		orm.searchTable('groups','groupName',req.body.search, res);
 		
-	})
+	});
+
+	app.get('/search/:groupId', function(req, res){
+
+		var group = req.params.groupId;
+
+		var groupInfo = orm.displayGroup('groups', 'groupID', group);
+
+		//console.log("groupInfo.row[0] " + groupInfo.row[0]);
+		console.log("groupInfo is ", groupInfo);
+
+		res.render('displayGroup'/*, {GroupName: groupInfo.groupName}*/);
+
+	});
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){
