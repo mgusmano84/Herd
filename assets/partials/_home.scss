@@ -70,16 +70,18 @@ header.explore {
     }
 }
 
-.jumbo {
+#bootstrap-override {
   background-color: $jumbo;
     h1 {
-        color: $happy !important;
+        color: $happy;
     }
 }
 
-.modal-content {
-  h1 label {
-    background-color: $blue;
+#bootstrap-override {
+    .modal-content {
+        h1 label {
+            background-color: $paleblue;
+        }
   }
 }
 

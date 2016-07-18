@@ -67,13 +67,15 @@ header.explore {
     background-image: linear-gradient(to bottom right,#b80404, #052280);
     opacity: .2; }
 
-.mainbutts {
+.mainbutts .btn-block {
+  padding: 3px;
+  margin: 15px;
   font-family: "Roboto Condensed", sans-serif; }
 
-.jumbo {
+#bootstrap-override {
   background-color: #cccccc; }
-  .jumbo h1 {
-    color: #fe1b80 !important; }
+  #bootstrap-override h1 {
+    color: #fe1b80; }
 
 .modal-content h1 label {
   background-color: #6A98D7; }
