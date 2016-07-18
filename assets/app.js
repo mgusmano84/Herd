@@ -111,9 +111,9 @@ $('.clickable').click(function() {
 
 //click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
 $('#join').on('click',function(){
-	
-		$.post(app.currentURL + "/join", {user: userAuth,
-			group: $('#groupName').data('name')},
+	console.log($('#groupName').data('id'));
+		$.post(app.currentURL + "/join", {
+			group: $('#groupName').data('id')},
 		    function(data){
 		    	//add group to users groups 
 		    });
