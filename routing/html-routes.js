@@ -84,12 +84,9 @@ module.exports = function(app){
 
 		var group = req.params.groupId;
 
-		var groupInfo = orm.displayGroup('groups', 'groupID', group);
+		/*var groupInfo = */orm.displayGroup('groups', 'groupID', group, 'displayGroup', res);
 
-		//console.log("groupInfo.row[0] " + groupInfo.row[0]);
-		console.log("groupInfo is ", groupInfo);
-
-		res.render('displayGroup'/*, {GroupName: groupInfo.groupName}*/);
+		//res.render('displayGroup'/*, {GroupName: groupInfo.groupName}*/);
 
 	});
 

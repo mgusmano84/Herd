@@ -1,8 +1,13 @@
-<h3>{{GroupName}}</h3>
+<div style="background-color: #FFF; margin: 0 auto; border-radius: 4px; padding: 10px 0px 10px 10px">
+{{#each results}}
+<h3 style="font-weight: bold">{{groupName}}</h3>
 
-<h3>Description</h3>
-{{groupDescription}}
+<h4>Description</h4>
+<p>{{groupDescription}}</p>
 
-<h3>Drivers</h3>
+<h4>Drivers</h4>
+
+{{/each}}
 
 <input type="submit" value="Join">
+</div>
