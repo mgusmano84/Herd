@@ -48,6 +48,19 @@ var orm = {
 
 	}, // end of searchTable function
 
+	displayGroup: function(table, column, whatToSearch, pageToSendResult, res) {
+
+		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
+
+			 db.query(queryString, whatToSearch, function(err, result) {
+
+				if (err) throw err;
+
+				res.render(pageToSendResult, {layout: 'usermain', results: result});
+
+			});		 						
+	}, 
+
 	// add a group to a user that is joinable by other users
 	addGroup: function(groupName, groupDescription,user) {
 
