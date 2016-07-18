@@ -157,15 +157,16 @@ var orm = {
 	}, // finds user by username and password,
 
 	// searches for all the groups that a user is in
-	searchUserGroups: function(userId, res) {
-		console.log(userId);
+	searchUserGroups: function(user, res) {
+		
 		var options = {sql: 'root', nestTables: '_'}
 		var queryString = 'SELECT groups.groupName, groups.groupID FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
-		 db.query(queryString, [userId], function(err, result) {
+		 db.query(queryString, [user.userID], function(err, result) {
 			if (err) throw err;
 			console.log(result);
 			res.render('yourgroups',{ layout: 'usermain',
-		 						results: result});
+		 						results: result,
+		 					    user: user});
 			console.log(result);
 		});
 		 
