@@ -113,7 +113,7 @@ module.exports = function(app){
 		console.log(req.user.userID);
 
 		// calls the orm that searches the database for all the groups you are in
-		orm.searchUserGroups(req.user.userID, res);
+		orm.searchUserGroups(req.user, res);
 
 	}); // end of app.get/dashboard/yourgroups
 
