@@ -37,3 +37,7 @@ a {
     @include transform(translateY(-5px));
   }
 }
+
+._user_footer {
+    background-color: $background_color;
+}
