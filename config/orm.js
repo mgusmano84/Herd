@@ -160,7 +160,7 @@ var orm = {
 	searchUserGroups: function(userId, res) {
 		console.log(userId);
 		var options = {sql: 'root', nestTables: '_'}
-		var queryString = 'SELECT groups.groupName FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
+		var queryString = 'SELECT groups.groupName, groups.groupID FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
 		 db.query(queryString, [userId], function(err, result) {
 			if (err) throw err;
 			console.log(result);
