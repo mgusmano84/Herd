@@ -1,23 +1,13 @@
-/*		#cent {
-			text-align: center;
-		}
-		.head {
-			background-color: #3FD61A;
-		}
-		.mainbutts {
+#home_buttons {
+	width: 50%;
+	margin: auto;
+}
 
-			background-color: #5CC9F4;
-		}
-		.marg {
-			margin-bottom: 15px;
-			margin-top:15px;
-			text-align:  center;
-			font-size: 40px
-		}
-		.wrapper {
-    		text-align: center;
-		}*/
-		#home_buttons {
-			width: 50%;
-			margin: auto;
-		}
+/*.btn-6d {
+	border: 2px solid #226fbe;
+}
+
+.btn-6d:hover {
+	background: transparent;
+	color: #226fbe;
+}*/

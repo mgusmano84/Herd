@@ -82,6 +82,14 @@ $('#find').on('click',function(){
 return false;
 });
 
+
+//Create blue highlight when selecting elements in usermain page
+$('.clickable').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
+});
+
+
+
 //on click for group search grabs input and posts as search
 // $('#searchSubmit').on('click',function(){
 // 	if ($("#searchForm")[0].checkValidity()){
@@ -104,9 +112,9 @@ return false;
 
 //click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
 $('#join').on('click',function(){
-	
-		$.post(app.currentURL + "/join", {user: userAuth,
-			group: $('#groupName').data('name')},
+	console.log($('#groupName').data('id'));
+		$.post(app.currentURL + "/join", {
+			group: $('#groupName').data('id')},
 		    function(data){
 		    	//add group to users groups 
 		    });
