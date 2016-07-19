@@ -12,7 +12,7 @@ module.exports = function(app){
 	
 	// route to post to the login page
 	app.post('/login', passport.authenticate('local',{successRedirect: '/dashboard',
-		failureRedirect:'/'}));
+		failureRedirect:'/', failureMessage: 'Invalid username or password.'}));
 	// logout
 	app.get('/logout', function(req, res){
  		req.logout();
@@ -67,7 +67,9 @@ module.exports = function(app){
 			isAuthenticated: req.isAuthenticated(),
 			user: req.user
 		});
-		} else{res.render('home')}
+		} else{
+			res.render('home', {loginErr: req.session.messages || []});
+		}
 		
 	});
 

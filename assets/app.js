@@ -34,6 +34,18 @@ $('#successLoginSubmit').on('click',function(){
 	}
 }); // end of submit and posts form data for first time login
 
+
+//error for incorrect username or password
+	if($('#loginErrBody').val() != "Invalid username or password."){
+		$('#loginErr').modal('hide');
+	} else {
+		$('#loginErr').modal('show');
+		console.log("value is ", $('#loginErrBody').html());	
+	}
+
+
+/*$('#loginErr').modal();*/
+
 //register click function starts register modal
 $('#register').on('click',function(){
 	$('#registerModal').modal('show');
