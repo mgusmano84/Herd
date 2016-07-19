@@ -63,12 +63,12 @@ module.exports = function(app){
 
 	app.get('/', function(req, res){
 		if(req.isAuthenticated()){
-		res.render('user',{
-			isAuthenticated: req.isAuthenticated(),
-			user: req.user
-		});
+			res.render('user',{
+				isAuthenticated: req.isAuthenticated(),
+				user: req.user
+			});
 		} else{
-			res.render('home', {loginErr: req.session.messages || []});
+			res.render('home', {loginErr: req.session.messages ? req.session.messages[0] : ""});
 		}
 		
 	});

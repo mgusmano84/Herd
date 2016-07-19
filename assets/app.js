@@ -5,6 +5,7 @@ var app = {
 	user:{},
 }
 
+
 //*********************
 //******HOME PAGE******
 //*********************
@@ -36,15 +37,11 @@ $('#successLoginSubmit').on('click',function(){
 
 
 //error for incorrect username or password
-	if($('#loginErrBody').val() != "Invalid username or password."){
-		$('#loginErr').modal('hide');
-	} else {
-		$('#loginErr').modal('show');
-		console.log("value is ", $('#loginErrBody').html());	
-	}
 
-
-/*$('#loginErr').modal();*/
+//TODO: When refreshing and not logged in, modal pops up, fix this later
+if ($('#loginErrBody').text().trim() !== "") {
+	$('#loginErr').modal('show');
+}
 
 //register click function starts register modal
 $('#register').on('click',function(){
@@ -181,3 +178,7 @@ $('#createSubmit').on('click',function(){
 
 
 }); // end of document.ready function
+
+/*$(function(){
+	$('#loginErr').dialog();
+});*/
