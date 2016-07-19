@@ -127,16 +127,14 @@ $('#join').on('click',function(){
 
 $('#leave').on('click', function() {
 
-	$.post(app.currentURL + "/leave", { group: $(this).data('groupId')}, function(data) {
-		console.log(data);
-	}
-
-	});
+	$.post(app.currentURL + "/leave", ($(this).data('groupId')), function(data) {
+		
+	}); // end of post
 
 	$('#leave').hide();
 	$('#join').show();
 
-});
+}); // end of leave click event
 
 // button for different groups to take you to that groups page
 $('.group').on('click',function(){

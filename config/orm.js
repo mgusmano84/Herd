@@ -172,13 +172,17 @@ var orm = {
 
 	}, // end of searchUserGroups function
 
-	deleteUserGroup: function(groupId) {
-		var queryString = 'DELETE FROM groupMembers WHERE groupId = ? && userId = ?';
-		db.query(queryString, [groupId, user.userID], function(err, result) {
+	// delete a group from MySQL when you press the leave button
+	deleteUserGroup: function(groupId, req) {
+		var queryString = 'DELETE FROM groupMembers WHERE groupId = ? AND userId = ?';
+		console.log(req.user);
+		var query = db.query(queryString, [groupId, req.userID], function(err, result) {
 			if (err) throw err;
 			console.log(result);
+			
 		}); // end of query
-	}
+		console.log(query.sql);
+	} // end of deleteUserGroup function
 
 
 } // end of orm object
