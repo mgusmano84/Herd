@@ -30,6 +30,9 @@
   font-family: "Alegreya SC", serif;
   color: #fe1b80; }
 
+#bootstrap-override li:nth-child(2) {
+  margin: 20px; }
+
 /* ========== DEMO STYLES ========== */
 @font-face {
   font-family: 'Open Sans';
