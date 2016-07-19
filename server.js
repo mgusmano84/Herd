@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var expressSessions = require('express-session');
 var passport = require('passport');
 var passportLocal = require('passport-local');
+ 
 
 
 // creating an instance of express
