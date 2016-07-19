@@ -118,8 +118,19 @@ $('#join').on('click',function(){
 		    function(data){
 		    	//add group to users groups 
 		    });
+	$('#join').hide();
+	$('#leave').show();
 
 		return false;
+
+});
+
+$('#leave').on('click', function() {
+
+	
+
+	$('#leave').hide();
+	$('#join').show();
 
 });
 
