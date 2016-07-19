@@ -20,6 +20,26 @@
   </header>
 </div>
 
+ <!--              alternate button ideas
+              <button class="btn btn-6 btn-6d" type="submit" id="login">Login</button>
+              <button class="btn btn-6 btn-6d" type="submit" id="register">Register</button> -->
+       
+       <!--<div id="loginErr" title="Invalid Login">{{loginErr}}</div>-->
+
+<div class="modal fade bs-example-modal-sm" role="dialog" aria-labelledby="myLargeModalLabel" id="loginErr"  data-backdrop="static" title="Invalid Login">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title">Invalid Login</h3>
+          </div>
+          <div class="modal-body" id="loginErrBody">
+            {{loginErr}}
+          </div>
+
+    </div>
+    </div>
+</div>
 
 <!--login modal-->
 	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="loginModal"  data-backdrop="static">
