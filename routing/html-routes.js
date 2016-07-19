@@ -92,7 +92,11 @@ module.exports = function(app){
 
 	app.post('/join', function(req, res){
 		console.log(req.group);
-		orm.addGroupMember(req.body.group, req.user.userID)
+		orm.addGroupMember(req.group, req.user.userID);
+	});
+
+	app.post('/leave', function(req, res) {
+		orm.deleteUserGroup(req.body.group, req.user);
 	})
 
 	app.get('/dashboard',  function(req, res){
