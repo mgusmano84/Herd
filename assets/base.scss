@@ -4,11 +4,11 @@
 
 /*the file that contains the color variables. MUST begin with underscore*/
 @import '_colors.scss';
-
+@import '_fonts.scss';
 
 /*imports the partial scss file to make an amalgam of a single css file for the client*/
 /*these files also begin with underscore*/
-
+@import 'partials/test_home.scss';
 @import 'partials/_user.scss';
 @import 'partials/_home.scss';
 @import "partials/_main.scss";
