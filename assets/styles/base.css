@@ -67,7 +67,7 @@ header.explore {
     background-image: linear-gradient(to bottom right,#b80404, #052280);
     opacity: .2; }
 
-.mainbutts .btn-block {
+.btn-block {
   padding: 3px;
   margin: 15px;
   font-family: "Roboto Condensed", sans-serif; }
