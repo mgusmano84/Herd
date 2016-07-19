@@ -30,7 +30,15 @@
         font-family: $header-font;
         color: $happy;
     }
+    
+    li {
+      &:nth-child(2) {
+        margin: 20px;
+        }
+    }
 }
+
+
 
 
 /* ========== DEMO STYLES ========== */
