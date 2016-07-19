@@ -5,6 +5,7 @@ var app = {
 	user:{},
 }
 
+
 //*********************
 //******HOME PAGE******
 //*********************
@@ -33,6 +34,14 @@ $('#successLoginSubmit').on('click',function(){
 		$("#loginForm")[0].reportValidity()
 	}
 }); // end of submit and posts form data for first time login
+
+
+//error for incorrect username or password
+
+//TODO: When refreshing and not logged in, modal pops up, fix this later
+if ($('#loginErrBody').text().trim() !== "") {
+	$('#loginErr').modal('show');
+}
 
 //register click function starts register modal
 $('#register').on('click',function(){
@@ -109,6 +118,7 @@ $('.clickable').click(function() {
 // 	}
 // });
 
+
 //click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
 $('#join').on('click',function(){
 	console.log($('#groupName').data('id'));
@@ -117,10 +127,23 @@ $('#join').on('click',function(){
 		    function(data){
 		    	//add group to users groups 
 		    });
+	$('#join').hide();
+	$('#leave').show();
 
 		return false;
 
 });
+
+$('#leave').on('click', function() {
+	
+	$.post(app.currentURL + "/leave", {groupId: ($('#groupName').data('id'))}, function(data) {
+		
+	}); // end of post
+
+	$('#leave').hide();
+	$('#join').show();
+
+}); // end of leave click event
 
 // button for different groups to take you to that groups page
 $('.group').on('click',function(){
@@ -169,3 +192,7 @@ $('#createSubmit').on('click',function(){
 
 
 }); // end of document.ready function
+
+/*$(function(){
+	$('#loginErr').dialog();
+});*/

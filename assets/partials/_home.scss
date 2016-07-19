@@ -6,13 +6,21 @@
 
 
 .mainbutts {
+<<<<<<< HEAD
     display: inline;
     .btn {
         font-family: $header_font;
     }
+   .btn-block {
+    padding: 3px;
+    margin: 15px;
+    font-family: $header_font;
+
+    }
 }
 
 #bootstrap-override {
+
     #jumbo {
         background-color: $jumbo;
             h1 {
@@ -30,6 +38,20 @@
     }
 }
 
+
+  background-color: $jumbo;
+    h1 {
+        color: $happy;
+    }
+}
+
+#bootstrap-override {
+    .modal-content {
+        h1 label {
+            background-color: $paleblue;
+        }
+  }
+}
 
 
 .btn-primary.raised {

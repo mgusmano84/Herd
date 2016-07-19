@@ -87,6 +87,7 @@ a {
 ._user_footer {
   background-color: #eeeeee; }
 
+<<<<<<< HEAD
 .mainbutts {
   display: inline; }
   .mainbutts .btn {
@@ -101,6 +102,50 @@ a {
   font-family: "Alegreya SC", serif; }
 
 #bootstrap-override .modal-content h1 label {
+=======
+header {
+  padding: 200px 0;
+  text-align: center;
+  background: url("/images/cars.jpeg") no-repeat center center;
+  background-size: auto 100%;
+  position: relative;
+  -webkit-transition: background-size 0.5s;
+  -moz-transition: background-size 0.5s;
+  transition: background-size 0.5s; }
+  header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    transition: opacity 1s ease; }
+
+header.explore {
+  background-size: auto 105%; }
+  header.explore:before {
+    background-color: #b80404;
+    background-image: -webkit-linear-gradient(top left, #b80404, #052280);
+    background-image: linear-gradient(to bottom right,#b80404, #052280);
+    opacity: .2; }
+
+.btn-block {
+  padding: 3px;
+  margin: 15px;
+  font-family: "Roboto Condensed", sans-serif; }
+
+#bootstrap-override {
+  background-color: #cccccc; }
+  #bootstrap-override h1 {
+    color: #fe1b80; }
+
+.modal-content h1 label {
+>>>>>>> 543183e8f5e160493b4a52d9afdbcbf8d061fb73
   background-color: #6A98D7; }
 
 .btn-primary.raised {
