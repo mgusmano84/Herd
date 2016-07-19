@@ -40,7 +40,7 @@ PRIMARY KEY (groupID)
 );
 
 -- Dummy Data for groups table
-INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES ("CoolGroup", "Save Gothem", "BatmanOrBust2", true, false), ("DogGroup", "Drive to the dog park.", "GoodDog", false, true);
+INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES ("CoolGroup", "Save Gothem", "BatmanOrBust2", true, false), ("DogGroup", "Drive to the dog park.", "GoodDog", false, true), ("EmmaGroup", "playground", "Emma", true, false);
 
 CREATE TABLE groupMembers (
 groupId INTEGER(11) NOT NULL,
@@ -53,6 +53,7 @@ CREATE TABLE drivers (
 groupName VARCHAR(30) NOT NULL,
 driverUserName VARCHAR(30) NOT NULL,
 seatsAvailable INTEGER(5) NOT NULL,
+dateDriving VARCHAR(1000) NOT NULL,
 -- EXTENDED**Start off at zero on account creation
 milesDriven DECIMAL(30, 2),
 -- EXTENDED**Starts at 0
@@ -64,14 +65,14 @@ driverRating INTEGER(2)
 );
 
 -- Dummy Data for drivers table
-INSERT INTO drivers (groupName, driverUserName, seatsAvailable, milesDriven, daysDriving, timeHoursDriving, driverRating) VALUES ("CoolGroup", "BatmanOrBust2", 3, 45.33, 7, 1.2, 9), ("DogGroup", "GoodDog", 1, 0, 0, 0, null); 
+INSERT INTO drivers (groupName, driverUserName, seatsAvailable, dateDriving, milesDriven, daysDriving, timeHoursDriving, driverRating) VALUES ("CoolGroup", "BatmanOrBust2", 3, "Mondays", 45.33, 7, 1.2, 9), ("DogGroup", "GoodDog", 1, "Never", 0, 0, 0, null); 
 
 CREATE TABLE passengers (
-driverUserName VARCHAR(30) NOT NULL,
-passengerUserName VARCHAR(30) NOT NULL
+driverUserId INTEGER(11) NOT NULL,
+passengerUserId INTEGER(11) NOT NULL
 );
 
-INSERT INTO passengers (driverUserName, passengerUserName) VALUES ("BatmanOrBust2", "GoodDog");
+INSERT INTO passengers (driverUserId, passengerUserId) VALUES (1, 2);
 
 CREATE TABLE userDirections (
 userDestinationID INTEGER(11) AUTO_INCREMENT NOT NULL,
