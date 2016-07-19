@@ -7,8 +7,8 @@
 
 <h4>Drivers</h4>
 
-{{/each}}
-
-<input type="submit" value="Join" id="join">
-<input type="submit" value="Leave" id="leave" style="display: none;">
+<input type="submit" value="Join" data-groupId="{{groupID}}" id="join">
+<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;">
 </div>
+
+{{/each}}

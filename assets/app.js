@@ -127,7 +127,11 @@ $('#join').on('click',function(){
 
 $('#leave').on('click', function() {
 
-	
+	$.post(app.currentURL + "/leave", { group: $(this).data('groupId')}, function(data) {
+		console.log(data);
+	}
+
+	});
 
 	$('#leave').hide();
 	$('#join').show();

@@ -161,17 +161,25 @@ var orm = {
 		
 		var options = {sql: 'root', nestTables: '_'}
 		var queryString = 'SELECT groups.groupName, groups.groupID FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
-		 db.query(queryString, [user.userID], function(err, result) {
+		db.query(queryString, [user.userID], function(err, result) {
 			if (err) throw err;
 			console.log(result);
 			res.render('yourgroups',{ layout: 'usermain',
 		 						results: result,
 		 					    user: user});
 			console.log(result);
-		});
-		 
+		}); // end of query
 
 	}, // end of searchUserGroups function
+
+	deleteUserGroup: function(groupId) {
+		var queryString = 'DELETE FROM groupMembers WHERE groupId = ? && userId = ?';
+		db.query(queryString, [groupId, user.userID], function(err, result) {
+			if (err) throw err;
+			console.log(result);
+		}); // end of query
+	}
+
 
 } // end of orm object
 
