@@ -101,6 +101,7 @@ return false;
 // 	}
 // });
 
+
 //click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
 $('#join').on('click',function(){
 	
