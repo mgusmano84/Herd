@@ -118,6 +118,7 @@ $('.clickable').click(function() {
 // 	}
 // });
 
+
 //click function allows user to join the group, posts userAuth info and the name of the group to be joined*******Needs to then add that group to user's groups on the page***
 $('#join').on('click',function(){
 	console.log($('#groupName').data('id'));
@@ -126,10 +127,23 @@ $('#join').on('click',function(){
 		    function(data){
 		    	//add group to users groups 
 		    });
+	$('#join').hide();
+	$('#leave').show();
 
 		return false;
 
 });
+
+$('#leave').on('click', function() {
+	console.log(($this).data('groupId'));
+	$.post(app.currentURL + "/leave", {groupId: ($(this).data('groupId'))}, function(data) {
+		
+	}); // end of post
+
+	$('#leave').hide();
+	$('#join').show();
+
+}); // end of leave click event
 
 // button for different groups to take you to that groups page
 $('.group').on('click',function(){
