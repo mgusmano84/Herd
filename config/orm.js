@@ -114,14 +114,14 @@ var orm = {
 
 	// ************needs to be added to routes
 	// adds passengers to a driver most likely on the group page
-	addPassengers: function(driverUserName, passengerUserName) {
+	addPassengers: function(driverUserId, passengerUserId) {
 
 		var post = [
-			driverUserName,
-			passengerUserName
+			driverUserId,
+			passengerUserId
 		];
 
-		var query = db.query('INSERT INTO passengers (driverUserName, passengerUserName) VALUES (?, ?)', post, function(err, result) {
+		var query = db.query('INSERT INTO passengers (driverUserId, passengerUserId) VALUES (?, ?)', post, function(err, result) {
 			if (err) throw err;
 			console.log(result);
 		});

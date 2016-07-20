@@ -135,8 +135,9 @@ $('#join').on('click',function(){
 });
 
 $('#leave').on('click', function() {
-	
+	console.log($('#groupName').data('id'));
 	$.post(app.currentURL + "/leave", {groupId: ($('#groupName').data('id'))}, function(data) {
+	
 		
 	}); // end of post
 
