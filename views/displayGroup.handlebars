@@ -1,14 +1,14 @@
-<div style="background-color: #FFF; margin: 0 auto; border-radius: 4px; padding: 10px 0px 10px 10px; width: 80%">
+<div style="background-color: #FFF; margin: 0 auto; border-radius: 4px; padding: 10px 0px 10px 50px; width: 80%">
 {{#each results}}
-<h3 style="font-weight: bold" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
+<h3 style="font-weight: bold; padding-bottom: 10px" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
 
-<h4>Description</h4>
+<p class="groupHeaders">Description</p>
 <p>{{groupDescription}}</p>
 
-<h4>Drivers</h4>
+<p class="groupHeaders">Drivers</p>
 
-<input type="submit" value="Join" data-groupId="{{groupID}}" id="join">
-<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;">
+<input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
+<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;" class="btn btn-primary">
 </div>
 
 {{/each}}
