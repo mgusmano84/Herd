@@ -50,6 +50,7 @@ userId INTEGER(11) NOT NULL
 INSERT INTO groupMembers (groupId, userId) VALUES (1, 1), (1, 2), (2, 1), (2, 2);
 
 CREATE TABLE drivers (
+driverId INTEGER(11) AUTO_INCREMENT NOT NULL,
 groupName VARCHAR(30) NOT NULL,
 driverUserName VARCHAR(30) NOT NULL,
 seatsAvailable INTEGER(5) NOT NULL,
@@ -61,18 +62,19 @@ daysDriving INTEGER(30),
 -- EXTENDED**Starts at 0
 timeHoursDriving DECIMAL(30, 1),
 -- EXTENDED**Starts as null
-driverRating INTEGER(2)
+driverRating INTEGER(2),
+PRIMARY KEY (driverId)
 );
 
 -- Dummy Data for drivers table
 INSERT INTO drivers (groupName, driverUserName, seatsAvailable, dateDriving, milesDriven, daysDriving, timeHoursDriving, driverRating) VALUES ("CoolGroup", "BatmanOrBust2", 3, "Mondays", 45.33, 7, 1.2, 9), ("DogGroup", "GoodDog", 1, "Never", 0, 0, 0, null); 
 
 CREATE TABLE passengers (
-driverUserId INTEGER(11) NOT NULL,
+driverId INTEGER(11) NOT NULL,
 passengerUserId INTEGER(11) NOT NULL
 );
 
-INSERT INTO passengers (driverUserId, passengerUserId) VALUES (1, 2);
+INSERT INTO passengers (driverId, passengerUserId) VALUES (1, 2);
 
 CREATE TABLE userDirections (
 userDestinationID INTEGER(11) AUTO_INCREMENT NOT NULL,
