@@ -191,6 +191,25 @@ $('#createSubmit').on('click',function(){
 	}
 }); // end of submit modal form to store group object
 
+$('#driver').on('click', function(){
+	$('#driverModal').modal('show');
+});
+
+$('#driverSubmit').on('click', function(){
+	console.log($('#driver').data('name'));
+if ($("#driverForm")[0].checkValidity()){
+	$.post(app.currentURL + "/driver", { groupName: $('#driver').data('name'),
+										 seats: $('#seats').val().trim(),
+										 info: $('#info').val().trim()},
+		    function(data){
+		    	if(data){
+		    	$('#driverModal').modal('hide');
+		    }
+		    });
+} else{$("#driverForm")[0].reportValidity()}
+return false;
+});
+
 
 }); // end of document.ready function
 
