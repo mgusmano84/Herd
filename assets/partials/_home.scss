@@ -6,7 +6,6 @@
 
 
 .mainbutts {
-<<<<<<< HEAD
     display: inline;
     .btn {
         font-family: $header_font;
@@ -21,12 +20,6 @@
 
 #bootstrap-override {
 
-    #jumbo {
-        background-color: $jumbo;
-            h1 {
-                color: $happy;
-            }
-    }
     .btn {
         font-family: $header_font;
     }
@@ -35,7 +28,7 @@
       h1 label {
         background-color: $blue;
       }
-    }
+    
 }
 
 
@@ -48,7 +41,7 @@
 #bootstrap-override {
     .modal-content {
         h1 label {
-            background-color: $paleblue;
+            background-color: $pale_blue;
         }
   }
 }
