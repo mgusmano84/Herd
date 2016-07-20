@@ -173,6 +173,41 @@ var orm = {
 
 	}, // end of searchUserGroups function
 
+	// searches for all the drivers that are attached to a group
+	searchDrivers: function(driverId, res) {
+		
+		var options = {sql: 'root', nestTables: '_'}
+		var queryString = 'SELECT driverUserName FROM drivers WHERE groupId = ?';
+		db.query(queryString, [/*groupId*/], function(err, driverNames) {
+			if (err) throw err;
+			console.log(driverNames);
+			//*********Haven't finished this part!!!! I wanted to test what it returned first
+			res.render('displayGroup',{ layout: 'usermain',
+		 						names: driverNames,
+		 					    user: user});
+			console.log(result);
+		}); // end of query
+
+	}, // end of searchDrivers function
+
+	// searches for all the passengers that are attached to a driver
+	searchPassengers: function(driverId, res) {
+		
+		var options = {sql: 'root', nestTables: '_'}
+		var queryString = 'SELECT users.userName, users.userID FROM users JOIN passengers ON users.userID = passengers.passengerUserId JOIN drivers ON passengers.driverId = drivers.driverId WHERE users.userID = ?';
+		//**************still needs to pass the dervers userID which we need to get from the drivers info or data on a driver button
+		db.query(queryString, [user.userID], function(err, passengerNames) {
+			if (err) throw err;
+			console.log(passengerNames);
+			//*********Haven't finished this part!!!! I wanted to test what it returned first
+			res.render('displayGroup',{ layout: 'usermain',
+		 						names: passengerNames,
+		 					    user: user});
+			console.log(result);
+		}); // end of query
+
+	}, // end of searchPassengers function
+
 	// delete a group from MySQL when you press the leave button
 	deleteUserGroup: function(groupId, req) {
 		var queryString = 'DELETE FROM groupMembers WHERE groupId = ? AND userId = ?';
