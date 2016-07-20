@@ -147,6 +147,7 @@ var orm = {
 								   firstName: rows[0].firstName, 
 								   lastName:rows[0].firstName,
 								   email:rows[0].email,
+								   userImg:rows[0].userImage
 
 								});
 			} else{
