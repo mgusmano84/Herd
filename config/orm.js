@@ -199,6 +199,15 @@ var orm = {
 		console.log(query.sql)
 	}, // end of addGroupMember function
 
+	updateSeatsAvailable: function(driverID){
+		var query = db.query('UPDATE drivers SET seatsAvailable = seatsAvailable - 1 Where driverId = ?', [driverID], function(err, result){
+			if (err) throw err;
+			console.log(result);
+		});
+		
+		}
+	}
+
 
 } // end of orm object
 

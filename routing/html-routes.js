@@ -100,7 +100,13 @@ module.exports = function(app){
 
 	app.post('/leave', function(req, res) {
 		orm.deleteUserGroup(req.body.groupId, req.user);
-	})
+	});
+
+	app.post('/passenger', function(req, res){
+		console.log(req.group);
+		orm.addPassenger(req.body.driver, req.user.userID);
+		orm.updateSeatsAvailable(req.body.driver);
+	});
 
 	app.get('/dashboard',  function(req, res){
  	if(req.isAuthenticated()){

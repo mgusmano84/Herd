@@ -210,6 +210,20 @@ if ($("#driverForm")[0].checkValidity()){
 return false;
 });
 
+$('#passenger').on('click',function(){
+	console.log($('#groupName').data('id'));
+		$.post(app.currentURL + "/passenger", {
+			driver: $('#driverID').data('id')},
+		    function(data){
+		    	//add group to users groups 
+		    });
+	$('#passenger').hide();
+	$('#leaveRide').show();
+
+		return false;
+
+});
+
 
 }); // end of document.ready function
 
