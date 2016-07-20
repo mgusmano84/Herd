@@ -43,6 +43,9 @@ if ($('#loginErrBody').text().trim() !== "") {
 	$('#loginErr').modal('show');
 }
 
+// //user logo image
+// if 
+
 //register click function starts register modal
 $('#register').on('click',function(){
 	$('#registerModal').modal('show');
