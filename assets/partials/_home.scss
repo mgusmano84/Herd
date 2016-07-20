@@ -22,11 +22,13 @@
 
     .btn {
         font-family: $header_font;
+        background-color: $happy;
     }
+    
     
     .modal-content {
       h1 label {
-        background-color: $blue;
+        background-color: $happy;
       }
     
 }
