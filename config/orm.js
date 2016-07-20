@@ -182,7 +182,21 @@ var orm = {
 			
 		}); // end of query
 		console.log(query.sql);
-	} // end of deleteUserGroup function
+	}, // end of deleteUserGroup function
+
+	joinCreatedGroup: function(memberUserName) {
+
+		var post = [
+			
+			memberUserName
+		];
+
+		var query = db.query('INSERT INTO groupMembers (groupID, userID) VALUES (LAST_INSERT_ID(), ?)', post, function(err, result) {
+			if (err) throw err;
+			console.log(result);
+		});
+		console.log(query.sql)
+	}, // end of addGroupMember function
 
 
 } // end of orm object
