@@ -79,7 +79,7 @@ module.exports = function(app){
 		console.log(req.body);
 		console.log(req.body.search);
 		
-		orm.searchTable('groups','groupName',req.body.search, res, req.user);
+		orm.searchTable('groups','groupName', "%" +req.body.search + "%", res, req.user);
 		
 	});
 
