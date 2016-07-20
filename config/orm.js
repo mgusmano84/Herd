@@ -241,7 +241,7 @@ var orm = {
 		});
 		
 		}
-	}
+	
 
 
 } // end of orm object
