@@ -97,19 +97,20 @@ var orm = {
 
 	// ************needs to be added to routes
 	// adds driver to drivers table and presets milesDriven, daysDriving, timeHoursDriving, driverRating since those will be modified in other areas/as they drive more
-	addDriver: function(groupName, driverUserName, seatsAvailable) {
+	addDriver: function(Name, UserName, seats, date) {
 
 		var post = [
-			groupName,
-			driverUserName,
-			seatsAvailable
+			Name,
+			UserName,
+			seats,
+			date
 		];
 
-		var query = db.query('INSERT INTO drivers (groupName, driverUserName, seatsAvailable, milesDriven, daysDriving, timeHoursDriving, driverRating) VALUES (?, ?, ?, 0, 0, 0, null)', post, function(err, result) {
+		var query = db.query('INSERT INTO drivers (groupName, driverUserName, seatsAvailable,  dateDriving, milesDriven, daysDriving, timeHoursDriving, driverRating) VALUES (?, ?, ?, ?, 0, 0, 0, null)', post, function(err, result) {
 			if (err) throw err;
 			console.log(result);
 		});
-		console.log(query.sql)
+		
 	}, // end of adddriver function
 
 	// ************needs to be added to routes

@@ -124,6 +124,12 @@ module.exports = function(app){
 
 	}); // end of app.get/dashboard/yourgroups
 
+	app.post('/driver', function(req,res){
+		console.log(req.body.groupName);
+		orm.addDriver(req.body.groupName, req.user.firstName, req.body.seats, req.body.info)
+		res.send(true);
+	})
+
 	//default route 
 	app.use(function(req, res){
 
