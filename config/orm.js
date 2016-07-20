@@ -37,7 +37,7 @@ var orm = {
 	searchTable: function(tableInput, colToSearch, valOfCol,res,user) {
 		console.log(valOfCol);
 		
-		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' = ?';
+		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' LIKE ?';
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
 			console.log(result);
