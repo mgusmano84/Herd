@@ -8,6 +8,7 @@ html {
 
 * {
     box-sizing: inherit;
+    
 }
 
 body {
@@ -31,17 +32,19 @@ body {
     bottom: 0;
     left: 0;
     padding: 1rem;
-    
     background-color: $background_color;
 	color: $light_text_color;
-}
-
-
-#devs {
-    ul {
-        style: inline;
+    
+    li {
+        display: inline;
+        font-family: $header_font;
+    }
+    p {
+        color: $light_text_color;
     }
 }
+
+
 
 
 /*fonts*/
