@@ -1,5 +1,6 @@
 /* requiring bourbon has to come before other imports*/
 @import url(https://fonts.googleapis.com/css?family=Alegreya+SC);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 /*the file that contains the color variables. MUST begin with underscore*/
 /*imports the partial scss file to make an amalgam of a single css file for the client*/
 /*these files also begin with underscore*/
@@ -67,17 +68,17 @@
   -webkit-box-shadow: 0px 0px 10px 0px #f5f5f5;
   box-shadow: 0px 0px 10px 0px #f5f5f5; }
 
-#user-body .page-header {
-  margin-right: 0; }
-  #user-body .page-header h1 {
-    color: #eeeeee; }
-
-#user-body .btn {
-  background-color: #fe1b80; }
-
-#user-body h1 {
-  color: #151316;
-  font: "Alegreya SC", serif; }
+#user-body {
+  font-family: "Raleway", sans-serif; }
+  #user-body .page-header {
+    margin-right: 0; }
+    #user-body .page-header h1 {
+      color: #eeeeee; }
+  #user-body .btn {
+    background-color: #fe1b80; }
+  #user-body h1 {
+    color: #151316;
+    font: "Alegreya SC", serif; }
 
 #user {
   color: #151316; }
