@@ -85,16 +85,25 @@ a {
     margin-bottom: -80px;
 }
 
+.container-fluid {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 #user_footer {
     min-height: 100%;
     margin-bottom: -80px;
     background-color: $background_color;
     width: 100%;
-    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
     
     li {
         display: inline;
         font-family: $header_font;
+        width: 20%;
     }
     
     p {

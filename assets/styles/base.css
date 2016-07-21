@@ -125,15 +125,23 @@ a {
   min-height: 100%;
   margin-bottom: -80px; }
 
+.container-fluid {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0; }
+
 #user_footer {
   min-height: 100%;
   margin-bottom: -80px;
   background-color: #eeeeee;
   width: 100%;
-  text-align: center; }
+  margin-left: 0;
+  margin-right: 0; }
   #user_footer li {
     display: inline;
-    font-family: "Alegreya SC", serif; }
+    font-family: "Alegreya SC", serif;
+    width: 20%; }
   #user_footer p {
     color: #F5F0F1; }
 
@@ -191,7 +199,8 @@ body {
   color: #F5F0F1; }
   #footer li {
     display: inline;
-    font-family: "Alegreya SC", serif; }
+    font-family: "Alegreya SC", serif;
+    width: 20%; }
   #footer p {
     color: #F5F0F1; }
 
