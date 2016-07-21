@@ -127,6 +127,7 @@ $(document).ready(function(){
 
 	}); // end of leave click event
 
+
 	// button for different groups to take you to that groups page
 	$('.group').on('click',function(){
 		
@@ -204,6 +205,7 @@ $(document).ready(function(){
 			return false;
 
 	});
+
 
 
 }); // end of document.ready function
