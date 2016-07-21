@@ -1,15 +1,19 @@
 <div style="background-color: #FFF; margin: 0 auto; border-radius: 4px; padding: 10px 0px 10px 50px; width: 80%">
-{{#each results}}
-<h3 style="font-weight: bold; padding-bottom: 10px" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
+	{{#each results}}
+	<h3 style="font-weight: bold; padding-bottom: 10px" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
 
-<p class="groupHeaders">Description</p>
-<p>{{groupDescription}}</p>
+	<p class="groupHeaders">Description</p>
+	<p>{{groupDescription}}</p>
 
-<p class="groupHeaders">Drivers</p>
-<input type="submit" value="Become Driver" data-name="{{groupName}}" id="driver" class="btn btn-primary">
+	<p class="groupHeaders">Drivers</p>
+	<input type="submit" value="Become Driver" data-name="{{groupName}}" id="driver" class="btn btn-primary">
 
-<input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
-<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;" class="btn btn-primary">
+	{{#if userId}}
+	<input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
+
+	{{#else}}
+	<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;" class="btn btn-primary">
+	{{/if}}
 </div>
 
 {{/each}}

@@ -41,14 +41,21 @@ var orm = {
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
 			console.log(result);
-			res.render('results',{ layout: 'usermain',
-		 						results: result,
-		 						user: user
-		 					    });
+			
 		});
 		 
 
 	}, // end of searchTable function
+
+	//search for a specific user in a group
+	searchUsersInGroup: function(groupId) {
+		var queryString = 'SELECT userId FROM groupmembers WHERE groupId = ?';
+		db.query(queryString, [groupId], function(err, userId) {
+			if (err) throw err;
+			console.log(userId);
+			return userId;
+		}); // end of query
+	}, // end of searchUsersInGroup function
 
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
