@@ -26,25 +26,33 @@ body {
 }
 
 /*footer style*/
+
+#home-body {
+    min-height: 100%;
+    margin-bottom: -80px;
+}
+
+#home-body:after {
+    content: "";
+    display: block;
+}
+
+#footer, home-body: after {
+    height: 80px;
+}
 #footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: $background_color;
-	color: $light_text_color;
+   background-color: $background_color;
+    width: 100%;
     
     li {
         display: inline;
         font-family: $header_font;
+        width: 20%;
     }
     p {
         color: $light_text_color;
     }
 }
-
-
 
 
 /*fonts*/
