@@ -40,7 +40,7 @@ var orm = {
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' LIKE ?';
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
-			console.log(result);
+			
 			res.render('results',{ layout: 'usermain',
 		 						results: result,
 		 						user: user
@@ -52,10 +52,11 @@ var orm = {
 
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
-		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
-
-			 db.query(queryString, whatToSearch, function(err, result) {
-
+		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
+var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
+			 db.query(queryString, [whatToSearch], function(err, result) {
+			 	console.log('TEXT'+result[0][0]);
+			 	console.log('TEXT'+result[1][0]);
 				if (err) throw err;
 
 				res.render(pageToSendResult, {layout: 'usermain', results: result, user: user});
