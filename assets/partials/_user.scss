@@ -1,10 +1,28 @@
 
-#bootstrap-override {
+#user-body {
     .page-header {
-        width: 100%;
-        margin-left: 0;
+        margin-right: 0;
+            
+        h1 {
+            color: $header_bkgd;
+        }
+        }
+    .btn {
+        background-color: $happy;
+    }
+    h1 {
+        color: $text_color;
+        font: $header_font;
     }
 }
+
+#user {
+    
+        color: $text_color;
+
+}
+
+
 
 /*stying for material style button*/
 /*totally using this if I can figure out how to add bourbon*/
@@ -17,6 +35,17 @@
   @else if $level == 3 {box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
   @else if $level == 4 {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
   @else if $level == 5 {box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
+}
+
+#logout {
+    
+    margin-top: 25px;
+    margin-left: 10px;
+    
+}
+
+#logoimage {
+    width: 100%;
 }
 
 /*body {
@@ -43,6 +72,20 @@ a {
   }
 }
 
-._user_footer {
+#user_footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
     background-color: $background_color;
+    
+    li {
+        display: inline;
+        font-family: $header_font;
+    }
+    
+    p {
+        color: $light_text_color;
+    }
 }

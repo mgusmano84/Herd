@@ -20,19 +20,21 @@
 	<body id=user-body>
 
         <div class="page-header">
+            <div class="row">
 
-            <img src="/images/small_white_car.png" alt="car icon"><h1> Herd <small> Your carpools. Streamlined. </small></h1>
-            <a href="/logout"><button type="button" id="logout"class="btn btn-primary">Log Out</button></a>
+                <span class="col-md-9"><img src="/images/pinkcar.png" alt="car icon"><h1> Herd <small> Your carpools. Streamlined. </small></h1></span>
+                <span class="col-md-1 col-md-offset-2"><a href="/logout"><button type="button" id="logout"class="btn btn-primary">Log Out</button></a></span>
+            </div>
         </div>
 
-        <div class="row" style="margin-right: 0">
+        <div class="row" style="margin-right: 0" id="user_board">
         	<div class="col-md-3">
         		<div class="list-group">
       				  <a href="/dashboard" class="list-group-item clickable" runat="server" id="User">{{user.firstName}}</a>
       				  <a href="#" class="list-group-item clickable" runat="server" id="find">Find/Join Groups</a>
       				  <a href="#" class="list-group-item clickable" runat="server" id="create">Create a new Group</a>
       				  <a href="/dashboard/yourgroups" class="list-group-item clickable" runat="server" id="yourGroups">Your Groups</a>
-                <div id="logoimage" alt="Driver Logo" style="width:100%">
+                <div id="logoimage" alt="Driver Logo">
                   <img src="{{user.userImg}}" || "/images/personlogo.jpg" style="width:100%">
                 </div>
                 
@@ -44,10 +46,35 @@
 			    </div>
         </div>
 	   
-        <div id="user_footer">
-           <div id="copyright">
-                © 2016 Copyright
-           </div>
+        <div class="container-fluid">
+            <div class="site-footer" id="user_footer">
+                <div id="copyright">
+                    <p>© 2016 Copyright</p>
+                </div>
+                <div id="devs">
+                    <ul>
+                        <li class="col-md-2 col-offset-md-3">
+                            <a href="https://www.linkedin.com/in/matthew-gusmano-05b333b1">Matthew Gusmano</a>
+                        </li>
+                        
+                        <li class="col-md-2">
+                            <a href="https://www.linkedin.com/in/crystal-williams-92b28b10">Crystal Williams</a>
+                        </li>
+                        
+                        <li class="col-md-2">
+                            <a href="https://www.linkedin.com/in/caleb-mckinley-8126a4119">Caleb McKinely</a>
+                        </li>
+                        
+                        <li class="col-md-2">
+                            <a href="https://www.linkedin.com/in/robertprine2">Robert Prine</a>
+                        </li>
+                        
+                        <li class="col-md-1">
+                            <a href="https://www.linkedin.com/in/maryhoag">Mary Hoag</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
 
@@ -94,6 +121,5 @@
 			</div>
   		</div>
 	</div>
-
-	</body>
-</html>
+        
+       
