@@ -68,7 +68,8 @@ $('#registerSubmit').on('click',function(){
 		app.user.lastName = $('#lastName').val().trim();
 		app.user.userName = $('#userName').val().trim();
 		app.user.email = $('#email').val().trim();
-		app.user.image = $('#img').val().trim();
+		if($('#img').val().trim()){app.user.image = $('#img').val().trim();}
+		else{app.user.image = "/images/personlogo.jpg"}
 		app.user.password = $('#password').val().trim();
 		app.user.address = $('#address').val().trim();
 		app.user.city = $('#city').val().trim();
