@@ -1,5 +1,14 @@
-<ul>
-{{#each results}}
-  <a href="/search/{{groupID}}" data-name="{{groupName}}">{{groupName}}</a>
-{{/each}}
-</ul>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your Groups</h3>
+  </div>
+  <div class="panel-body">
+   	<ul class="list-group">
+		{{#each results}}
+  			<a href="/search/{{groupID}}" data-name="{{groupName}}" class="list-group-item">{{groupName}}</a>
+		{{/each}}
+	</ul>
+  </div>
+</div>
+
