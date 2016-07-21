@@ -44,6 +44,8 @@ if ($('#loginErrBody').text().trim() !== "") {
 }
 
 // //user logo image
+
+// if 
 // if ( $('#logomain') = [] ){
 // 	$('#logomain') === "/images/personlogo.jpg"
 // }
@@ -51,6 +53,7 @@ if ($('#loginErrBody').text().trim() !== "") {
 // else {
 // 	$('#logomain') === user.userImg
 // }
+
 
 //register click function starts register modal
 $('#register').on('click',function(){

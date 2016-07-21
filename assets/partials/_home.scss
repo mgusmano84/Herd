@@ -24,29 +24,9 @@
         font-family: $header_font;
         background-color: $happy;
     }
-    
-    
-    .modal-content {
-      h1 label {
-        background-color: $happy;
-      }
-    
 }
 
 
-  background-color: $jumbo;
-    h1 {
-        color: $happy;
-    }
-}
-
-#bootstrap-override {
-    .modal-content {
-        h1 label {
-            background-color: $pale_blue;
-        }
-  }
-}
 
 
 .btn-primary.raised {
