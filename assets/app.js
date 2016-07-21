@@ -184,6 +184,7 @@ return false;
 $('#createSubmit').on('click',function(){
 	if ($("#createForm")[0].checkValidity()){
 		var group = {};
+		console.log($('#groupName').val().trim());
 		group.name = $('#groupName').val().trim();
 		group.description = $('#description').val().trim();
 		// TO DO***** group.createdBy = ;*******need to group userName that is creating group
