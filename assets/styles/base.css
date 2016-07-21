@@ -71,7 +71,10 @@
 #user-body {
   font-family: "Raleway", sans-serif; }
   #user-body .page-header {
-    margin-right: 0; }
+    margin-right: 0;
+    width: 100%; }
+    #user-body .page-header .wide {
+      width: 100%; }
     #user-body .page-header h1 {
       color: #eeeeee; }
   #user-body .btn {
@@ -118,18 +121,28 @@ a {
     -o-transform: translateY(-5px);
     transform: translateY(-5px); }
 
+.footer-fix {
+  min-height: 100%;
+  margin-bottom: -80px; }
+
 #user_footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #eeeeee; }
+  min-height: 100%;
+  margin-bottom: -80px;
+  background-color: #eeeeee;
+  width: 100%;
+  text-align: center; }
   #user_footer li {
     display: inline;
     font-family: "Alegreya SC", serif; }
   #user_footer p {
     color: #F5F0F1; }
+
+.footer-fix:after {
+  content: "";
+  display: block; }
+
+#user_footer, .footer-fix:after {
+  height: 80px; }
 
 .mainbutts {
   display: inline; }

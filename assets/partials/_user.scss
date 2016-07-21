@@ -4,6 +4,11 @@
     
     .page-header {
         margin-right: 0;
+        width:100%;
+        
+        .wide {
+            width: 100%;
+        }
             
         h1 {
             color: $header_bkgd;
@@ -74,13 +79,18 @@ a {
   }
 }
 
+.footer-fix {
+    
+    min-height: 100%;
+    margin-bottom: -80px;
+}
+
 #user_footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
+    min-height: 100%;
+    margin-bottom: -80px;
     background-color: $background_color;
+    width: 100%;
+    text-align: center;
     
     li {
         display: inline;
@@ -91,3 +101,14 @@ a {
         color: $light_text_color;
     }
 }
+
+.footer-fix:after {
+    content: "";
+    display: block;
+}
+
+#user_footer, .footer-fix:after {
+    
+    height: 80px;
+}
+
