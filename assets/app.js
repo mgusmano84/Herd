@@ -43,6 +43,9 @@ if ($('#loginErrBody').text().trim() !== "") {
 	$('#loginErr').modal('show');
 }
 
+// //user logo image
+// if 
+
 //register click function starts register modal
 $('#register').on('click',function(){
 	$('#registerModal').modal('show');
@@ -198,7 +201,7 @@ $('#driver').on('click', function(){
 $('#driverSubmit').on('click', function(){
 	console.log($('#driver').data('name'));
 if ($("#driverForm")[0].checkValidity()){
-	$.post(app.currentURL + "/driver", { groupName: $('#driver').data('name'),
+	$.post(app.currentURL + "/driver", { groupid: $('#driver').data('id'),
 										 seats: $('#seats').val().trim(),
 										 info: $('#info').val().trim()},
 		    function(data){
@@ -208,6 +211,20 @@ if ($("#driverForm")[0].checkValidity()){
 		    });
 } else{$("#driverForm")[0].reportValidity()}
 return false;
+});
+
+$('#passenger').on('click',function(){
+	console.log($('#groupName').data('id'));
+		$.post(app.currentURL + "/passenger", {
+			driver: $('#driverID').data('id')},
+		    function(data){
+		    	//add group to users groups 
+		    });
+	$('#passenger').hide();
+	$('#leaveRide').show();
+
+		return false;
+
 });
 
 

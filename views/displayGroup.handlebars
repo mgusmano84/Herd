@@ -5,8 +5,10 @@
 	<p class="groupHeaders">Description</p>
 	<p>{{groupDescription}}</p>
 
+
 	<p class="groupHeaders">Drivers</p>
-	<input type="submit" value="Become Driver" data-name="{{groupName}}" id="driver" class="btn btn-primary">
+	<input type="submit" value="Become Driver" data-id="{{groupID}}" id="driver" class="btn btn-primary">
+
 
 	{{#if userId}}
 	<input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
