@@ -101,7 +101,7 @@ var orm = {
 	}, 
 
 	// add a group to a user that is joinable by other users
-	addGroup: function(groupName, groupDescription,user) {
+	addGroup: function(groupName, groupDescription,user,resolved) {
 
 		var post = [
 			groupName,
@@ -112,6 +112,7 @@ var orm = {
 		var query = db.query('INSERT INTO groups (groupName, groupDescription, createdBy, meet, pickUp) VALUES (?, ?, ?, false, false)', post, function(err, result) {
 			if (err) throw err;
 			console.log(result);
+			resolved();
 		});
 		console.log(query.sql);
 	}, // end of addGroup function
