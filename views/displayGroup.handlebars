@@ -19,9 +19,15 @@
 	</ul>
   </div>
 </div>
-<input type="submit" value="Become Driver" data-id="{{groupID}}" id="driver" class="btn btn-primary">
+{{#if areYouDriver}}
 
+    <input type="submit" value="Become Driver" data-id="{{results.[0].groupID}}" id="driver" class="btn btn-primary" style="display:none">
 
+{{else}}
+
+    <input type="submit" value="Become Driver" data-id="{{results.[0].groupID}}" id="driver" class="btn btn-primary">
+
+{{/if}}
 
 
 
