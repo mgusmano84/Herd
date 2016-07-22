@@ -1,12 +1,12 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Your Groups</h3>
+    <h2 class="panel-title">Your Groups</h2>
   </div>
   <div class="panel-body">
    	<ul class="list-group">
 		{{#each results}}
-  			<a href="/search/{{groupID}}" data-name="{{groupName}}" class="list-group-item">{{groupName}}</a>
+  			<a href="/search/{{groupID}}" data-name="{{groupName}}" class="list-group-item"><h1>{{groupName}}</h1><p>Description: {{groupDescription}}</p></a>
 		{{/each}}
 	</ul>
   </div>
