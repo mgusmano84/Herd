@@ -40,16 +40,11 @@ var orm = {
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' LIKE ?';
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
-<<<<<<< HEAD
-			console.log(result);
-			
-=======
 			
 			res.render('results',{ layout: 'usermain',
 		 						results: result,
 		 						user: user
 		 					    });
->>>>>>> origin/master
 		});
 		 
 
