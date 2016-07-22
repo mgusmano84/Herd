@@ -14,6 +14,14 @@
   #group_display h3 {
     font-weight: bold;
     padding-bottom: 10px; }
+  #group_display li h3 {
+    font-family: "Alegreya SC", serif; }
+  #group_display #groupName {
+    font-family: "Alegreya SC", serif;
+    color: #fe1b80; }
+  #group_display #driverModal h1 {
+    font-family: "Alegreya SC", serif;
+    color: #fe1b80; }
 
 #home-body {
   width: 100%;
