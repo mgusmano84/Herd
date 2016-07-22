@@ -1,11 +1,10 @@
-* html {
+* {
+    margin: 0;
+}
+    
+html, body {
     height: 100%;
 }
-
-body {
-    height: 100%;
-}
-
 
 #user-body {
     font-family: $text-font;
@@ -95,7 +94,7 @@ a {
   }
 }
 
-.footer-fix {
+#footer-fix {
     
     min-height: 100%;
     margin-bottom: -80px;
@@ -126,12 +125,12 @@ a {
     }
 }
 
-.footer-fix:after {
+#footer-fix:after {
     content: "";
     display: block;
 }
 
-#user_footer, .footer-fix:after {
+#user_footer, #footer-fix:after {
     
     height: 80px;
 }
