@@ -74,10 +74,10 @@
   -webkit-box-shadow: 0px 0px 10px 0px #f5f5f5;
   box-shadow: 0px 0px 10px 0px #f5f5f5; }
 
-* html {
-  height: 100%; }
+* {
+  margin: 0; }
 
-body {
+html, body {
   height: 100%; }
 
 #user-body {
@@ -135,7 +135,7 @@ a {
     -o-transform: translateY(-5px);
     transform: translateY(-5px); }
 
-.footer-fix {
+#footer-fix {
   min-height: 100%;
   margin-bottom: -80px; }
 
@@ -158,11 +158,11 @@ a {
   #user_footer p {
     color: #F5F0F1; }
 
-.footer-fix:after {
+#footer-fix:after {
   content: "";
   display: block; }
 
-#user_footer, .footer-fix:after {
+#user_footer, #footer-fix:after {
   height: 80px; }
 
 #user-body #results-panel .panel-body {
