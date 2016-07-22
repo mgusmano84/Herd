@@ -1,7 +1,9 @@
-<ul>
-{{#each results}}
-  <li><a href="/search/{{groupID}}" data-name="{{groupName}}"><button class="btn btn-default">{{groupName}}<p>{{groupDescription}}</p></button></a></li>
+<div class="results"
+     <ul>
+    {{#each results}}
+      <li><a href="/search/{{groupID}}" data-name="{{groupName}}"><button id="light-btn" class="btn btn-default">{{groupName}}<p>{{groupDescription}}</p></button></a></li>
 
 
-{{/each}}
-</ul>
+    {{/each}}
+    </ul>
+</div>
