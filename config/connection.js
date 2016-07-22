@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 
 
 //jaws DB connection
-mysql.createConnection(process.env.JAWSDB_URL);
+//mysql.createConnection(process.env.JAWSDB_URL);
 
 // if fail to connect display the error otherwise if successful give the connection id
 connection.connect(function(err){
