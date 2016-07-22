@@ -55,16 +55,24 @@ module.exports = function(app){
 	
 
 	app.post('/creategroup', function(req, res){
-		console.log(req.body.name+"THIS");
-		// creates data in MySQL for a new group
-		function query(){
-			return new Promise(function(resolved,rejected){
-				orm.addGroup(req.body.name, req.body.description, req.user.firstName);
-				resolved();
-			})
+
+		if(req.isAuthenticated()){
+
+			// creates data in MySQL for a new group
+			function query(){
+				return new Promise(function(resolved,rejected){
+					orm.addGroup(req.body.name, req.body.description, req.user.firstName);
+					resolved();
+				})
+			}
+			query().then(function(){orm.joinCreatedGroup(req.user.userID)
+			res.send(true);},function(){console.log("FAIL")});
+
+		} else {
+
+			res.redirect('/');
 		}
-		query().then(function(){orm.joinCreatedGroup(req.user.userID)
-		res.send(true);},function(){console.log("FAIL")});
+
 		
 	});
 
@@ -83,58 +91,77 @@ module.exports = function(app){
 
 	app.post('/search', function(req, res){
 		
-		console.log(req.body);
-		console.log(req.body.search);
-		
-		orm.searchTable('groups','groupName', "%" +req.body.search + "%", res, req.user);
+		if(req.isAuthenticated()){
+
+			orm.searchTable('groups','groupName', "%" +req.body.search + "%", res, req.user);
+
+		} else {
+
+			res.redirect('/');
+		}
+	
+
 		
 	});
 
 	app.get('/search/:groupId', function(req, res){
 
-		var group = req.params.groupId;
+		if(req.isAuthenticated()){
 
-		// search if you are a member of this group
-		var userId = orm.searchUsersInGroup(group);
+			var group = req.params.groupId;
+
+			// search if you are a member of this group
+			var userId = orm.searchUsersInGroup(group);
 
 			
-		// var inGroup = false;
+			orm.displayGroup('groups', 'groupID', group, 'displayGroup', res, req.user);
 
-		// for (i = 0; i < userId.length; i++) {
-		// 	console.log("userId[i} = " + userId[i]);
-		// 	if (req.user.userID == userId[i]) {
-		// 		inGroup = true;
-		// 		break;
-		// 	}
-		// }
-		// console.log("inGroup = " + inGroup);
+		} else {
 
-		/*var groupInfo = */orm.displayGroup('groups', 'groupID', group, 'displayGroup', res, req.user);
+			res.redirect('/');
+		}
 
-		/*res.render('results',{ layout: 'usermain',
-		 						results: result,
-		 						user: user,
-		 						inGroup: userId
-		 					    });*/
-
-
-		//res.render('displayGroup'/*, {GroupName: groupInfo.groupName}*/);
 
 	});
 
 	app.post('/join', function(req, res){
-		console.log(req.group);
-		orm.addGroupMember(req.body.group, req.user.userID);
+
+		if(req.isAuthenticated()){
+
+		 orm.addGroupMember(req.body.group, req.user.userID);
+
+		} else {
+
+			res.redirect('/');
+		}
+
+
 	});
 
 	app.post('/leave', function(req, res) {
-		orm.deleteUserGroup(req.body.groupId, req.user);
+
+		if(req.isAuthenticated()){
+
+			orm.deleteUserGroup(req.body.groupId, req.user);
+
+		} else {
+
+			res.redirect('/');
+		}
+
 	});
 
 	app.post('/passenger', function(req, res){
-		console.log(req.group);
-		orm.addPassenger(req.body.driver, req.user.userID);
-		orm.updateSeatsAvailable(req.body.driver);
+		if(req.isAuthenticated()){
+
+			orm.addPassenger(req.body.driver, req.user.userID);
+			orm.updateSeatsAvailable(req.body.driver);
+
+		} else {
+
+			res.redirect('/');
+		}
+
 	});
 
 	app.get('/dashboard',  function(req, res){
@@ -144,25 +171,40 @@ module.exports = function(app){
 			isAuthenticated: req.isAuthenticated(),
 			user: req.user
 		});
-	} else{res.redirect('/') }
+	} else{
 
+		res.redirect('/');
+	}
 
 	});
 
 	// this url lists the groups a user is currently in
 	app.get('/dashboard/yourgroups', function(req, res) {
 		
-		console.log(req.user.userID);
+		if(req.isAuthenticated()){
 
-		// calls the orm that searches the database for all the groups you are in
-		orm.searchUserGroups(req.user, res);
+			// calls the orm that searches the database for all the groups you are in
+			orm.searchUserGroups(req.user, res);
+
+		} else {
+
+			res.redirect('/');
+		}
+
 
 	}); // end of app.get/dashboard/yourgroups
 
 	app.post('/driver', function(req,res){
-		console.log(req.body.groupId);
-		orm.addDriver(req.body.groupid, req.user.firstName, req.body.seats, req.body.info)
-		res.send(true);
+		if(req.isAuthenticated()){
+
+			orm.addDriver(req.body.groupid, req.user.firstName, req.body.seats, req.body.info)
+			res.send(true);
+
+		} else {
+
+			res.redirect('/');
+		}
+
 	})
 
 	//default route 
