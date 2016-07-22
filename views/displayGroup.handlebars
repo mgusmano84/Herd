@@ -16,11 +16,11 @@
 {{#if isMemberInGroup}}
 
     <input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" class="btn btn-primary">
-    <input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
+    <input type="submit" value="Join" data-groupId="{{groupID}}" style="display:none" id="join" class="btn btn-primary">
 
 
 {{else}}
-   <input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" class="btn btn-primary">
+   <input type="submit" value="Leave" data-groupId="{{groupID}}" style="display:none" id="leave" class="btn btn-primary">
   <input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
 
 {{/if}} 
