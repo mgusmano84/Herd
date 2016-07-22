@@ -68,7 +68,7 @@ var orm = {
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
 
-		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
+		var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table '.groupID=drivers.groupId WHERE ' + column + '.groupId = ?';
 
 		db.query(queryString, whatToSearch, function(err, result) {
 
@@ -88,7 +88,7 @@ var orm = {
 												  	ifMember: groupMemRes[0].userId});
 
 		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
-var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
+		/*var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
 			 db.query(queryString, [whatToSearch], function(err, result) {
 			 	console.log('TEXT'+result[0][0]);
 			 	console.log('TEXT'+result[1][0]);
@@ -96,7 +96,7 @@ var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers
 
 
 
-					});
+					});*/
 			});		 						
 	}, 
 
