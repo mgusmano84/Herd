@@ -1,9 +1,17 @@
-<div class="results"
-     <ul>
-    {{#each results}}
-      <li><a href="/search/{{groupID}}" data-name="{{groupName}}"><button id="light-btn" class="btn btn-default">{{groupName}}<p>{{groupDescription}}</p></button></a></li>
 
 
-    {{/each}}
-    </ul>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Your Groups</h2>
+  </div>
+  <div class="panel-body">
+<ul class="list-group">
+{{#each results}}
+  <a href="/search/{{groupID}}" data-name="{{groupName}}" class="list-group-item"><h1>{{groupName}}</h1><p>Desctription: {{groupDescription}}</p></a>
+
+
+{{/each}}
+</ul>
+</div>
 </div>

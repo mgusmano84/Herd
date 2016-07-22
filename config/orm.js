@@ -40,27 +40,64 @@ var orm = {
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' LIKE ?';
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
-			console.log(result);
+			
 			res.render('results',{ layout: 'usermain',
 		 						results: result,
 		 						user: user
 		 					    });
 		});
-		 
+		   
 
 	}, // end of searchTable function
 
+	//search for a specific user in a group
+	searchUsersInGroup: function(groupId) {
+		var queryString = 'SELECT userId FROM groupmembers WHERE groupId = ?';
+		db.query(queryString, [groupId], function(err, userId) {
+			if (err) throw err;
+			console.log(userId);
+			return userId;
+		}); // end of query
+	}, // end of searchUsersInGroup function
+
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
-		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
 
-			 db.query(queryString, whatToSearch, function(err, result) {
+	  var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table + '.groupID = drivers.groupId WHERE ' + table + '.groupId = ?';
 
+	  console.log(queryString);
+
+		db.query(queryString, whatToSearch, function(err, result) {
+
+			if (err) throw err;
+
+			var groupMemQuery = "SELECT userId FROM groupmembers WHERE groupId=? AND userId=?";
+
+				db.query(groupMemQuery, [whatToSearch, user.userID], function(err2, groupMemRes){
+
+						if (err2) throw err2;
+
+						console.log(groupMemRes);
+
+						var isMemberInGroup = groupMemRes[0] ? user.userID == groupMemRes[0].userId : false;
+
+		  	res.render(pageToSendResult, {layout: 'usermain',
+												 	results: result,
+												 	user: user,
+												 	isMemberInGroup: isMemberInGroup});
+
+		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
+		/*var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
+			 db.query(queryString, [whatToSearch], function(err, result) {
+			 	
 				if (err) throw err;
 
-				res.render(pageToSendResult, {layout: 'usermain', results: result, user: user});
 
-			});		 						
+
+					});*/
+			});
+			});
+
 	}, 
 
 	// add a group to a user that is joinable by other users
@@ -76,7 +113,7 @@ var orm = {
 			if (err) throw err;
 			console.log(result);
 		});
-		console.log(query.sql)
+		console.log(query.sql);
 	}, // end of addGroup function
 
 	// ************needs to be added to routes
@@ -162,7 +199,7 @@ var orm = {
 	searchUserGroups: function(user, res) {
 		
 		var options = {sql: 'root', nestTables: '_'}
-		var queryString = 'SELECT groups.groupName, groups.groupID FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
+		var queryString = 'SELECT groups.groupName, groups.groupID, groups.groupDescription FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
 		db.query(queryString, [user.userID], function(err, result) {
 			if (err) throw err;
 			console.log(result);

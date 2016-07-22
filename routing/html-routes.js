@@ -57,9 +57,15 @@ module.exports = function(app){
 	app.post('/creategroup', function(req, res){
 		console.log(req.body.name+"THIS");
 		// creates data in MySQL for a new group
-		orm.addGroup(req.body.name, req.body.description, req.user.firstName);
-		orm.joinCreatedGroup(req.user.userID)
-		res.send(true);
+		function query(){
+			return new Promise(function(resolved,rejected){
+				orm.addGroup(req.body.name, req.body.description, req.user.firstName);
+				resolved();
+			})
+		}
+		query().then(function(){orm.joinCreatedGroup(req.user.userID)
+		res.send(true);},function(){console.log("FAIL")});
+		
 	});
 
 	app.get('/', function(req, res){
@@ -88,7 +94,29 @@ module.exports = function(app){
 
 		var group = req.params.groupId;
 
+		// search if you are a member of this group
+		var userId = orm.searchUsersInGroup(group);
+
+			
+		// var inGroup = false;
+
+		// for (i = 0; i < userId.length; i++) {
+		// 	console.log("userId[i} = " + userId[i]);
+		// 	if (req.user.userID == userId[i]) {
+		// 		inGroup = true;
+		// 		break;
+		// 	}
+		// }
+		// console.log("inGroup = " + inGroup);
+
 		/*var groupInfo = */orm.displayGroup('groups', 'groupID', group, 'displayGroup', res, req.user);
+
+		/*res.render('results',{ layout: 'usermain',
+		 						results: result,
+		 						user: user,
+		 						inGroup: userId
+		 					    });*/
+
 
 		//res.render('displayGroup'/*, {GroupName: groupInfo.groupName}*/);
 

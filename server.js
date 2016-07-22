@@ -30,6 +30,7 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 //setting up handlebars
 var exphbs = require('express-handlebars');
 var hbs = require('handlebars');
+
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 

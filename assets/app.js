@@ -178,7 +178,7 @@ $(document).ready(function(){
 	});
 
 	$('#driverSubmit').on('click', function(){
-		console.log($('#driver').data('name'));
+		
 	if ($("#driverForm")[0].checkValidity()){
 		$.post(app.currentURL + "/driver", { groupid: $('#driver').data('id'),
 											 seats: $('#seats').val().trim(),

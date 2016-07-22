@@ -6,13 +6,7 @@ A carpool app that allows groups to organize car pool responsibilities for diffe
 
 The app uses Node.js, Express and MySQL on the backend. The page content is rendered with Handlebars.js and styled with Sass.
 
-## Installation
 
-TODO: Describe the installation process
-
-## Usage
-
-TODO: Write usage instructions
 
 ## Contributing
 
@@ -24,13 +18,11 @@ TODO: Write usage instructions
 
  ## History
 
-A class project for the UCF Coding Bootcamp.
+A class project for the UCF Coding Bootcamp, first cohort July 2016.
 
 ## Credits
 
-Crystal, Matt, Robert, Caleb and Mary
+Crystal Williams, Matthew Gusmano, Robert Prine, Caleb McKinley and Mary Hoag
 
 
-## License
 
-TODO: Write license

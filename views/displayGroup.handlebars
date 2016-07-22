@@ -1,18 +1,29 @@
 <div id="group_display" >
 {{#each results}}
-<h3 data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
+<h3 data-id="{{groupID}}" id="groupName">{{groupName}}{{driverUserName}}</h3>
 
 <p class="groupHeaders">Description</p>
 <p>{{groupDescription}}</p>
 
+
 <p class="groupHeaders">Drivers</p>
 <input type="submit" value="Become Driver" data-id="{{groupID}}" id="driver" class="btn btn-primary">
-
-<input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
-<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;" class="btn btn-primary">
-</div>
-
 {{/each}}
+
+
+
+
+{{#if isMemberInGroup}}
+
+    <input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" class="btn btn-primary">
+    <input type="submit" value="Join" data-groupId="{{groupID}}" style="display:none" id="join" class="btn btn-primary">
+
+
+{{else}}
+   <input type="submit" value="Leave" data-groupId="{{groupID}}" style="display:none" id="leave" class="btn btn-primary">
+  <input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
+
+{{/if}} 
 
 <!--driver-->
 	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="driverModal"  data-backdrop="static">
