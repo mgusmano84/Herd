@@ -160,16 +160,31 @@ a {
 #user_footer, .footer-fix:after {
   height: 80px; }
 
-#bootstrap-override .results {
+#user-body #results-panel .panel-body {
   background-color: #FFF;
   margin: auto;
   border-radius: 4px;
   padding: 10px 0px 10px 50px;
   width: 80%; }
-  #bootstrap-override .results h3 {
+  #user-body #results-panel .panel-body .list-group a h1 {
+    color: #fe1b80;
+    font-family: "Alegreya SC", serif; }
+  #user-body #results-panel .panel-body h3 {
     font-weight: bold;
     padding-bottom: 10px;
-    font-family: "Alegreya SC", serif; }
+    font-family: "Raleway", sans-serif; }
+
+#user-body #results-panel h2 {
+  font-family: "Alegreya SC", serif;
+  color: #fe1b80; }
+
+#user-body #searchModal h1 {
+  color: #fe1b80;
+  font-family: "Alegreya SC", serif; }
+
+#user-body #createGroup h1 {
+  color: #fe1b80;
+  font-family: "Alegreya SC", serif; }
 
 #user-body .yourGroups .panel-body {
   background-color: #FFF;
