@@ -133,7 +133,7 @@ module.exports = function(app){
 
 	app.post('/passenger', function(req, res){
 		console.log(req.group);
-		orm.addPassenger(req.body.driver, req.user.userID);
+		orm.addPassengers(req.body.driver, req.user.userID);
 		orm.updateSeatsAvailable(req.body.driver);
 	});
 
