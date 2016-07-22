@@ -13,7 +13,8 @@
         h1 {
             color: $header_bkgd;
         }
-        }
+    }
+    
     .btn {
         background-color: $happy;
     }
@@ -21,9 +22,12 @@
     #light-btn {
         background-color: lighten($happy, 20%);
     }
-    h1 {
-        color: $text_color;
-        font: $header_font;
+    
+    .greeting {
+        h1 {
+            color: $text_color;
+            font: $header_font;
+        }
     }
 }
 

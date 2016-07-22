@@ -5,26 +5,6 @@
 /*imports the partial scss file to make an amalgam of a single css file for the client*/
 /*these files also begin with underscore*/
 @import url(http://fonts.googleapis.com/css?family=Roboto);
-#bootstrap-override .results {
-  background-color: #FFF;
-  margin: auto;
-  border-radius: 4px;
-  padding: 10px 0px 10px 50px;
-  width: 80%; }
-  #bootstrap-override .results h3 {
-    font-weight: bold;
-    padding-bottom: 10px; }
-
-.yourGroups {
-  background-color: #FFF;
-  margin: auto;
-  border-radius: 4px;
-  padding: 10px 0px 10px 50px;
-  width: 80%; }
-  .yourGroups h3 {
-    font-weight: bold;
-    padding-bottom: 10px; }
-
 #group_display {
   background-color: #FFF;
   margin: auto;
@@ -57,12 +37,19 @@
   display: inline-block;
   background-color: #fe1b80; }
 
+.btn-primary.raised {
+  box-shadow: 0 3px 0 0 #007299; }
+
 #bootstrap-override h1 {
   font-family: "Alegreya SC", serif;
   color: #fe1b80; }
 
 #bootstrap-override li:nth-child(2) {
   margin: 20px; }
+
+#bootstrap-override .btn {
+  font-family: "Alegreya SC", serif;
+  background-color: #fe1b80; }
 
 /* ========== DEMO STYLES ========== */
 @font-face {
@@ -98,7 +85,9 @@
       color: #eeeeee; }
   #user-body .btn {
     background-color: #fe1b80; }
-  #user-body h1 {
+  #user-body #light-btn {
+    background-color: #fe81b9; }
+  #user-body .greeting h1 {
     color: #151316;
     font: "Alegreya SC", serif; }
 
@@ -170,6 +159,34 @@ a {
 
 #user_footer, .footer-fix:after {
   height: 80px; }
+
+#bootstrap-override .results {
+  background-color: #FFF;
+  margin: auto;
+  border-radius: 4px;
+  padding: 10px 0px 10px 50px;
+  width: 80%; }
+  #bootstrap-override .results h3 {
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-family: "Alegreya SC", serif; }
+
+#user-body .yourGroups .panel-body {
+  background-color: #FFF;
+  margin: auto;
+  border-radius: 4px;
+  padding: 10px 0px 10px 50px;
+  width: 80%; }
+  #user-body .yourGroups .panel-body .list-group a h1 {
+    color: #fe1b80;
+    font-family: "Alegreya SC", serif; }
+  #user-body .yourGroups .panel-body h3 {
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-family: "Raleway", sans-serif; }
+
+#user-body .yourGroups h2 {
+  color: #fe1b80; }
 
 /*background*/
 html {
