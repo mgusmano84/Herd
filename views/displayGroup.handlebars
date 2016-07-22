@@ -1,14 +1,26 @@
 <div id="group_display" >
-{{#each results}}
-<h3 data-id="{{groupID}}" id="groupName">{{groupName}}{{driverUserName}}</h3>
+
+<h3 data-id="{{results.[0].groupID}}" id="groupName">{{results.[0].groupName}}</h3>
 
 <p class="groupHeaders">Description</p>
-<p>{{groupDescription}}</p>
+<p>{{results.[0].groupDescription}}</p>
 
 
-<p class="groupHeaders">Drivers</p>
+
+<div class="panel panel-default groupHeaders">
+  <div class="panel-heading">
+    <h2 class="panel-title">Drivers</h2>
+  </div>
+  <div class="panel-body">
+   	<ul class="list-group">
+		{{#each results}}
+  			<li class="list-group-item"><h3>{{driverUserName}}</h3><p>Info: {{dateDriving}}</p><p>Seats: {{seatsAvailable}}</p> <input type="submit" value="Join The Ride" data-id="{{driverId}}"  class="btn btn-primary passenger"></li>
+		{{/each}}
+	</ul>
+  </div>
+</div>
 <input type="submit" value="Become Driver" data-id="{{groupID}}" id="driver" class="btn btn-primary">
-{{/each}}
+
 
 
 
