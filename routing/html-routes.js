@@ -61,8 +61,8 @@ module.exports = function(app){
 			// creates data in MySQL for a new group
 			function query(){
 				return new Promise(function(resolved,rejected){
-					orm.addGroup(req.body.name, req.body.description, req.user.firstName);
-					resolved();
+					orm.addGroup(req.body.name, req.body.description, req.user.firstName,resolved);
+					
 				})
 			}
 			query().then(function(){orm.joinCreatedGroup(req.user.userID)
