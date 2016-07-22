@@ -74,6 +74,12 @@
   -webkit-box-shadow: 0px 0px 10px 0px #f5f5f5;
   box-shadow: 0px 0px 10px 0px #f5f5f5; }
 
+* html {
+  height: 100%; }
+
+body {
+  height: 100%; }
+
 #user-body {
   font-family: "Raleway", sans-serif; }
   #user-body .page-header {
@@ -140,8 +146,7 @@ a {
   padding-right: 0; }
 
 #user_footer {
-  min-height: 100%;
-  margin-bottom: -80px;
+  height: 80px;
   background-color: #eeeeee;
   width: 100%;
   margin-left: 0;
@@ -160,16 +165,31 @@ a {
 #user_footer, .footer-fix:after {
   height: 80px; }
 
-#bootstrap-override .results {
+#user-body #results-panel .panel-body {
   background-color: #FFF;
   margin: auto;
   border-radius: 4px;
   padding: 10px 0px 10px 50px;
   width: 80%; }
-  #bootstrap-override .results h3 {
+  #user-body #results-panel .panel-body .list-group a h1 {
+    color: #fe1b80;
+    font-family: "Alegreya SC", serif; }
+  #user-body #results-panel .panel-body h3 {
     font-weight: bold;
     padding-bottom: 10px;
-    font-family: "Alegreya SC", serif; }
+    font-family: "Raleway", sans-serif; }
+
+#user-body #results-panel h2 {
+  font-family: "Alegreya SC", serif;
+  color: #fe1b80; }
+
+#user-body #searchModal h1 {
+  color: #fe1b80;
+  font-family: "Alegreya SC", serif; }
+
+#user-body #createGroup h1 {
+  color: #fe1b80;
+  font-family: "Alegreya SC", serif; }
 
 #user-body .yourGroups .panel-body {
   background-color: #FFF;

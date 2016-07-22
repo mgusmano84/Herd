@@ -152,6 +152,7 @@ module.exports = function(app){
 	});
 
 	app.post('/passenger', function(req, res){
+
 		if(req.isAuthenticated()){
 
 			orm.addPassenger(req.body.driver, req.user.userID);
