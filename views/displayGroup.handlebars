@@ -1,18 +1,27 @@
 <div style="background-color: #FFF; margin: 0 auto; border-radius: 4px; padding: 10px 0px 10px 50px; width: 80%">
+
 {{#each results}}
-<h3 style="font-weight: bold; padding-bottom: 10px" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
+  <h3 style="font-weight: bold; padding-bottom: 10px" data-id="{{groupID}}" id="groupName">{{groupName}}</h3>
 
-<p class="groupHeaders">Description</p>
-<p>{{groupDescription}}</p>
+  <p class="groupHeaders">Description</p>
+  <p>{{groupDescription}}</p>
 
-<p class="groupHeaders">Drivers</p>
-<input type="submit" value="Become Driver" data-id="{{groupID}}" id="driver" class="btn btn-primary">
 
-<input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
-<input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" style="display: none;" class="btn btn-primary">
-</div>
-
+  <p class="groupHeaders">Drivers</p>
+  <input type="submit" value="Become Driver" data-id="{{groupID}}" id="driver" class="btn btn-primary">
 {{/each}}
+
+
+
+
+{{#if isMemberInGroup}}
+
+    <input type="submit" value="Leave" data-groupId="{{groupID}}" id="leave" class="btn btn-primary">
+
+{{else}}
+    <input type="submit" value="Join" data-groupId="{{groupID}}" id="join" class="btn btn-primary">
+
+{{/if}} 
 
 <!--driver-->
 	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="driverModal"  data-backdrop="static">

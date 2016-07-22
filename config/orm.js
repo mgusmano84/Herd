@@ -41,25 +41,45 @@ var orm = {
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
 			console.log(result);
-			res.render('results',{ layout: 'usermain',
-		 						results: result,
-		 						user: user
-		 					    });
+			
 		});
 		 
 
 	}, // end of searchTable function
 
+	//search for a specific user in a group
+	searchUsersInGroup: function(groupId) {
+		var queryString = 'SELECT userId FROM groupmembers WHERE groupId = ?';
+		db.query(queryString, [groupId], function(err, userId) {
+			if (err) throw err;
+			console.log(userId);
+			return userId;
+		}); // end of query
+	}, // end of searchUsersInGroup function
+
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
 		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
 
-			 db.query(queryString, whatToSearch, function(err, result) {
+		db.query(queryString, whatToSearch, function(err, result) {
 
-				if (err) throw err;
+			if (err) throw err;
 
-				res.render(pageToSendResult, {layout: 'usermain', results: result, user: user});
+			var groupMemQuery = "SELECT userId FROM groupmembers WHERE groupId=? AND userId=?";
 
+				db.query(groupMemQuery, [whatToSearch, user.userID], function(err2, groupMemRes){
+
+						if (err2) throw err2;
+
+		  	res.render(pageToSendResult, {layout: 'usermain',
+												 	results: result,
+												 	user: user,
+												 	isMemberInGroup: user.userID == groupMemRes[0].userId,
+												  	inGroup: user.userID,
+												  	ifMember: groupMemRes[0].userId});
+
+
+					});
 			});		 						
 	}, 
 
@@ -147,6 +167,7 @@ var orm = {
 								   firstName: rows[0].firstName, 
 								   lastName:rows[0].firstName,
 								   email:rows[0].email,
+								   userImg:rows[0].userImage
 
 								});
 			} else{
