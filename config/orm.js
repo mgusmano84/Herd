@@ -63,7 +63,8 @@ var orm = {
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
 
-	  var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table + '.groupID = drivers.groupId WHERE ' + table + '.groupId = ?';
+	  //var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table + '.groupID = drivers.groupId WHERE ' + table + '.groupId = ?';
+	  var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
 
 	  console.log(queryString);
 
