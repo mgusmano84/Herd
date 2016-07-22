@@ -25,6 +25,10 @@
     }
 }
 
+.btn-primary.raised {
+  box-shadow: 0 3px 0 0 #007299;
+}
+
 #bootstrap-override {
     
     h1 {
@@ -36,6 +40,11 @@
       &:nth-child(2) {
         margin: 20px;
         }
+    }
+
+    .btn {
+        font-family: $header_font;
+        background-color: $happy;
     }
 }
 
