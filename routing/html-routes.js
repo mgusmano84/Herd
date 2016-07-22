@@ -55,7 +55,7 @@ module.exports = function(app){
 	
 
 	app.post('/creategroup', function(req, res){
-
+		console.log(req.body.name+"THIS");
 		// creates data in MySQL for a new group
 		orm.addGroup(req.body.name, req.body.description, req.user.firstName);
 		orm.joinCreatedGroup(req.user.userID)
@@ -65,6 +65,7 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		if(req.isAuthenticated()){
 			res.render('user',{
+				layout: 'usermain',
 				isAuthenticated: req.isAuthenticated(),
 				user: req.user
 			});

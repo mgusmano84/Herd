@@ -40,8 +40,16 @@ var orm = {
 		var queryString = 'SELECT * FROM ' + tableInput + ' WHERE ' + colToSearch + ' LIKE ?';
 		 db.query(queryString, [valOfCol], function(err, result) {
 			if (err) throw err;
+<<<<<<< HEAD
 			console.log(result);
 			
+=======
+			
+			res.render('results',{ layout: 'usermain',
+		 						results: result,
+		 						user: user
+		 					    });
+>>>>>>> origin/master
 		});
 		 
 
@@ -58,6 +66,7 @@ var orm = {
 	}, // end of searchUsersInGroup function
 
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
+
 
 		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
 
@@ -77,6 +86,14 @@ var orm = {
 												 	isMemberInGroup: user.userID == groupMemRes[0].userId,
 												  	inGroup: user.userID,
 												  	ifMember: groupMemRes[0].userId});
+
+		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
+var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
+			 db.query(queryString, [whatToSearch], function(err, result) {
+			 	console.log('TEXT'+result[0][0]);
+			 	console.log('TEXT'+result[1][0]);
+				if (err) throw err;
+
 
 
 					});
