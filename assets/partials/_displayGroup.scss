@@ -9,4 +9,23 @@
         font-weight: bold;
         padding-bottom: 10px;
     }
+    
+    li {
+        h3 {
+            font-family: $header-font;
+            
+        }
+    }
+    
+    #groupName {
+        font-family: $header-font;
+        color: $happy;
+    }
+    
+    #driverModal {
+        h1 {
+            font-family: $header-font;
+            color: $happy;
+        }
+    }
 }
