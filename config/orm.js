@@ -80,9 +80,12 @@ var orm = {
 
 				var isMemberInGroup = groupMemRes[0] ? user.userID == groupMemRes[0].userId : false;
 
-				var queryString = 'SELECT driverUserName FROM drivers WHERE groupId = ? AND driverUserName = ?';
-				db.query(queryString, [whatToSearch, user.userName], function(err, driverNames) {
+				var driverQuery = 'SELECT driverUserName FROM drivers WHERE groupId = ? AND driverUserName = ?';
+				db.query(driverQuery, [whatToSearch, user.userName], function(err, driverNames) {
 					if (err) throw err;
+
+					console.log("driver results ", driverNames);
+					console.log("username ", user.userName);
 					
 					var areYouDriver = driverNames[0] ? user.userName == driverNames[0].driverUserName : false;
 					console.log("Are you a driver? " + areYouDriver);
