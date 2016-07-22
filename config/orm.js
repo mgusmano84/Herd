@@ -46,7 +46,7 @@ var orm = {
 		 						user: user
 		 					    });
 		});
-		 
+		   
 
 	}, // end of searchTable function
 
@@ -55,8 +55,7 @@ var orm = {
 		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
 var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
 			 db.query(queryString, [whatToSearch], function(err, result) {
-			 	console.log('TEXT'+result[0][0]);
-			 	console.log('TEXT'+result[1][0]);
+			 	
 				if (err) throw err;
 
 				res.render(pageToSendResult, {layout: 'usermain', results: result, user: user});
@@ -163,7 +162,7 @@ var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers
 	searchUserGroups: function(user, res) {
 		
 		var options = {sql: 'root', nestTables: '_'}
-		var queryString = 'SELECT groups.groupName, groups.groupID FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
+		var queryString = 'SELECT groups.groupName, groups.groupID, groups.groupDescription FROM groups JOIN groupMembers ON groups.groupID = groupmembers.groupId JOIN users ON groupMembers.userId = users.userID WHERE users.userID = ?';
 		db.query(queryString, [user.userID], function(err, result) {
 			if (err) throw err;
 			console.log(result);
