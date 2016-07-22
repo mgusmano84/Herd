@@ -193,14 +193,14 @@ $(document).ready(function(){
 	});
 
 	$('#passenger').on('click',function(){
-		console.log($('#groupName').data('id'));
+		
 			$.post(app.currentURL + "/passenger", {
-				driver: $('#driverID').data('id')},
+				driver: $('#passenger').data('id')},
 			    function(data){
 			    	//add group to users groups 
 			    });
 		$('#passenger').hide();
-		$('#leaveRide').show();
+		//$('#leaveRide').show();
 
 			return false;
 
