@@ -155,7 +155,7 @@ module.exports = function(app){
 
 		if(req.isAuthenticated()){
 
-			orm.addPassenger(req.body.driver, req.user.userID);
+			orm.addPassengers(req.body.driver, req.user.userID);
 			orm.updateSeatsAvailable(req.body.driver);
 
 		} else {
