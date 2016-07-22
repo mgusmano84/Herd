@@ -62,11 +62,9 @@ var orm = {
 
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
+		var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
 
-	  //var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table + '.groupID = drivers.groupId WHERE ' + table + '.groupId = ?';
-	  var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?';
-
-	  console.log(queryString);
+		console.log(queryString);
 
 		db.query(queryString, whatToSearch, function(err, result) {
 
@@ -74,32 +72,33 @@ var orm = {
 
 			var groupMemQuery = "SELECT userId FROM groupmembers WHERE groupId=? AND userId=?";
 
-				db.query(groupMemQuery, [whatToSearch, user.userID], function(err2, groupMemRes){
+			db.query(groupMemQuery, [whatToSearch, user.userID], function(err2, groupMemRes){
 
-						if (err2) throw err2;
+				if (err2) throw err2;
 
-						console.log(groupMemRes);
+				console.log(groupMemRes);
 
-						var isMemberInGroup = groupMemRes[0] ? user.userID == groupMemRes[0].userId : false;
+				var isMemberInGroup = groupMemRes[0] ? user.userID == groupMemRes[0].userId : false;
 
-		  	res.render(pageToSendResult, {layout: 'usermain',
-												 	results: result,
-												 	user: user,
-												 	isMemberInGroup: isMemberInGroup});
-
-		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
-		/*var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
-			 db.query(queryString, [whatToSearch], function(err, result) {
-			 	
-				if (err) throw err;
+				var queryString = 'SELECT driverUserName FROM drivers WHERE groupId = ? AND driverUserName = ?';
+				db.query(queryString, [whatToSearch, user.userName], function(err, driverNames) {
+					if (err) throw err;
+					
+					var areYouDriver = driverNames[0] ? user.userName == driverNames[0].driverUserName : false;
+					console.log("Are you a driver? " + areYouDriver);
 
 
+			  		res.render(pageToSendResult, {
+				  		layout: 'usermain',
+					 	results: result,
+					 	user: user,
+					 	isMemberInGroup: isMemberInGroup,
+					 	areYouDriver: areYouDriver});
+			  	}); // end of driverUserName query
+			}); // end of groupMemQuery
+		}); // end of stringQuery
 
-					});*/
-			});
-			});
-
-	}, 
+	}, // end of display group function
 
 	// add a group to a user that is joinable by other users
 	addGroup: function(groupName, groupDescription,user,resolved) {

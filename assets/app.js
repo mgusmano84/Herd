@@ -189,6 +189,8 @@ $(document).ready(function(){
 			    }
 			    });
 	} else{$("#driverForm")[0].reportValidity()}
+
+	$("#driver").hide();
 	return false;
 	});
 
