@@ -63,7 +63,9 @@ var orm = {
 	displayGroup: function(table, column, whatToSearch, pageToSendResult, res, user) {
 
 
-		var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table '.groupID=drivers.groupId WHERE ' + column + '.groupId = ?';
+	  var queryString = 'SELECT * FROM ' + table + ' JOIN drivers ON ' + table + '.groupID = drivers.groupId WHERE ' + table + '.groupId = ?';
+
+	  console.log(queryString);
 
 		db.query(queryString, whatToSearch, function(err, result) {
 
@@ -75,12 +77,14 @@ var orm = {
 
 						if (err2) throw err2;
 
+						console.log(groupMemRes);
+
+						var isMemberInGroup = groupMemRes[0] ? user.userID == groupMemRes[0].userId : false;
+
 		  	res.render(pageToSendResult, {layout: 'usermain',
 												 	results: result,
 												 	user: user,
-												 	isMemberInGroup: user.userID == groupMemRes[0].userId,
-												  	inGroup: user.userID,
-												  	ifMember: groupMemRes[0].userId});
+												 	isMemberInGroup: isMemberInGroup});
 
 		//var queryString = 'SELECT * FROM ' + table + ' WHERE ' + column + ' = ?; SELECT driverUserName FROM drivers WHERE groupId = ?';
 		/*var queryString = 'SELECT * FROM groups JOIN drivers ON groups.groupID = drivers.groupId  WHERE groups.groupId = ?';
@@ -92,7 +96,9 @@ var orm = {
 
 
 					});*/
-			});		 						
+			});
+			});
+
 	}, 
 
 	// add a group to a user that is joinable by other users
@@ -108,7 +114,7 @@ var orm = {
 			if (err) throw err;
 			console.log(result);
 		});
-		console.log(query.sql)
+		console.log(query.sql);
 	}, // end of addGroup function
 
 	// ************needs to be added to routes
