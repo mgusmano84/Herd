@@ -88,15 +88,26 @@ var orm = {
 					console.log("username ", user.userName);
 					
 					var areYouDriver = driverNames[0] ? user.userName == driverNames[0].driverUserName : false;
-					console.log("Are you a driver? " + areYouDriver);
 
+					var driverInfoQuery = 'SELECT * FROM drivers WHERE groupId = ?';
 
-			  		res.render(pageToSendResult, {
-				  		layout: 'usermain',
-					 	results: result,
-					 	user: user,
-					 	isMemberInGroup: isMemberInGroup,
-					 	areYouDriver: areYouDriver});
+					db.query(driverInfoQuery, whatToSearch, function(err, allDriverInfo) {
+						if (err) throw err;
+
+						for(var i = 0; i < allDriverInfo.length; i++) {
+							console.log(i + ": " + allDriverInfo[i].driverUserName);
+							console.log(i + ": " + allDriverInfo[i].seatsAvailable);
+							console.log(i + ": " + allDriverInfo[i].dateDriving);
+						}
+
+				  		res.render(pageToSendResult, {
+					  		layout: 'usermain',
+						 	results: result,
+						 	user: user,
+						 	isMemberInGroup: isMemberInGroup,
+						 	areYouDriver: areYouDriver,
+						 	allDriverInfo: allDriverInfo});
+				  	}); // end of driverInfo query
 			  	}); // end of driverUserName query
 			}); // end of groupMemQuery
 		}); // end of stringQuery
