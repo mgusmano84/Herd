@@ -13,7 +13,7 @@
   </div>
   <div class="panel-body">
    	<ul class="list-group">
-		{{#each results}}
+		{{#each allDriverInfo}}
   			<li class="list-group-item"><h3>{{driverUserName}}</h3><p>Info: {{dateDriving}}</p><p>Seats: {{seatsAvailable}}</p> <input type="submit" value="Join The Ride" data-id="{{driverId}}"  class="btn btn-primary passenger"></li>
 		{{/each}}
 	</ul>
