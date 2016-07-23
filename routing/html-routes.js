@@ -183,6 +183,8 @@ module.exports = function(app){
 	app.get('/dashboard/yourgroups', function(req, res) {
 		
 		if(req.isAuthenticated()){
+			console.log(req.user + "test")
+			console.log(res + "test")
 
 			// calls the orm that searches the database for all the groups you are in
 			orm.searchUserGroups(req.user, res);
