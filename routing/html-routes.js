@@ -198,7 +198,7 @@ module.exports = function(app){
 	app.post('/driver', function(req,res){
 		if(req.isAuthenticated()){
 
-			orm.addDriver(req.body.groupid, req.user.firstName, req.body.seats, req.body.info)
+			orm.addDriver(req.body.groupid, req.user.userName, req.body.seats, req.body.info)
 			res.send(true);
 
 		} else {
