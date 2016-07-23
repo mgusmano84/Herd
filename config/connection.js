@@ -21,15 +21,14 @@ var connection = mysql.createConnection(process.env.JAWSDB_URL);
 // mysql.createConnection(process.env.JAWSDB_URL);
 
 // if fail to connect display the error otherwise if successful give the connection id
-connection.connect(
+connection.connect();
 
-	function(err){
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
 
-	if(err){
-		return console.log(err);
-	}
-	console.log('connection id: %d', connection.threadId);
+  console.log('The solution is: ', rows[0].solution);
 });
+
 
 module.exports = connection;
 
