@@ -181,10 +181,12 @@ module.exports = function(app){
 
 	// this url lists the groups a user is currently in
 	app.get('/dashboard/yourgroups', function(req, res) {
+
+		console.log(req.user + "test");
+		console.log(res + "test");
 		
 		if(req.isAuthenticated()){
-			console.log(req.user + "test")
-			console.log(res + "test")
+			
 
 			// calls the orm that searches the database for all the groups you are in
 			orm.searchUserGroups(req.user, res);
